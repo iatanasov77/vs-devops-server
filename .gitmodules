@@ -1,0 +1,18 @@
+[submodule "vagrant.d\\puppet\\modules\\gitlab"]
+	path = vagrant.d\\puppet\\modules\\gitlab
+	url = https://github.com/voxpupuli/puppet-gitlab
+[submodule "vagrant.d\\puppet\\modules\\stdlib"]
+	path = vagrant.d\\puppet\\modules\\stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
+[submodule "vagrant.d\\puppet\\modules\\sudo"]
+	path = vagrant.d\\puppet\\modules\\sudo
+	url = https://github.com/saz/puppet-sudo.git
+[submodule "vagrant.d\\puppet\\modules\\jenkins"]
+	path = vagrant.d\\puppet\\modules\\jenkins
+	url = https://github.com/voxpupuli/puppet-jenkins.git
+[submodule "vagrant.d\\puppet\\modules\\java"]
+	path = vagrant.d\\puppet\\modules\\java
+	url = https://github.com/puppetlabs/puppetlabs-java.git
+[submodule "vagrant.d\\puppet\\modules\\archive"]
+	path = vagrant.d\\puppet\\modules\\archive
+	url = https://github.com/voxpupuli/puppet-archive
