@@ -1,0 +1,14 @@
+###> Eclipse project files
+/.settings/
+/.buildpath
+/.project
+###< Eclipse project files
+
+###> Vagrant files
+/.vagrant/
+/vagrant.d/puppet/Puppetfile.lock
+/vagrant.d/puppet/.librarian
+/vagrant.d/puppet/.tmp
+/ssh.EXE.stackdump
+/.env
+###< Vagrant files
