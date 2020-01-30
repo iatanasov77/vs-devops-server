@@ -10,5 +10,4 @@
 /vagrant.d/puppet/.librarian
 /vagrant.d/puppet/.tmp
 /ssh.EXE.stackdump
-/.env
 ###< Vagrant files

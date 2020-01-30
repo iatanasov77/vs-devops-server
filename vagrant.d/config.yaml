@@ -2,7 +2,11 @@ packages:
   - mc
   - git
   - gitflow
-  
+
+git:
+   userName: 'Ivan I. Atanasov'
+   userEmail: 'i.atanasov77@gmail.com'
+     
 services:
   gitlab: "True"
   jenkins: "True"
