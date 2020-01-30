@@ -19,3 +19,6 @@
 [submodule "vagrant.d/puppet/modules/git"]
 	path = vagrant.d/puppet/modules/git
 	url = https://github.com/puppetlabs/puppetlabs-git
+[submodule "vagrant.d/puppet/modules/epel"]
+	path = vagrant.d/puppet/modules/epel
+	url = https://github.com/stahnma/puppet-module-epel.git
