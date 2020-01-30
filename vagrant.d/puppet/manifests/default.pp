@@ -6,50 +6,29 @@ $vsConfig       = parseyaml( $facts['vs_config'] )
 
 node default
 {
+    include epel
 	include stdlib
 	
-	$vsConfig['packages'].each |Integer $index, String $value| {
-     
-        case $value
-        {
-            'git':
-            {
-                require git
+	$vsConfig['packages'].each |Integer $index, String $value|
+	{
+        if ( $value == 'git' ) {
+            require git
                 
-                git::config { 'user.name':
-                    value => $vsConfig['git']['userName'],
-                    user    => 'vagrant',
-                }
-                git::config { 'user.email':
-                    value => $vsConfig['git']['userEmail'],
-                    user    => 'vagrant',
-                }
+            git::config { 'user.name':
+                value => $vsConfig['git']['userName'],
+                user    => 'vagrant',
             }
-            'gitflow':
-            {
-                case $operatingsystem 
-                {
-                    'Debian', 'Ubuntu':
-                    {
-                        package { 'git-flow':
-                            ensure => present,
-                        }
-                    }
-                    default:
-                    {
-                        package { $value:
-                            ensure      => present,
-                            provider    => 'rpm',
-                            source      => 'http://dl.fedoraproject.org/pub/epel/7/SRPMS/Packages/g/gitflow-0.4.2.20120723git53e9c76-4.el7.src.rpm'
-                        }
-                    }
-                }
+            git::config { 'user.email':
+                value => $vsConfig['git']['userEmail'],
+                user    => 'vagrant',
             }
-            default:
-            {
-                package { $value:
-                    ensure => present,
-                }
+        } elsif ( $value == 'gitflow' and $operatingsystem == 'Ubuntu' ) {
+            package { 'git-flow':
+                ensure => present,
+            }
+        } else {
+            package { $value:
+                ensure => present,
             }
         }
     }
@@ -68,7 +47,12 @@ node default
     
     if ( $vsConfig['services']['jenkins'] == true )
     {
-        include jenkins
+        class{ 'jenkins':
+            config_hash => {
+                'HTTP_PORT' => { 'value' => '8081' },
+                #'AJP_PORT'  => { 'value' => '9009' },
+            }
+        }
     }
 
 	# puppet module install saz-sudo --version 5.0.0

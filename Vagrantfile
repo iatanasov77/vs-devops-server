@@ -42,7 +42,10 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 
 		config.vm.hostname 			= ENV['HOST_NAME']
 		config.vm.network :private_network, ip: ENV['PRIVATE_IP']
-		config.vm.network :public_network
+		
+	    if ENV['PUBLIC_NETWORK']
+            config.vm.network :public_network, ip: ENV['PUBLIC_IP']
+        end
 
 		# Virtual Box Configuration
 		config.vm.provider :virtualbox do |vb, override|
