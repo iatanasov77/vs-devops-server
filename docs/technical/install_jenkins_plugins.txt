@@ -1,0 +1,5 @@
+
+https://stackoverflow.com/questions/20460910/how-to-build-a-maven-project-with-maestrodev-puppet-maven
+
+https://github.com/maestrodev/puppet-maven
+https://github.com/jenkinsci/publish-over-ftp-plugin

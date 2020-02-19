@@ -8,6 +8,6 @@ git:
    userEmail: 'i.atanasov77@gmail.com'
      
 services:
-  gitlab: "True"
+  gitlab: "False"
   jenkins: "True"
   

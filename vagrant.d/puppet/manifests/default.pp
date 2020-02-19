@@ -35,25 +35,44 @@ node default
 	
 	#notice( "SERVICE GITLAB VALUE: ${$vsConfig['services']['gitlab']}" )
 	
+	if ( $vsConfig['services']['jenkins'] == true )
+    {
+        class{ 'jenkins':
+            config_hash => {
+                'JENKINS_PORT'	=> { 'value' => '8080' },
+            }
+        }
+        
+        jenkins::plugin { 'git':
+			version => '1.1.11',
+		}
+		
+		# Install Maven
+		class { "maven::maven":
+		    #version => "3.2.5", # version to install
+		    # you can get Maven tarball from a Maven repository instead than from Apache servers, optionally with a user/password
+		    repo => {
+				#url => "http://repo.maven.apache.org/maven2",
+				#username => "",
+				#password => "",
+		    }
+		}
+		
+		
+    }
+    
 	if ( $vsConfig['services']['gitlab'] == true )
     {
     	class { 'gitlab':
             external_url => 'http://devops.lh',
             unicorn => {
-                'worker_timeout' => 300
+                'worker_timeout'	=> 300,
+                'port'				=> 8081
             },
         }
     }
     
-    if ( $vsConfig['services']['jenkins'] == true )
-    {
-        class{ 'jenkins':
-            config_hash => {
-                'HTTP_PORT' => { 'value' => '8081' },
-                #'AJP_PORT'  => { 'value' => '9009' },
-            }
-        }
-    }
+    
 
 	# puppet module install saz-sudo --version 5.0.0
 	sudo::conf { "vagrant":
