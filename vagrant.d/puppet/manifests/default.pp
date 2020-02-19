@@ -47,6 +47,14 @@ node default
 			version => '1.1.11',
 		}
 		
+		jenkins::plugin { 'ftppublisher':
+		
+		}
+		
+		jenkins::plugin { 'publish-over-ftp':
+		
+		}
+		
 		# Install Maven
 		class { "maven::maven":
 		    #version => "3.2.5", # version to install
