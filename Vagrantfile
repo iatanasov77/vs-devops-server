@@ -56,7 +56,10 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 		
 		# Shared Folders
         config.vm.synced_folder "./", "/vagrant"
-        
+        if ENV['FOLDER_PROJECTS']
+            config.vm.synced_folder ENV['FOLDER_PROJECTS'], "/projects"
+        end
+    
         require 'yaml'
         provisionConfig  = YAML.load_file( ENV['PROVISION_CONFIG'] )
         
