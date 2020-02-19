@@ -58,6 +58,10 @@ node default
 		
 		}
 		
+		jenkins::plugin { 'jobConfigHistory':
+		
+		}
+		
 		# Install Maven
 		class { "maven::maven":
 		    #version => "3.2.5", # version to install
