@@ -51,6 +51,9 @@ node default
 		
 		}
 		
+		jenkins::plugin { 'publish-over':
+        
+        }
 		jenkins::plugin { 'publish-over-ftp':
 		
 		}
