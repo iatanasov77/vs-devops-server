@@ -22,3 +22,12 @@
 [submodule "vagrant.d/puppet/modules/epel"]
 	path = vagrant.d/puppet/modules/epel
 	url = https://github.com/stahnma/puppet-module-epel.git
+[submodule "vagrant.d/puppet/modules/maven"]
+	path = vagrant.d/puppet/modules/maven
+	url = https://github.com/maestrodev/puppet-maven.git
+[submodule "vagrant.d/puppet/modules/wget"]
+	path = vagrant.d/puppet/modules/wget
+	url = https://github.com/voxpupuli/puppet-wget.git
+[submodule "vagrant.d/jenkins/publish-over-ftp-plugin"]
+	path = vagrant.d/jenkins/publish-over-ftp-plugin
+	url = https://github.com/jenkinsci/publish-over-ftp-plugin.git
