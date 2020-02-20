@@ -31,3 +31,18 @@
 [submodule "vagrant.d/jenkins/publish-over-ftp-plugin"]
 	path = vagrant.d/jenkins/publish-over-ftp-plugin
 	url = https://github.com/jenkinsci/publish-over-ftp-plugin.git
+[submodule "vagrant.d/puppet/modules/devops"]
+	path = vagrant.d/puppet/modules/devops
+	url = https://github.com/iatanasov77/puppet-devops.git
+[submodule "vagrant.d/puppet/modules/php"]
+	path = vagrant.d/puppet/modules/php
+	url = https://github.com/voxpupuli/puppet-php
+[submodule "vagrant.d/puppet/modules/yarn"]
+	path = vagrant.d/puppet/modules/yarn
+	url = https://github.com/artberri/puppet-yarn.git
+[submodule "vagrant.d/puppet/modules/nodejs"]
+	path = vagrant.d/puppet/modules/nodejs
+	url = https://github.com/willdurand/puppet-nodejs.git
+[submodule "vagrant.d/puppet/modules/inifile"]
+	path = vagrant.d/puppet/modules/inifile
+	url = https://github.com/puppetlabs/puppetlabs-inifile
