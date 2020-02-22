@@ -9,7 +9,16 @@ git:
      
 services:
   gitlab: "False"
+  maven: "False"
   jenkins: "True"
+  jenkinsPort: "8080"
+  jenkinsPlugins:
+    - jobConfigHistory
+    - git
+    #- ftppublisher
+    - publish-over
+    - publish-over-ftp
+    - phing
 
 phpModules:
   - intl
