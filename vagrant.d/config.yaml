@@ -20,5 +20,6 @@ services:
     - publish-over-ftp
     - phing
 
+phpVersion: '7.2'
 phpModules:
   - intl

@@ -5,6 +5,7 @@ $vsConfig       = parseyaml( $facts['vs_config'] )
 
 node default
 {
+	include epel
 	include devops
 	
 	# puppet module install saz-sudo --version 5.0.0

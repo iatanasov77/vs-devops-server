@@ -28,9 +28,6 @@
 [submodule "vagrant.d/puppet/modules/wget"]
 	path = vagrant.d/puppet/modules/wget
 	url = https://github.com/voxpupuli/puppet-wget.git
-[submodule "vagrant.d/jenkins/publish-over-ftp-plugin"]
-	path = vagrant.d/jenkins/publish-over-ftp-plugin
-	url = https://github.com/jenkinsci/publish-over-ftp-plugin.git
 [submodule "vagrant.d/puppet/modules/devops"]
 	path = vagrant.d/puppet/modules/devops
 	url = https://github.com/iatanasov77/puppet-devops.git
