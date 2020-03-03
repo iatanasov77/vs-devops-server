@@ -1,7 +1,11 @@
 packages:
   - mc
+  - vim
   - git
+  - git-ftp
   - gitflow
+  - nmap
+  - iptraf
 
 git:
    userName: 'Ivan I. Atanasov'
@@ -10,16 +14,61 @@ git:
 services:
   gitlab: "False"
   maven: "False"
+  
+  ######################
+  # Jenkins Settings
+  ######################
   jenkins: "True"
   jenkinsPort: "8080"
+  
   jenkinsPlugins:
-    - jobConfigHistory
-    - git
-    #- ftppublisher
-    - publish-over
-    - publish-over-ftp
-    - phing
+    credentials-binding:
+        description:  'Plugin'
+        version: '1.15'
+    plain-credentials:
+        description:  'Plugin'
+        version: 'latest'
+    ssh-credentials:
+        description:  'Plugin'
+        version: '1.17.1'
+        
+    jobConfigHistory:
+        description:  'Plugin'
+        version: 'latest'
+    git:
+        description: 'Plugin'
+        version: '1.1.11'
+    
+    publish-over:
+        description: 'Plugin'
+        version: 'latest'
+    publish-over-ftp:
+        description: 'Plugin'
+        version: 'latest'
+    phing:
+        description: 'Phing Plugin'
+        version: 'latest'
 
+#########################
+# PHP Settings
+#########################
 phpVersion: '7.2'
 phpModules:
   - intl
+  - sqlite
+  - soap
+  - zip
+  - mongodb
+
+#########################
+# Apache Server
+#########################
+apacheModules:
+  - expires
+  - headers
+  - rewrite
+  - vhost_alias
+  - version
+  - env
+  
+  

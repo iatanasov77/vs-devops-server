@@ -43,3 +43,12 @@
 [submodule "vagrant.d/puppet/modules/inifile"]
 	path = vagrant.d/puppet/modules/inifile
 	url = https://github.com/puppetlabs/puppetlabs-inifile
+[submodule "vagrant.d/puppet/modules/devenv"]
+	path = vagrant.d/puppet/modules/devenv
+	url = https://github.com/iatanasov77/puppet-devenv.git
+[submodule "vagrant.d/puppet/modules/apache"]
+	path = vagrant.d/puppet/modules/apache
+	url = https://github.com/puppetlabs/puppetlabs-apache.git
+[submodule "vagrant.d/puppet/modules/concat"]
+	path = vagrant.d/puppet/modules/concat
+	url = https://github.com/puppetlabs/puppetlabs-concat.git

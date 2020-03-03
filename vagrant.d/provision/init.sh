@@ -14,11 +14,11 @@ if [ $ID == "centos" ]; then
     # PHP7
     rpm -ivh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
     yum-config-manager --enable remi-php72
-    yum install -y php php-common php-mcrypt php-cli php-curl
-    
-    #yum install -y php mod_php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysql
+    yum install -y php mod_php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysql php-zip
+
     if [ ! -f /etc/httpd/modules/libphp7.2.so ]; then
-        #ln -s /usr/lib64/httpd/modules/libphp7.so /usr/lib64/httpd/modules/libphp7.2.so
+    	echo 'Create sym link to mod_php for php7'
+        ln -s /usr/lib64/httpd/modules/libphp7.so /usr/lib64/httpd/modules/libphp7.2.so
         #ln -s /usr/lib64/httpd/modules/libphp7.so /usr/lib64/httpd/modules/libphp.so
     fi
 else
