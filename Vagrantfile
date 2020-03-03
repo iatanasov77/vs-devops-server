@@ -56,8 +56,12 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 		
 		# Shared Folders
         config.vm.synced_folder "./", "/vagrant"
-        if ENV['FOLDER_PROJECTS']
-            config.vm.synced_folder ENV['FOLDER_PROJECTS'], "/projects"
+        if ENV['FOLDER_PROJECTS_DEVEL']
+            config.vm.synced_folder ENV['FOLDER_PROJECTS_DEVEL'], "/projects"
+        end
+       
+        if ENV['FOLDER_PROJECTS_DEPLOY']
+            config.vm.synced_folder ENV['FOLDER_PROJECTS_DEPLOY'], "/projects_deploy"
         end
     
         require 'yaml'
