@@ -48,6 +48,21 @@ services:
     phing:
         description: 'Phing Plugin'
         version: 'latest'
+    trilead-api:
+        description: 'SSH Plugin'
+        version: '1.0.5'
+    jsch:
+        description: 'SSH Plugin'
+        version: 'latest'
+    ssh:
+        description: 'SSH Plugin'
+        version: 'latest'
+    database:
+        description: 'Database Plugin'
+        version: 'latest'
+    database-mysql:
+        description: 'MySql Plugin'
+        version: 'latest'
 
 #########################
 # PHP Settings
