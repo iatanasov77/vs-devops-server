@@ -12,5 +12,6 @@ git ftp push --user $FTP_USERNAME --passwd $FTP_PASSWORD ftp://ftp.babymarket.bg
 
 RUN SYMFONY CONSOLE WITH PHP7
 ------------------------------
-/opt/cpanel/ea-php72/root/usr/bin/php /home/babynfcj/projects/VankoSoft.Org/production/bin/console cache:clear
-
+/opt/cpanel/ea-php72/root/usr/bin/php /home/babynfcj/projects/VankoSoft.Org/production/bin/console debug:router
+/opt/cpanel/ea-php72/root/usr/bin/php /home/babynfcj/projects/VankoSoft.Org/production/bin/admin debug:router
+/opt/cpanel/ea-php72/root/usr/bin/php /home/babynfcj/projects/VankoSoft.Org/production/bin/blog debug:router
