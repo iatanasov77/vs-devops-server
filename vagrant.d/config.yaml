@@ -31,7 +31,10 @@ services:
     ssh-credentials:
         description:  'Plugin'
         version: '1.17.1'
-        
+    
+    publish-over-dropbox:
+        description:  'Plugin'
+        version: 'latest'
     jobConfigHistory:
         description:  'Plugin'
         version: 'latest'
