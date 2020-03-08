@@ -15,3 +15,17 @@ RUN SYMFONY CONSOLE WITH PHP7
 /opt/cpanel/ea-php72/root/usr/bin/php /home/babynfcj/projects/VankoSoft.Org/production/bin/console debug:router
 /opt/cpanel/ea-php72/root/usr/bin/php /home/babynfcj/projects/VankoSoft.Org/production/bin/admin debug:router
 /opt/cpanel/ea-php72/root/usr/bin/php /home/babynfcj/projects/VankoSoft.Org/production/bin/blog debug:router
+
+UPDATE VENDOR DIR rsync
+--------------------------
+sshpass -p '${sshpassword}' rsync -avz -e 'ssh -p ${sshport}' --progress '${root_path}/vendor' ${sshpathproduction}/vendor
+
+COPY FILES WITH SCP
+----------------------
+sshpass -p $FTP_PASSWORD scp -rv -P 1022 .env.prod babynfcj@babymarket.bg:/home/babynfcj/projects/VankoSoft.Org/production/.env
+
+DROPBOX DOWNLOAD
+-----------------
+curl -X POST https://content.dropboxapi.com/2/files/download \
+	--header "Authorization: Bearer $DROPBOX_TOKEN" \
+	--header "Dropbox-API-Arg: {\"path\": \"/Projects/VankoSoft.Org/build.properties\"}" > build.properties
