@@ -6,6 +6,7 @@ packages:
   - gitflow
   - nmap
   - iptraf
+  - sshpass
 
 git:
    userName: 'Ivan I. Atanasov'
