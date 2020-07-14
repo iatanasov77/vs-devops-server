@@ -11,4 +11,10 @@
 /vagrant.d/puppet/.tmp
 /ssh.EXE.stackdump
 /.env
+/var/
 ###< Vagrant files
+
+### Here has confidential credentials
+### The folder is stored in DropBox /Projects/VS_DevOpsServer/
+/jenkins.d/
+

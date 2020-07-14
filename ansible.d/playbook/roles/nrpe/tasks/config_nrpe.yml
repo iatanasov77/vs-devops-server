@@ -1,0 +1,16 @@
+---
+  - name: Set NRPE Allowed Hosts
+    lineinfile:
+      path: /etc/nagios/nrpe.cfg
+      regexp: '^nrpe_allowed_hosts='
+      line: nrpe_allowed_hosts=127.0.0.1,192.168.111.100
+  - name: Set NRPE Dont Blame
+    lineinfile:
+      path: /etc/nagios/nrpe.cfg
+      regexp: '^nrpe_dont_blame_nrpe='
+      line: nrpe_dont_blame_nrpe=1
+  - name: Add NRPE Command
+    lineinfile:
+      path: /etc/nagios/nrpe.cfg
+      line: 'command[check-docker-container]=/vagrant/bin/check_docker_container.sh $ARG1$'
+      create: yes

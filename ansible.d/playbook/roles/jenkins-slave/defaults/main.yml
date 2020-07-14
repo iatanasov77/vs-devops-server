@@ -1,0 +1,20 @@
+---
+jenkins_swarm_client_version: 3.9
+jenkins_swarm_client_url: https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client
+jenkins_name: jenkins
+jenkins_user: jenkins
+jenkins_password: "$6$rounds=40000$OvRtT6osJP89GLee$/cizemUXDAH.mW1ILNK1NGk64/TYLgfbHPo3LnFZEZaLsXTOXQV/0f9.bghBsCycJ32rC.meBaujNQI7KgRPQ."
+jenkins_group: jenkins
+jenkins_shell: "/bin/bash"
+jenkins_swarm_mode: normal
+jenkins_home: /opt/jenkins
+jenkins_slave_home: /opt/jenkins
+
+# Connect Vars
+jenkins_remote_username: ''
+jenkins_remote_password: ''
+jenkins_swarm_labels: 'jenkins-slave'
+jenkins_swarm_executors: 2
+jenkins_swarm_description: "Swarm node"
+jenkins_slave_name: swarm-{{ ansible_hostname }}
+jenkins_url: http://localhost:8080

@@ -1,0 +1,13 @@
+---
+  - name: Add jenkins user to sudoers file
+    lineinfile:
+      path: /etc/sudoers
+      regexp: '^jenkins'
+      line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
+  - name: Add docker user to sudoers file
+    lineinfile:
+      path: /etc/sudoers
+      regexp: '^docker'
+      line: 'docker ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'

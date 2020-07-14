@@ -1,0 +1,29 @@
+host_name: 'devops.lh'
+host_ip: '10.3.3.3'
+app_src: '/vagrant'
+jenkins_hostname: 'devops.lh'
+etc_hosts:
+    devops.lh: 192.168.0.251
+    myprojects.lh: 192.168.0.252
+
+jenkins_plugins:
+    - configuration-as-code
+    - configuration-as-code-support
+    - build-pipeline-plugin
+    - ssh
+    - ssh-slaves
+    - git
+    - github
+    - log-parser
+    - copyartifact
+    - workflow-aggregator
+    - workflow-multibranch
+    - docker-workflow
+    - template-project
+    - email-ext
+    - phing
+    - ssh-steps
+    - swarm
+       
+jenkins_casc_jenkins_home: /var/lib/jenkins
+jenkins_casc_config_file: "/vagrant/jenkins.d/casc/jenkins.yaml" 

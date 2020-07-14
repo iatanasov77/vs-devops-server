@@ -1,0 +1,29 @@
+---
+  - name: Add nrpe user to sudoers file
+    lineinfile:
+      path: /etc/sudoers
+      regexp: '^nrpe'
+      line: 'nrpe ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
+  - name: Add nagios user to sudoers file
+    lineinfile:
+      path: /etc/sudoers
+      regexp: '^nagios'
+      line: 'nagios ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
+  - name: Adding user vagrant to docker group  
+    user: name=vagrant
+      groups=docker
+      append=yes
+  - name: Adding user nrpe to docker group  
+    user: name=nrpe
+      groups=docker
+      append=yes
+  - name: Adding user nagios to docker group  
+    user: name=nagios
+      groups=docker
+      append=yes
+  - name: Turn on execute permission for check_docker_container.sh
+    file:
+      path=/vagrant/bin/check_docker_container.sh
+      mode="a+x"

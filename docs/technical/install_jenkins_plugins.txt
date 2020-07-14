@@ -1,3 +1,43 @@
+#######################################################################################################
+#
+# Jenkins Plugin Manager
+#------------------------
+# The jpm application allows you to manage Jenkins plugins outside of the Jenkins web UI.
+# Like a "normal package" manager, it will handle installing plugin dependencies, plugin upgrades and plugin removals.
+#
+# https://github.com/rtyler/jpm
+# https://github.com/mmarseglia/jpm
+#
+#######################################################################################################
+
+
+#######################################################################################################
+#
+# Jenkins Set Email Notifications
+#---------------------------------
+# https://www.360logica.com/blog/email-notification-in-jenkins/
+#
+########################################################################################################
+
+
+########################################################################################################
+#
+# All About Using Pipelines with examples
+#-----------------------------------------
+# https://www.jenkins.io/doc/book/pipeline/jenkinsfile/
+#
+########################################################################################################
+
+
+########################################################################################################
+#
+# Scripting Jenkins Configuration and Creation of Jobs
+#-----------------------------------------
+# https://plugins.jenkins.io/configuration-as-code/#documentation
+# https://medium.com/slalom-build/automatically-generating-jenkins-jobs-d30d4b0a2b49
+#
+########################################################################################################
+
 
 https://stackoverflow.com/questions/20460910/how-to-build-a-maven-project-with-maestrodev-puppet-maven
 
