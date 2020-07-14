@@ -26,4 +26,5 @@ jenkins_plugins:
     - swarm
        
 jenkins_casc_jenkins_home: /var/lib/jenkins
-jenkins_casc_config_file: "/vagrant/jenkins.d/casc/jenkins.yaml" 
+#jenkins_casc_config_file: "/vagrant/jenkins.d/casc/jenkins.yaml" 
+jenkins_casc_config_file: "/vagrant/jenkins.d/casc/vs_devops.yaml" 
