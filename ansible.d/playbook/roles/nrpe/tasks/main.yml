@@ -1,0 +1,9 @@
+---
+  - name: Install NRPE
+    import_tasks: install_nrpe.yml
+  - name: Configure NRPE
+    import_tasks: config_nrpe.yml
+  - name: Config Privileges
+    import_tasks: config_privileges.yml
+  - name: NRPE Service Start
+    import_tasks: start_service.yml

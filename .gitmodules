@@ -43,12 +43,33 @@
 [submodule "vagrant.d/puppet/modules/inifile"]
 	path = vagrant.d/puppet/modules/inifile
 	url = https://github.com/puppetlabs/puppetlabs-inifile
-[submodule "vagrant.d/puppet/modules/devenv"]
-	path = vagrant.d/puppet/modules/devenv
-	url = https://github.com/iatanasov77/puppet-devenv.git
 [submodule "vagrant.d/puppet/modules/apache"]
 	path = vagrant.d/puppet/modules/apache
 	url = https://github.com/puppetlabs/puppetlabs-apache.git
 [submodule "vagrant.d/puppet/modules/concat"]
 	path = vagrant.d/puppet/modules/concat
 	url = https://github.com/puppetlabs/puppetlabs-concat.git
+[submodule "vagrant.d/puppet/modules/trycatch"]
+	path = vagrant.d/puppet/modules/trycatch
+	url = https://github.com/dalen/puppet-trycatch.git
+[submodule "vagrant.d/puppet/modules/ansible"]
+	path = vagrant.d/puppet/modules/ansible
+	url = https://github.com/otherskins/puppet-ansible.git
+[submodule "vagrant.d/puppet/modules/nagios"]
+	path = vagrant.d/puppet/modules/nagios
+	url = https://github.com/thias/puppet-nagios
+[submodule "vagrant.d/puppet/modules/icinga2"]
+	path = vagrant.d/puppet/modules/icinga2
+	url = https://github.com/icinga/puppet-icinga2
+[submodule "vagrant.d/puppet/modules/icingaweb2"]
+	path = vagrant.d/puppet/modules/icingaweb2
+	url = https://github.com/Icinga/puppet-icingaweb2.git
+[submodule "vagrant.d/puppet/modules/mysql"]
+	path = vagrant.d/puppet/modules/mysql
+	url = https://github.com/puppetlabs/puppetlabs-mysql.git
+[submodule "vagrant.d/puppet/modules/vcsrepo"]
+	path = vagrant.d/puppet/modules/vcsrepo
+	url = https://github.com/puppetlabs/puppetlabs-vcsrepo.git
+[submodule "vagrant.d/puppet/modules/phpmyadmin"]
+	path = vagrant.d/puppet/modules/phpmyadmin
+	url = https://github.com/justicel/puppet-phpmyadmin.git

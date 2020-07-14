@@ -1,0 +1,105 @@
+hostAddress: '10.3.3.3'
+
+packages:
+  - mc
+  - vim
+  - git
+  - git-ftp
+  - gitflow
+  - nmap
+  - iptraf
+  - sshpass
+
+git:
+   userName: 'Ivan I. Atanasov'
+   userEmail: 'i.atanasov77@gmail.com'
+     
+services:
+    gitlab: "False"
+    maven: "False"
+    ansible: "True"
+    jenkins: "False"
+    nagios: "False"
+    icinga: "True"
+    
+    ######################
+    # Jenkins Settings
+    ######################
+    jenkinsWorkaround: "True"
+    
+    jenkinsPort: "8080"
+    jenkinsPlugins:
+        workflow-aggregator:
+            description: 'Pipeline Plugin'
+            version: 'latest'
+        credentials-binding:
+            description: 'CredentialsBinding Plugin'
+            version: '1.15'
+        plain-credentials:
+            description: 'PlainCredentials Plugin'
+            version: 'latest'
+        ssh-credentials:
+            description: 'SSHCredentials Plugin'
+            version: '1.18.1'   # version: '1.17.1'
+        
+        publish-over-dropbox:
+            description: 'PublishOverDropbox Plugin'
+            version: 'latest'
+        jobConfigHistory:
+            description:  'JobConfigHistory Plugin'
+            version: 'latest'
+        git:
+            description: 'Git Plugin'
+            version: '3.4.0' #version: '1.1.11'
+            
+        github:
+            description: 'GitHub Plugin'
+            version: 'latest'
+        publish-over:
+            description: 'PublishOver Plugin'
+            version: 'latest'
+        publish-over-ftp:
+            description: 'PublishOverFtp Plugin'
+            version: 'latest'
+        phing:
+            description: 'Phing Plugin'
+            version: 'latest'
+        trilead-api:
+            description: 'TrileadApi Plugin'
+            version: 'latest' #version: '1.0.5'
+        jsch:
+            description: 'JSCH Plugin'
+            version: 'latest'
+        ssh:
+            description: 'SSH Plugin'
+            version: 'latest'
+        database:
+            description: 'Database Plugin'
+            version: 'latest'
+        database-mysql:
+            description: 'DatabaseMySql Plugin'
+            version: 'latest'
+
+#########################
+# PHP Settings
+#########################
+phpVersion: '7.2'
+phpModules:
+  - intl
+  - sqlite
+  - soap
+  - zip
+  - mongodb
+
+#########################
+# Apache Server
+#########################
+apacheModules:
+  - expires
+  - headers
+  - rewrite
+  - vhost_alias
+  - version
+  - env
+  
+  

@@ -1,0 +1,47 @@
+theme:
+    name: 'Vautour Style'
+    src: '/vagrant/var/nagios_themes/vautour-style-master.zip'
+
+hosts:
+    # LOCALHOST
+    ########################################
+    - name: 'localhost'
+      address: '127.0.0.1'
+      services:
+        - serviceUse: 'local-service'
+          serviceDescription: 'SSH'
+          serviceCommand: 'check_ssh'
+          serviceNotifications: 0
+        
+    # NODE 2 HOST
+    ########################################
+    - name: 'node2.lh'
+      address: '192.168.99.102'
+      services:
+        - serviceUse: 'remote-service'
+          serviceDescription: 'MYSQL UP'
+          serviceCommand: 'check-mysql-cmdlinecred!nagios!nagios'
+          serviceNotifications: 1
+        - serviceUse: 'remote-service'
+          serviceDescription: 'Container Running'
+          serviceCommand: 'check-nrpe-arg!check-docker-container!dob-con'
+          serviceNotifications: 1
+
+hostGroups:
+    - groupName: 'linux-servers'
+      groupAlias: 'Linux Servers'
+      groupMembers:
+        - localhost
+        - node2.lh
+
+commands:
+    check-mysql: "$USER1$/check_mysql -H $HOSTADDRESS$"
+    check-mysql-cmdlinecred: "$USER1$/check_mysql -H $HOSTADDRESS$ -u $ARG1$ -p $ARG2$"
+    check-nrpe-arg: "$USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$ -a $ARG2$"
+    
+serviceTemplates:
+    - name: 'remote-service'
+      use: 'generic-service'
+      max_check_attempts: 5
+      check_interval: 2
+      retry_interval: 1

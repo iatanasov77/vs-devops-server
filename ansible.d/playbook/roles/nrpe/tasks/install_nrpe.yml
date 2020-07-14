@@ -1,0 +1,9 @@
+---
+  - name: Install EPEL Repository
+    yum:
+      name=epel-release
+      state=present
+  - name: Install NRPE
+    yum:
+      name=nrpe,nagios-plugins-nrpe,nagios-plugins-all
+      state=present

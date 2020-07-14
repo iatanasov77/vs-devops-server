@@ -65,7 +65,11 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
         end
     
         require 'yaml'
-        provisionConfig  = YAML.load_file( ENV['PROVISION_CONFIG'] )
+        provisionConfig     = YAML.load_file( 'vagrant.d/vagrantConfig.yaml' )
+        jenkinsPluginDeps   = YAML.load_file( 'vagrant.d/jenkinsPluginDeps.yaml' )
+        ansibleConfig       = YAML.load_file( 'ansible.d/ansibleConfig.yml' )
+        nagiosConfig        = YAML.load_file( 'nagios.d/nagiosConfig.yml' )
+        icingaConfig        = YAML.load_file( 'nagios.d/icingaConfig.yml' )
         
 		# Run provision bash scripts to setup puppet environement
 		config.vm.provision "shell", path: "vagrant.d/provision/main.sh", env: {
@@ -79,21 +83,39 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 
 			puppet.manifest_file     = "default.pp"
 			puppet.facter            = {
-			    'vs_config'  => provisionConfig.to_yaml,
-				'hostname'   => ENV['HOST_NAME'],
+			    'vs_config'              => provisionConfig.to_yaml,
+			    'jenkins_plugin_deps'    => jenkinsPluginDeps.to_yaml,
+			    'ansible_config'         => ansibleConfig.to_yaml,
+			    'nagios_config'          => nagiosConfig.to_yaml,
+			    'icinga_config'          => icingaConfig.to_yaml,
+                'hostname'               => ENV['HOST_NAME'],
 			}
 	    end
 	    
 		$done = <<-SCRIPT
 echo ""
 echo ""
-echo "####################################################################"
+echo "########################################################################################################################"
 echo "# DONE!!!"
 echo "# -------"
+echo "#"
+echo "# Enter Ansible Host: vagrant ssh "
+echo "# Run Ansible provisioning: ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook.yml "
+echo "#"
 echo "# Now you can open http://#{ENV['HOST_NAME']} in your browser"
 echo "#"
+echo "########################################################################################################################"
+echo "# NEED TO BE REORGANIZED"
+echo "########################################################################################################################"
+echo "#"
+echo "# Open Icinga2 in your host machine browser http://devops.lh/icingaweb2/"
+echo "#                                     user: icingaadmin | pass: icinga"
+echo "#"
+echo "# Open Nagios in your host machine browser http://devops.lh/nagios/ "
+echo "#                              user: nagiosadmin | pass: nagiosadmin"
+echo "#"
 echo "# Support at: https://github.com/iatanasov77/vs-devops-server"
-echo "####################################################################"
+echo "########################################################################################################################"
 SCRIPT
 		config.vm.provision "shell", inline: $done
 
