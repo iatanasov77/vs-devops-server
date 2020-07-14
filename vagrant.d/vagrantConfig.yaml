@@ -1,6 +1,7 @@
 hostAddress: '10.3.3.3'
 
 packages:
+  - dos2unix
   - mc
   - vim
   - git
