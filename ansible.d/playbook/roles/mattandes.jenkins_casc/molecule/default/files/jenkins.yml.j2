@@ -1,7 +1,0 @@
----
-jenkins:
-  systemMessage: "Jenkins configured automatically by Jenkins Configuration as Code Plugin\n\n"
-jobs:
-{% for job in jenkins_casc_jobs %}
-  - {{ job.type }}: {{ job.value }}
-{% endfor %}
