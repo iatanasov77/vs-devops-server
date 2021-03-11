@@ -4,7 +4,17 @@
 /.project
 ###< Eclipse project files
 
-###> Vagrant files
+##############################
+# Ansible meta data
+##############################
+/ansible.d/playbook/roles/*/
+!/ansible.d/playbook/roles/index
+/ansible.d/log/
+/ansible.d/playbook.retry
+
+##############################
+# Vagrant meta data
+##############################
 /.vagrant/
 /vagrant.d/puppet/Puppetfile.lock
 /vagrant.d/puppet/.librarian

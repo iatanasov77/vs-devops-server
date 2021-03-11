@@ -54,15 +54,14 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 			vb.memory	= ENV['VBOX_MACHINE_MEMORY']
 		end
 		
-		# Shared Folders
+		# Default Shared Folder
         config.vm.synced_folder "./", "/vagrant"
-        if ENV['FOLDER_PROJECTS_DEVEL']
-            config.vm.synced_folder ENV['FOLDER_PROJECTS_DEVEL'], "/projects"
-        end
-       
-        if ENV['FOLDER_PROJECTS_DEPLOY']
-            config.vm.synced_folder ENV['FOLDER_PROJECTS_DEPLOY'], "/projects_deploy"
-        end
+        
+		# Mount Custom Shared Folders
+	  	sharedFolders	= JSON.parse( ENV['SHARED_FOLDERS'] )
+	  	sharedFolders.each do |mountPoint, mountDir|
+	  		config.vm.synced_folder mountDir, mountPoint #owner: "root", group: "root"
+	    end
     
         require 'yaml'
         provisionConfig     = YAML.load_file( 'vagrant.d/vagrantConfig.yaml' )

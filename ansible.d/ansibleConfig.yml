@@ -1,4 +1,4 @@
-galaxyRolesUpdate: "True"
+galaxyRolesUpdate: "False"
 pathRoles: /vagrant/ansible.d/playbook/roles/
 galaxyRoles:
     - geerlingguy.java
