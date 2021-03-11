@@ -16,23 +16,28 @@ git:
    userEmail: 'i.atanasov77@gmail.com'
      
 services:
+    jenkins: "True"
     gitlab: "False"
     maven: "False"
-    ansible: "True"
-    jenkins: "False"
+    ansible: "False"  # Problem installing on CentOs 8
     nagios: "False"
-    icinga: "True"
+    icinga: "False"
     
     ######################
     # Jenkins Settings
     ######################
-    jenkinsWorkaround: "True"
+    jenkinsWorkaround: false
     
     jenkinsPort: "8080"
     jenkinsPlugins:
-        workflow-aggregator:
-            description: 'Pipeline Plugin'
-            version: 'latest'
+# Swarm Plugin not needed. It's installed by jenkins::master puppet class
+#############################################################################
+#        swarm:
+#            description: 'Swarm Plugin. Needed for Jenkins slaves.'
+#            version: 'latest'
+#        workflow-aggregator:
+#            description: 'Pipeline Plugin'
+#            version: 'latest'
         credentials-binding:
             description: 'CredentialsBinding Plugin'
             version: '1.15'

@@ -28,9 +28,6 @@
 [submodule "vagrant.d/puppet/modules/wget"]
 	path = vagrant.d/puppet/modules/wget
 	url = https://github.com/voxpupuli/puppet-wget.git
-[submodule "vagrant.d/puppet/modules/devops"]
-	path = vagrant.d/puppet/modules/devops
-	url = https://github.com/iatanasov77/puppet-devops.git
 [submodule "vagrant.d/puppet/modules/php"]
 	path = vagrant.d/puppet/modules/php
 	url = https://github.com/voxpupuli/puppet-php
@@ -73,3 +70,10 @@
 [submodule "vagrant.d/puppet/modules/phpmyadmin"]
 	path = vagrant.d/puppet/modules/phpmyadmin
 	url = https://github.com/justicel/puppet-phpmyadmin.git
+[submodule "vagrant.d/puppet/modules/vs_devops"]
+	path = vagrant.d/puppet/modules/vs_devops
+	url = https://github.com/iatanasov77/puppet-devops.git
+[submodule "vagrant.d/puppet/modules/vs_lamp"]
+	path = vagrant.d/puppet/modules/vs_lamp
+	url = https://github.com/iatanasov77/puppet-lamp.git
+	branch = main
