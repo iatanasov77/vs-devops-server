@@ -1,6 +1,0 @@
----
-  - name: Enable and start NRPE
-    service:
-      name=nrpe
-      state=started
-      enabled=true

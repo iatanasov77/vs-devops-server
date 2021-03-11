@@ -1,4 +1,0 @@
-- name: Add hosts
-  import_tasks: hosts.yml
-- name: Add Users
-  import_tasks: users.yml
