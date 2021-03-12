@@ -17,10 +17,29 @@ node default
 	#include epel # Caannot redeclare error
 	include stdlib 
 	
-	include vs_devops
-	
-	# need 'epel' because load at last
-	include vs_devops::packages
+	class { '::vs_devops':
+        defaultHost                 => "${hostname}",
+        #defaultDocumentRoot         => "${vsConfig['gui']['documentRoot']}",
+        
+        subsystems                  => $vsConfig['subsystems'],
+
+        packages                    => $vsConfig['packages'],
+        gitUserName                 => $vsConfig['git']['userName'],
+        gitUserEmail                => $vsConfig['git']['userEmail'],
+        
+        /* LAMP SERVER */
+        forcePhp7Repo              	=> $vsConfig['lamp']['forcePhp7Repo'],
+    	mySqlProvider				=> $vsConfig['lamp']['mysql']['provider'],
+        phpVersion                  => "${vsConfig['lamp']['phpVersion']}",
+        apacheModules               => $vsConfig['lamp']['apacheModules'],
+        
+        phpModules                  => $vsConfig['lamp']['phpModules'],
+        phpunit                     => $vsConfig['lamp']['phpunit'],
+        
+        phpSettings                 => $vsConfig['lamp']['phpSettings'],
+        
+        phpMyAdmin					=> $vsConfig['lamp']['phpMyAdmin'],
+    }
 	
 	# puppet module install saz-sudo --version 5.0.0
 	sudo::conf { "vagrant":
