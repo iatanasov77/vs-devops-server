@@ -19,7 +19,7 @@ node default
 	
 	class { '::vs_devops':
         defaultHost                 => "${hostname}",
-        #defaultDocumentRoot         => "${vsConfig['gui']['documentRoot']}",
+        defaultDocumentRoot         => '/vagrant/gui/public',	# "${vsConfig['gui']['documentRoot']}",
         
         subsystems                  => $vsConfig['subsystems'],
 
