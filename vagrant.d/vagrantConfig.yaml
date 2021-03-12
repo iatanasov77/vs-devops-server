@@ -15,97 +15,156 @@ git:
    userName: 'Ivan I. Atanasov'
    userEmail: 'i.atanasov77@gmail.com'
      
-services:
-    jenkins: "True"
-    gitlab: "False"
-    maven: "False"
-    ansible: "False"  # Problem installing on CentOs 8
-    nagios: "False"
-    icinga: "False"
+subsystems:
+    jenkins:
+        enabled: true
+        jenkinsPort: "8080"
+        jenkinsPluginsCli:  ['workflow-scm-step']
     
-    ######################
-    # Jenkins Settings
-    ######################
-    jenkinsWorkaround: false
+    gitlab:
+        enabled: false
+    maven:
+        enabled: false
+    ansible:
+        enabled: false  # Problem installing on CentOs 8
+    nagios:
+        enabled: false
+    icinga:
+        enabled: false
+
+jenkinsPlugins:
+    # Swarm Plugin not needed. It's installed by jenkins::master puppet class
+    #############################################################################
+    #swarm:
+    #    description: 'Swarm Plugin. Needed for Jenkins slaves.'
+    #    version: 'latest'
+
+    display-url-api:
+        description: 'Provides an extension point to define alternate URLs for use in notifications.'
+        version: '2.3.4'
     
-    jenkinsPort: "8080"
-    jenkinsPlugins:
-# Swarm Plugin not needed. It's installed by jenkins::master puppet class
-#############################################################################
-#        swarm:
-#            description: 'Swarm Plugin. Needed for Jenkins slaves.'
-#            version: 'latest'
-#        workflow-aggregator:
-#            description: 'Pipeline Plugin'
-#            version: 'latest'
-        credentials-binding:
-            description: 'CredentialsBinding Plugin'
-            version: '1.15'
-        plain-credentials:
-            description: 'PlainCredentials Plugin'
-            version: 'latest'
-        ssh-credentials:
-            description: 'SSHCredentials Plugin'
-            version: '1.18.1'   # version: '1.17.1'
+    scm-api:
+        description: 'SCM API Plugin'
+        version: '2.6.4'
+    workflow-step-api:
+        description: 'Step API Plugin'
+        version: 'latest'
+    credentials-binding:
+        description: 'CredentialsBinding Plugin'
+        version: '1.15'
+    plain-credentials:
+        description: 'PlainCredentials Plugin'
+        version: 'latest'
+    ssh-credentials:
+        description: 'SSHCredentials Plugin'
+        version: '1.18.1'
+    
+    publish-over-dropbox:
+        description: 'PublishOverDropbox Plugin'
+        version: 'latest'
+    jobConfigHistory:
+        description:  'JobConfigHistory Plugin'
+        version: 'latest'
+    
+    apache-httpcomponents-client-4-api:
+        description: 'apache-httpcomponents-client-4-api Plugin'
+        version: 'latest'
+    git-client:
+        description: ' Git Client Plugin'
+        version: '3.5.1'
+    git:
+        description: 'Git Plugin'
+        version: '4.5.0'
+    
+    token-macro:
+        description: 'Token Macro Plugin'
+        version: 'latest'
+    snakeyaml-api:
+        description: 'snakeyaml-api Plugin'
+        version: 'latest'
+    jackson2-api:
+        description: 'jackson2-api Plugin'
+        version: 'latest'
+    okhttp-api:
+        description: 'okhttp-api Plugin'
+        version: 'latest'
+    github-api:
+        description: 'GitHub API Plugin'
+        version: 'latest'
+    github:
+        description: 'GitHub Plugin'
+        version: 'latest'
+     
+    publish-over:
+        description: 'PublishOver Plugin'
+        version: 'latest'
+    publish-over-ftp:
+        description: 'PublishOverFtp Plugin'
+        version: 'latest'
+    phing:
+        description: 'Phing Plugin'
+        version: 'latest'
+    trilead-api:
+        description: 'TrileadApi Plugin'
+        version: 'latest'
+    jsch:
+        description: 'JSCH Plugin'
+        version: 'latest'
+    ssh:
+        description: 'SSH Plugin'
+        version: 'latest'
+    database:
+        description: 'Database Plugin'
+        version: 'latest'
+    database-mysql:
+        description: 'DatabaseMySql Plugin'
+        version: 'latest'
+
+lamp:
+    phpVersion: '7.4'
+    phpunit: false
+    forcePhp7Repo: true
+   
+    mysql:
+        # provider = false mean use default
+        provider: 'mysql' # Avaiable options: false, 'mysql', 'mariadb'
+        databases: {}
+    
+    apacheModules:
+        - expires
+        - headers
+        - rewrite
+        - vhost_alias
+        - version
+        - env
         
-        publish-over-dropbox:
-            description: 'PublishOverDropbox Plugin'
-            version: 'latest'
-        jobConfigHistory:
-            description:  'JobConfigHistory Plugin'
-            version: 'latest'
-        git:
-            description: 'Git Plugin'
-            version: '3.4.0' #version: '1.1.11'
-            
-        github:
-            description: 'GitHub Plugin'
-            version: 'latest'
-        publish-over:
-            description: 'PublishOver Plugin'
-            version: 'latest'
-        publish-over-ftp:
-            description: 'PublishOverFtp Plugin'
-            version: 'latest'
-        phing:
-            description: 'Phing Plugin'
-            version: 'latest'
-        trilead-api:
-            description: 'TrileadApi Plugin'
-            version: 'latest' #version: '1.0.5'
-        jsch:
-            description: 'JSCH Plugin'
-            version: 'latest'
-        ssh:
-            description: 'SSH Plugin'
-            version: 'latest'
-        database:
-            description: 'Database Plugin'
-            version: 'latest'
-        database-mysql:
-            description: 'DatabaseMySql Plugin'
-            version: 'latest'
+    phpSettings:
+        'PHP/memory_limit': '-1'
+        'PHP/max_execution_time': '300'
+        'PHP/post_max_size': '64M'
+        'PHP/upload_max_filesize': '64M'
+        'Date/date.timezone': 'Europe/Sofia'
+        'PHAR/phar.readonly': 'Off'
 
-#########################
-# PHP Settings
-#########################
-phpVersion: '7.2'
-phpModules:
-  - intl
-  - sqlite
-  - soap
-  - zip
-  - mongodb
+    phpModules:
+        intl:
+            ini_prefix: '20-'
+        mbstring:
+            ini_prefix: '20-'
+        mongodb:
+            ini_prefix: '20-'
+            provider: 'pecl'
+        zip:
+            ini_prefix: '40-'
+        json:
+            ini_prefix: '20-'
+        mysqlnd:
+            ini_prefix: '20-'
+            multifile_settings: true
+            settings:
+                mysqlnd: {}
 
-#########################
-# Apache Server
-#########################
-apacheModules:
-  - expires
-  - headers
-  - rewrite
-  - vhost_alias
-  - version
-  - env
-  
-  
+    phpMyAdmin:
+        source: 'https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.zip'
+        targetDirName: 'phpMyAdmin-5.0.4-all-languages'
+

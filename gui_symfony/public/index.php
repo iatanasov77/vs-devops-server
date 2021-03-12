@@ -6,6 +6,21 @@
     
     <body>
     	<div id="container">
+    		<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+        		<h3>PHP Info</h3>
+        		<a href="http://devops.lh/info.php" target="__blank">Open PHP Info</a>
+        	</div>
+        	<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+        		<h3>PhpMyAdmin</h3>
+        		<a href="http://devops.lh/phpmyadmin/" target="__blank">Open PhpMyAdmin</a>
+        		<p>
+            		<div>User: root</div>
+                	<div>Pass: vagrant</div>
+                </p>
+        	</div>
+        </div>
+        <div style="clear: both;"></div>
+    	<div id="container">
         	<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
         		<h3>Jenkins Master Automation Server</h3>
         		<a href="http://devops.lh:8080" target="__blank">Open Jenkins</a>
