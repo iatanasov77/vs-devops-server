@@ -1,4 +1,9 @@
 hostAddress: '10.3.3.3'
+gui:
+    documentRoot: '/projects/VS_MyProjects_GuiSymfony/public'
+    database:
+        name: 'VsMyProjects'
+        dump: '/vagrant/doc/sql/VsMyProjects-20210222.sql'
 
 packages:
   - dos2unix
