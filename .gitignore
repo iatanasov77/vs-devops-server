@@ -28,3 +28,8 @@
 ### The folder is stored in DropBox /Projects/VS_DevOpsServer/
 /jenkins.d/casc/vs_devops.yaml
 
+##############################
+# GUI
+##############################
+/gui/var/*
+

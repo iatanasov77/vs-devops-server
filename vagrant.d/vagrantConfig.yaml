@@ -21,6 +21,17 @@ git:
    userEmail: 'i.atanasov77@gmail.com'
      
 subsystems:
+    ansible:
+        enabled: true  # Problem installing on CentOs 8
+    terraform:
+        enabled: true
+        version: '0.12.28'
+    docker:
+        enabled: true
+        docker_users: ['vagrant', 'root']
+    kubernetes:
+        enabled: false
+
     jenkins:
         enabled: true
         jenkinsPort: "8080"
@@ -30,12 +41,12 @@ subsystems:
         enabled: false
     maven:
         enabled: false
-    ansible:
-        enabled: false  # Problem installing on CentOs 8
+    
     nagios:
         enabled: false
+        apache_httpd: false # If it's true conflict with vs_lamp::apache
     icinga:
-        enabled: false
+        enabled: true
 
 jenkinsPlugins:
     # Swarm Plugin not needed. It's installed by jenkins::master puppet class
@@ -143,6 +154,17 @@ lamp:
         - version
         - env
         
+        # Nagios host dependencies
+        - auth_basic
+        - authn_core
+        - authn_file
+        - authz_user
+        - mime
+        - negotiation
+        - dir
+        - alias
+        - cgi
+        
     phpSettings:
         'PHP/memory_limit': '-1'
         'PHP/max_execution_time': '300'
@@ -152,6 +174,9 @@ lamp:
         'PHAR/phar.readonly': 'Off'
 
     phpModules:
+        apcu:
+            ini_prefix: '20-'
+            provider: 'pecl'
         intl:
             ini_prefix: '20-'
         mbstring:
