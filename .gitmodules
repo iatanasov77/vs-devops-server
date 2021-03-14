@@ -77,3 +77,21 @@
 	path = vagrant.d/puppet/modules/vs_lamp
 	url = https://github.com/iatanasov77/puppet-lamp.git
 	branch = main
+[submodule "vagrant.d/puppet/modules/apache_httpd"]
+	path = vagrant.d/puppet/modules/apache_httpd
+	url = https://github.com/thias/puppet-apache_httpd.git
+[submodule "vagrant.d/puppet/modules/nagios_core"]
+	path = vagrant.d/puppet/modules/nagios_core
+	url = https://github.com/puppetlabs/puppetlabs-nagios_core.git
+[submodule "vagrant.d/puppet/modules/hashicorp"]
+	path = vagrant.d/puppet/modules/hashicorp
+	url = https://github.com/inkblot/puppet-hashicorp.git
+[submodule "vagrant.d/puppet/modules/docker"]
+	path = vagrant.d/puppet/modules/docker
+	url = https://github.com/puppetlabs/puppetlabs-docker.git
+[submodule "vagrant.d/puppet/modules/gnupg"]
+	path = vagrant.d/puppet/modules/gnupg
+	url = https://github.com/n1tr0g/golja-gnupg.git
+[submodule "vagrant.d/puppet/modules/kubernetes"]
+	path = vagrant.d/puppet/modules/kubernetes
+	url = https://github.com/puppetlabs/puppetlabs-kubernetes.git

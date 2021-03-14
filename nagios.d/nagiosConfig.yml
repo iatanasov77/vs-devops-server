@@ -1,6 +1,7 @@
 theme:
     name: 'Vautour Style'
-    src: '/vagrant/var/nagios_themes/vautour-style-master.zip'
+    #src: '/vagrant/var/nagios_themes/vautour-style-master.zip'
+    src: 'https://github.com/ynlamy/vautour-style/releases/latest/download/vautour_style.zip'
 
 hosts:
     # LOCALHOST
