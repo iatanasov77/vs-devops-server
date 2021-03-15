@@ -18,7 +18,7 @@ packages:
 
 git:
    userName: 'Ivan I. Atanasov'
-   userEmail: 'i.atanasov77@gmail.com'
+   userEmail: 'email@example.com'
      
 subsystems:
     ansible:
