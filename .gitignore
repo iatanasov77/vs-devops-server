@@ -16,6 +16,7 @@
 # Vagrant meta data
 ##############################
 /.vagrant/
+/vagrant.d/vagrantConfig.yaml
 /vagrant.d/puppet/Puppetfile.lock
 /vagrant.d/puppet/.librarian
 /vagrant.d/puppet/.tmp

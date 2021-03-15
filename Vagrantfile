@@ -65,7 +65,6 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
     
         require 'yaml'
         provisionConfig     = YAML.load_file( 'vagrant.d/vagrantConfig.yaml' )
-        jenkinsPluginDeps   = YAML.load_file( 'vagrant.d/jenkinsPluginDeps.yaml' )
         ansibleConfig       = YAML.load_file( 'ansible.d/ansibleConfig.yml' )
         nagiosConfig        = YAML.load_file( 'nagios.d/nagiosConfig.yml' )
         icingaConfig        = YAML.load_file( 'nagios.d/icingaConfig.yml' )
@@ -83,7 +82,6 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 			puppet.manifest_file     = "default.pp"
 			puppet.facter            = {
 			    'vs_config'              => provisionConfig.to_yaml,
-			    'jenkins_plugin_deps'    => jenkinsPluginDeps.to_yaml,
 			    'ansible_config'         => ansibleConfig.to_yaml,
 			    'nagios_config'          => nagiosConfig.to_yaml,
 			    'icinga_config'          => icingaConfig.to_yaml,
