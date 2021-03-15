@@ -35,7 +35,7 @@ subsystems:
     jenkins:
         enabled: true
         jenkinsPort: "8080"
-        jenkinsPluginsCli:  ['workflow-scm-step']
+        jenkinsPluginsCli:  ['workflow-aggregator', 'workflow-scm-step']
     
     gitlab:
         enabled: false
