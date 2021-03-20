@@ -6,6 +6,8 @@ gui:
         dump: '/vagrant/doc/sql/VsMyProjects-20210222.sql'
 
 packages:
+  - unzip
+  - wget
   - dos2unix
   - mc
   - vim
