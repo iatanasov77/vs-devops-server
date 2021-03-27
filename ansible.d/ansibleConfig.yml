@@ -1,0 +1,6 @@
+galaxyRolesUpdate: "False"
+pathRoles: /vagrant/ansible.d/playbook/roles/
+galaxyRoles:
+    - geerlingguy.java
+    - geerlingguy.jenkins
+    - mattandes.jenkins_casc

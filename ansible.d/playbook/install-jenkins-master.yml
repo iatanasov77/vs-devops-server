@@ -1,0 +1,22 @@
+---
+- name: Install Jenkins Master
+  hosts: devops.lh
+  become: true
+  
+  vars_files:
+    - vars/jenkins.yaml
+    
+  roles:
+    - geerlingguy.java
+    - geerlingguy.jenkins
+    - mattandes.jenkins_casc
+    - git
+    - hostconfig
+    
+  tasks:
+    - name: Add Hosts
+      lineinfile:
+        path: /etc/hosts
+        line: "{{ item.value }}    {{ item.key }}"
+        create: yes
+      with_dict: "{{ etc_hosts }}"

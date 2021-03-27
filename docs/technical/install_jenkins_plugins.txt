@@ -1,0 +1,71 @@
+#######################################################################################################
+#
+# Jenkins Plugin Manager
+#------------------------
+# The jpm application allows you to manage Jenkins plugins outside of the Jenkins web UI.
+# Like a "normal package" manager, it will handle installing plugin dependencies, plugin upgrades and plugin removals.
+#
+# https://github.com/rtyler/jpm
+# https://github.com/mmarseglia/jpm
+#
+#######################################################################################################
+
+
+#######################################################################################################
+#
+# Jenkins Set Email Notifications
+#---------------------------------
+# https://www.360logica.com/blog/email-notification-in-jenkins/
+#
+########################################################################################################
+
+
+########################################################################################################
+#
+# All About Using Pipelines with examples
+#-----------------------------------------
+# https://www.jenkins.io/doc/book/pipeline/jenkinsfile/
+#
+########################################################################################################
+
+
+########################################################################################################
+#
+# Scripting Jenkins Configuration and Creation of Jobs
+#-----------------------------------------
+# https://plugins.jenkins.io/configuration-as-code/#documentation
+# https://medium.com/slalom-build/automatically-generating-jenkins-jobs-d30d4b0a2b49
+#
+########################################################################################################
+
+
+https://stackoverflow.com/questions/20460910/how-to-build-a-maven-project-with-maestrodev-puppet-maven
+
+https://github.com/maestrodev/puppet-maven
+https://github.com/jenkinsci/publish-over-ftp-plugin
+
+
+GIT DEPLOY COMMAND
+--------------------
+git ftp init --user $FTP_USERNAME --passwd $FTP_PASSWORD ftp://ftp.babymarket.bg/projects/VankoSoft.Org/production --disable-epsv
+git ftp push --user $FTP_USERNAME --passwd $FTP_PASSWORD ftp://ftp.babymarket.bg/projects/VankoSoft.Org/production --disable-epsv
+
+RUN SYMFONY CONSOLE WITH PHP7
+------------------------------
+/opt/cpanel/ea-php72/root/usr/bin/php /home/babynfcj/projects/VankoSoft.Org/production/bin/console debug:router
+/opt/cpanel/ea-php72/root/usr/bin/php /home/babynfcj/projects/VankoSoft.Org/production/bin/admin debug:router
+/opt/cpanel/ea-php72/root/usr/bin/php /home/babynfcj/projects/VankoSoft.Org/production/bin/blog debug:router
+
+UPDATE VENDOR DIR rsync
+--------------------------
+sshpass -p '${sshpassword}' rsync -avz -e 'ssh -p ${sshport}' --progress '${root_path}/vendor' ${sshpathproduction}/vendor
+
+COPY FILES WITH SCP
+----------------------
+sshpass -p $FTP_PASSWORD scp -rv -P 1022 .env.prod babynfcj@babymarket.bg:/home/babynfcj/projects/VankoSoft.Org/production/.env
+
+DROPBOX DOWNLOAD
+-----------------
+curl -X POST https://content.dropboxapi.com/2/files/download \
+	--header "Authorization: Bearer $DROPBOX_TOKEN" \
+	--header "Dropbox-API-Arg: {\"path\": \"/Projects/VankoSoft.Org/build.properties\"}" > build.properties

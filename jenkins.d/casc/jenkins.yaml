@@ -1,0 +1,8 @@
+# /vagrant/jenkins.d/casc/simple.yaml
+jenkins:
+    systemMessage: "Hello, Configuration as Code! ;)"
+    globalNodeProperties:
+        - envVars:
+            env:
+            - key: HOME
+              value: /opt/jenkins

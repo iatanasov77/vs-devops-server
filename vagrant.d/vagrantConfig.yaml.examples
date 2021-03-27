@@ -1,0 +1,206 @@
+hostAddress: '10.3.3.3'
+gui:
+    documentRoot: '/projects/VS_MyProjects_GuiSymfony/public'
+    database:
+        name: 'VsMyProjects'
+        dump: '/vagrant/doc/sql/VsMyProjects-20210222.sql'
+
+vstools:
+    mkvhost: 'v0.3.0'
+    mkphar: 'v0.2.0'
+    bumpversion: 'v0.2.0'
+    ftpdeploy: 'v3.0.1'
+
+packages:
+  - dos2unix
+  - mc
+  - vim
+  - git
+  - git-ftp
+  - gitflow
+  - nmap
+  - iptraf
+  - sshpass
+
+git:
+   userName: 'Ivan I. Atanasov'
+   userEmail: 'email@example.com'
+     
+subsystems:
+    ansible:
+        enabled: true  # Problem installing on CentOs 8
+    terraform:
+        enabled: true
+        version: '0.12.28'
+    docker:
+        enabled: true
+        docker_users: ['vagrant', 'root']
+    kubernetes:
+        enabled: false
+
+    jenkins:
+        enabled: true
+        jenkinsPort: "8080"
+        jenkinsPluginsCli:  ['workflow-aggregator', 'workflow-scm-step']
+    
+    gitlab:
+        enabled: false
+    maven:
+        enabled: false
+    
+    nagios:
+        enabled: false
+        apache_httpd: false # If it's true conflict with vs_lamp::apache
+    icinga:
+        enabled: true
+
+jenkinsPlugins:
+    # Swarm Plugin not needed. It's installed by jenkins::master puppet class
+    #############################################################################
+    #swarm:
+    #    description: 'Swarm Plugin. Needed for Jenkins slaves.'
+    #    version: 'latest'
+
+    display-url-api:
+        description: 'Provides an extension point to define alternate URLs for use in notifications.'
+        version: '2.3.4'
+    
+    scm-api:
+        description: 'SCM API Plugin'
+        version: '2.6.4'
+    workflow-step-api:
+        description: 'Step API Plugin'
+        version: 'latest'
+    credentials-binding:
+        description: 'CredentialsBinding Plugin'
+        version: '1.15'
+    plain-credentials:
+        description: 'PlainCredentials Plugin'
+        version: 'latest'
+    ssh-credentials:
+        description: 'SSHCredentials Plugin'
+        version: '1.18.1'
+    
+    publish-over-dropbox:
+        description: 'PublishOverDropbox Plugin'
+        version: 'latest'
+    jobConfigHistory:
+        description:  'JobConfigHistory Plugin'
+        version: 'latest'
+    
+    apache-httpcomponents-client-4-api:
+        description: 'apache-httpcomponents-client-4-api Plugin'
+        version: 'latest'
+    git-client:
+        description: ' Git Client Plugin'
+        version: '3.5.1'
+    git:
+        description: 'Git Plugin'
+        version: '4.5.0'
+    
+    token-macro:
+        description: 'Token Macro Plugin'
+        version: 'latest'
+    snakeyaml-api:
+        description: 'snakeyaml-api Plugin'
+        version: 'latest'
+    jackson2-api:
+        description: 'jackson2-api Plugin'
+        version: 'latest'
+    okhttp-api:
+        description: 'okhttp-api Plugin'
+        version: 'latest'
+    github-api:
+        description: 'GitHub API Plugin'
+        version: 'latest'
+    github:
+        description: 'GitHub Plugin'
+        version: 'latest'
+     
+    publish-over:
+        description: 'PublishOver Plugin'
+        version: 'latest'
+    publish-over-ftp:
+        description: 'PublishOverFtp Plugin'
+        version: 'latest'
+    phing:
+        description: 'Phing Plugin'
+        version: 'latest'
+    trilead-api:
+        description: 'TrileadApi Plugin'
+        version: 'latest'
+    jsch:
+        description: 'JSCH Plugin'
+        version: 'latest'
+    ssh:
+        description: 'SSH Plugin'
+        version: 'latest'
+    database:
+        description: 'Database Plugin'
+        version: 'latest'
+    database-mysql:
+        description: 'DatabaseMySql Plugin'
+        version: 'latest'
+
+lamp:
+    phpVersion: '7.4'
+    phpunit: false
+    forcePhp7Repo: true
+   
+    mysql:
+        # provider = false mean use default
+        provider: 'mysql' # Avaiable options: false, 'mysql', 'mariadb'
+        databases: {}
+    
+    apacheModules:
+        - expires
+        - headers
+        - rewrite
+        - vhost_alias
+        - version
+        - env
+        
+        # Nagios host dependencies
+        - auth_basic
+        - authn_core
+        - authn_file
+        - authz_user
+        - mime
+        - negotiation
+        - dir
+        - alias
+        - cgi
+        
+    phpSettings:
+        'PHP/memory_limit': '-1'
+        'PHP/max_execution_time': '300'
+        'PHP/post_max_size': '64M'
+        'PHP/upload_max_filesize': '64M'
+        'Date/date.timezone': 'Europe/Sofia'
+        'PHAR/phar.readonly': 'Off'
+
+    phpModules:
+        apcu:
+            ini_prefix: '20-'
+            provider: 'pecl'
+        intl:
+            ini_prefix: '20-'
+        mbstring:
+            ini_prefix: '20-'
+        mongodb:
+            ini_prefix: '20-'
+            provider: 'pecl'
+        zip:
+            ini_prefix: '40-'
+        json:
+            ini_prefix: '20-'
+        mysqlnd:
+            ini_prefix: '20-'
+            multifile_settings: true
+            settings:
+                mysqlnd: {}
+
+    phpMyAdmin:
+        source: 'https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.zip'
+        targetDirName: 'phpMyAdmin-5.0.4-all-languages'
+
