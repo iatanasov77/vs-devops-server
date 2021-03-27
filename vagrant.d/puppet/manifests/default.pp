@@ -39,6 +39,8 @@ node default
         phpSettings                 => $vsConfig['lamp']['phpSettings'],
         
         phpMyAdmin					=> $vsConfig['lamp']['phpMyAdmin'],
+        
+        vstools                     => $vsConfig['vstools'],
     }
 	
 	# puppet module install saz-sudo --version 5.0.0
