@@ -30,6 +30,5 @@
         validate: 'visudo -cf %s'
       loop: "{{ sudo_users }}"
   roles:
-    - java
-    - git
-    - jenkins-slave
+    - geerlingguy.java
+    - vankosoft.jenkins_slave
