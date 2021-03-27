@@ -54,11 +54,20 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 			vb.memory	= ENV['VBOX_MACHINE_MEMORY']
 		end
 		
-		# Shared Folders
+		# Default Shared Folder
         config.vm.synced_folder "./", "/vagrant"
         
+		# Mount Custom Shared Folders
+	  	sharedFolders	= JSON.parse( ENV['SHARED_FOLDERS'] )
+	  	sharedFolders.each do |mountPoint, mountDir|
+	  		config.vm.synced_folder mountDir, mountPoint #owner: "root", group: "root"
+	    end
+    
         require 'yaml'
-        provisionConfig  = YAML.load_file( ENV['PROVISION_CONFIG'] )
+        provisionConfig     = YAML.load_file( 'vagrant.d/vagrantConfig.yaml' )
+        ansibleConfig       = YAML.load_file( 'ansible.d/ansibleConfig.yml' )
+        nagiosConfig        = YAML.load_file( 'nagios.d/nagiosConfig.yml' )
+        icingaConfig        = YAML.load_file( 'nagios.d/icingaConfig.yml' )
         
 		# Run provision bash scripts to setup puppet environement
 		config.vm.provision "shell", path: "vagrant.d/provision/main.sh", env: {
@@ -72,21 +81,28 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 
 			puppet.manifest_file     = "default.pp"
 			puppet.facter            = {
-			    'vs_config'  => provisionConfig.to_yaml,
-				'hostname'   => ENV['HOST_NAME'],
+			    'vs_config'              => provisionConfig.to_yaml,
+			    'ansible_config'         => ansibleConfig.to_yaml,
+			    'nagios_config'          => nagiosConfig.to_yaml,
+			    'icinga_config'          => icingaConfig.to_yaml,
+                'hostname'               => ENV['HOST_NAME'],
 			}
 	    end
 	    
 		$done = <<-SCRIPT
 echo ""
 echo ""
-echo "####################################################################"
+echo "########################################################################################################################"
 echo "# DONE!!!"
 echo "# -------"
+echo "#"
+echo "# Enter Ansible Host: vagrant ssh "
+echo "# Run Ansible provisioning: ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook.yml "
+echo "#"
 echo "# Now you can open http://#{ENV['HOST_NAME']} in your browser"
 echo "#"
 echo "# Support at: https://github.com/iatanasov77/vs-devops-server"
-echo "####################################################################"
+echo "########################################################################################################################"
 SCRIPT
 		config.vm.provision "shell", inline: $done
 

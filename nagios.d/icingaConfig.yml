@@ -1,0 +1,79 @@
+hostGroups:
+    all-hosts: 'All Hosts'
+    my-webservers: 'My Web Servers'
+    
+hosts:
+    # LOCALHOST
+    ########################################
+    - name: 'localhost'
+      address: '127.0.0.1'
+      groups: [ "all-hosts" ]
+      services:
+        local-service-http:
+            serviceDescription: 'HTTP'
+            serviceCommand: 'http'
+            serviceNotifications: 0
+        local-mysql-connect:
+            serviceDescription: 'MySQL Connect'
+            serviceCommand: 'mysql'
+            serviceNotifications: 1
+            vars:
+                mysql_mode: 'uptime'
+                mysql_hostname: '10.3.3.3'
+                mysql_port: '3306'
+                mysql_username: 'nagios'
+                mysql_password: 'nagios'
+          
+    # NODE 2 HOST
+    ########################################
+    - name: 'myprojects.lh'
+      address: '10.3.3.2'
+      groups: [ "all-hosts", "my-webservers" ]
+      services:
+        myprojects-service-http:
+            serviceDescription: 'HTTP'
+            serviceCommand: 'http'
+            serviceNotifications: 0
+        myprojects-mysql-connect:
+            serviceDescription: 'MySQL Connect'
+            serviceCommand: 'mysql'
+            serviceNotifications: 1
+            vars:
+                mysql_mode: 'uptime'
+                mysql_hostname: '10.3.3.2'
+                mysql_port: '3306'
+                mysql_username: 'nagios'
+                mysql_password: 'nagios'
+
+commands:
+    check-mysql:
+        template: false
+        import: ['plugin-check-command']
+        command: ['check_mysql']
+        vars:
+            mysql_user: "xxxxxxx"
+            mysql_password: "xxxxxxx"
+            mysql_host: "xxxxxxx"
+            
+    nrpe-common:
+        template: true
+        import: ['plugin-check-command']
+        command: ['check_nrpe']
+        vars:
+            nrpe_address: 'xxx.xxx.xxx.xxx'
+            nrpe_port: 5666
+        arguments:
+            '-H': '$nrpe_address$'
+            '-p': '$nrpe_port$'
+            '-c': '$nrpe_command$'
+            '-a':
+                value: '$nrpe_args$'
+                repeat_key: false
+                order: 1
+
+    check-nrpe-arg:
+        template: false
+        import: ['nrpe-common']
+        vars:
+            nrpe_address: 'xxx.xxx.xxx.xxx'
+

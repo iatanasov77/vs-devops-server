@@ -1,0 +1,4 @@
+---
+- import_playbook: playbook/install-jenkins-master.yml
+- import_playbook: playbook/install-jenkins-slaves.yml
+- import_playbook: playbook/install-jenkins-jobs.yml

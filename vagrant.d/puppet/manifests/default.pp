@@ -3,58 +3,46 @@
 #######################################################################################################################
 
 $vsConfig       = parseyaml( $facts['vs_config'] )
+$ansibleConfig  = parseyaml( $facts['ansible_config'] )
+$nagiosConfig   = parseyaml( $facts['nagios_config'] )
+$icingaConfig   = parseyaml( $facts['icinga_config'] )
+
+# Set default path for Exec calls
+Exec {
+    path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/', '/usr/local/bin/', '/usr/local/sbin/' ]
+}
 
 node default
 {
-    include epel
-	include stdlib
+	#include epel # Caannot redeclare error
+	include stdlib 
 	
-	$vsConfig['packages'].each |Integer $index, String $value|
-	{
-        if ( $value == 'git' ) {
-            require git
-                
-            git::config { 'user.name':
-                value => $vsConfig['git']['userName'],
-                user    => 'vagrant',
-            }
-            git::config { 'user.email':
-                value => $vsConfig['git']['userEmail'],
-                user    => 'vagrant',
-            }
-        } elsif ( $value == 'gitflow' and $operatingsystem == 'Ubuntu' ) {
-            package { 'git-flow':
-                ensure => present,
-            }
-        } else {
-            package { $value:
-                ensure => present,
-            }
-        }
-    }
-	
-	#notice( "SERVICE GITLAB VALUE: ${$vsConfig['services']['gitlab']}" )
-	
-	if ( $vsConfig['services']['gitlab'] == true )
-    {
-    	class { 'gitlab':
-            external_url => 'http://devops.lh',
-            unicorn => {
-                'worker_timeout' => 300
-            },
-        }
-    }
-    
-    if ( $vsConfig['services']['jenkins'] == true )
-    {
-        class{ 'jenkins':
-            config_hash => {
-                'HTTP_PORT' => { 'value' => '8081' },
-                #'AJP_PORT'  => { 'value' => '9009' },
-            }
-        }
-    }
+	class { '::vs_devops':
+        defaultHost                 => "${hostname}",
+        defaultDocumentRoot         => '/vagrant/gui/public',	# "${vsConfig['gui']['documentRoot']}",
+        
+        subsystems                  => $vsConfig['subsystems'],
 
+        packages                    => $vsConfig['packages'],
+        gitUserName                 => $vsConfig['git']['userName'],
+        gitUserEmail                => $vsConfig['git']['userEmail'],
+        
+        /* LAMP SERVER */
+        forcePhp7Repo              	=> $vsConfig['lamp']['forcePhp7Repo'],
+    	mySqlProvider				=> $vsConfig['lamp']['mysql']['provider'],
+        phpVersion                  => "${vsConfig['lamp']['phpVersion']}",
+        apacheModules               => $vsConfig['lamp']['apacheModules'],
+        
+        phpModules                  => $vsConfig['lamp']['phpModules'],
+        phpunit                     => $vsConfig['lamp']['phpunit'],
+        
+        phpSettings                 => $vsConfig['lamp']['phpSettings'],
+        
+        phpMyAdmin					=> $vsConfig['lamp']['phpMyAdmin'],
+        
+        vstools                     => $vsConfig['vstools'],
+    }
+	
 	# puppet module install saz-sudo --version 5.0.0
 	sudo::conf { "vagrant":
 	    ensure			=> "present",

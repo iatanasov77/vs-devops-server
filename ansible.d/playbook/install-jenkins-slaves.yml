@@ -1,0 +1,35 @@
+---
+- name: Check Reachable Jenkins Slaves
+  hosts: jenkins_slaves
+  gather_facts: no
+  tasks:
+    - command: ping -c1 {{ ansible_host }}
+      delegate_to: localhost
+      register: ping_result
+      ignore_errors: yes
+    - group_by: key=reachable_jenkins_slaves
+      when: ping_result is succeeded
+      
+- name: Install Jenkins Slaves
+  hosts: reachable_jenkins_slaves
+  become: true
+  vars_files:
+    - vars/jenkins-slave.yaml
+  tasks:
+    - name: Add Hosts
+      lineinfile:
+        path: /etc/hosts
+        line: "{{ item.value }}    {{ item.key }}"
+        create: yes
+      with_dict: "{{ etc_hosts }}"
+    - name: Add jenkins user to sudoers file
+      lineinfile:
+        path: /etc/sudoers
+        regexp: "^{{ item }}"
+        line: "{{ item }} ALL=(ALL) NOPASSWD: ALL"
+        validate: 'visudo -cf %s'
+      loop: "{{ sudo_users }}"
+  roles:
+    - java
+    - git
+    - jenkins-slave

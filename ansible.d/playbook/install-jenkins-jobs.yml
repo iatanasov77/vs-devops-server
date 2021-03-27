@@ -1,0 +1,8 @@
+---
+- name: Install Jenkins Job RetakeExam-DockerConterizedApplication
+  hosts: devops.lh
+  become: true
+  tasks:
+    - name: Create Job
+      command: /vagrant/jenkins.d/jenkins-create-job.sh
+      ignore_errors: yes
