@@ -40,8 +40,10 @@ subsystems:
 
     jenkins:
         enabled: true
+        jenkinsAdmin: { email: 'admin@example.com', username: 'admin',  password: 'admin'}
         jenkinsPort: "8080"
         jenkinsPluginsCli:  ['workflow-aggregator', 'workflow-scm-step']
+        swarmVersion: '3.25'
     
     gitlab:
         enabled: false
