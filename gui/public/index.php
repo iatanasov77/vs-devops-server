@@ -71,7 +71,7 @@
                 	<div>Pass: nagiosadmin</div>
                 </p>
         	</div>
-        <?php } ?>	
+        <?php } ?>
         <?php if ( $configSubsystems['icinga']['enabled'] ) {?>
     		<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
         		<h3>Icinga2 Monitoring Server</h3>
@@ -80,6 +80,12 @@
             		<div>User: icingaadmin</div>
                 	<div>Pass: icinga</div>
                 </p>
+        	</div>
+        <?php } ?>
+        <?php if ( $configSubsystems['elastic_stack']['enabled'] ) {?>
+    		<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+        		<h3>Elasticstack Server</h3>
+        		<a href="http://devops.lh:5601" target="__blank">Open Elasticstack</a>
         	</div>
         <?php } ?>
         </div>
