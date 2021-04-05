@@ -95,3 +95,18 @@
 [submodule "vagrant.d/puppet/modules/kubernetes"]
 	path = vagrant.d/puppet/modules/kubernetes
 	url = https://github.com/puppetlabs/puppetlabs-kubernetes.git
+[submodule "vagrant.d/puppet/modules/datacat"]
+	path = vagrant.d/puppet/modules/datacat
+	url = https://github.com/richardc/puppet-datacat.git
+[submodule "vagrant.d/puppet/modules/elastic_stack"]
+	path = vagrant.d/puppet/modules/elastic_stack
+	url = https://github.com/elastic/puppet-elastic-stack.git
+[submodule "vagrant.d/puppet/modules/elasticsearch"]
+	path = vagrant.d/puppet/modules/elasticsearch
+	url = https://github.com/elastic/puppet-elasticsearch.git
+[submodule "vagrant.d/puppet/modules/logstash"]
+	path = vagrant.d/puppet/modules/logstash
+	url = https://github.com/elastic/puppet-logstash.git
+[submodule "vagrant.d/puppet/modules/kibana"]
+	path = vagrant.d/puppet/modules/kibana
+	url = https://github.com/elastic/puppet-kibana.git
