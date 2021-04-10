@@ -16,6 +16,8 @@
 # Vagrant meta data
 ##############################
 /.vagrant/
+/vault.d/secrets.json
+/vault.d/certs/*
 /vagrant.d/vagrantConfig.yaml
 /vagrant.d/puppet/Puppetfile.lock
 /vagrant.d/puppet/.librarian

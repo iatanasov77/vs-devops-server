@@ -1,0 +1,13 @@
+# Start Vault Server
+vault server -dev -dev-listen-address=0.0.0.0:8200
+export VAULT_ADDR='http://0.0.0.0:8200'
+export VAULT_TOKEN='......'
+
+
+# Using Vault
+vault kv put secret/demo secret1=Password1 secret2=Password2
+
+
+vault kv delete secret/demo
+vault kv undelete -versions=2 secret/demo
+
