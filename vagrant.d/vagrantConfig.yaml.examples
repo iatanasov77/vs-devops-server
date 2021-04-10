@@ -21,6 +21,7 @@ packages:
   - nmap
   - iptraf
   - sshpass
+  - jq
 
 git:
    userName: 'Ivan I. Atanasov'

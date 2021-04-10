@@ -49,4 +49,15 @@ node default
 	    content			=> "vagrant ALL=(ALL) NOPASSWD: ALL",
 	    sudo_file_name	=> "vagrant",
 	}
+	
+	stage { 'vault-setup': }
+    Stage['main'] -> Stage['vault-setup']
+    ####################################################################
+    # https://learn.hashicorp.com/tutorials/vault/static-secrets
+    ####################################################################
+    class { '::vs_devops::subsystems::hashicorp::vaultSetup':
+        vaultPort   => $vaultPort,
+        secretsData => '/vagrant/secrets.json',
+        stage       => 'vault-setup',
+    }
 }
