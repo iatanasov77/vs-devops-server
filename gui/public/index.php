@@ -59,6 +59,13 @@
                 </p>
         	</div>
         <?php } ?>
+        <?php if ( $configSubsystems['hashicorp']['enabled'] && isset( $configSubsystems['hashicorp']['vault'] ) ) {?>
+        	<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+        		<h3>Vault Server</h3>
+        		<a href="http://devops.lh:8282/ui" target="__blank">Open Vault UI</a>
+        	</div>
+        <?php } ?>
+        
         </div>
         <div style="clear: both;"></div>
     	<div id="container">

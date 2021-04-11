@@ -48,26 +48,17 @@ subsystems:
         jenkinsPort: "8080"
         swarmVersion: '3.25'
         jenkinsPluginsCli:  ['workflow-aggregator', 'workflow-scm-step', 'blueocean', 'ssh-agent', 'ws-ws-replacement']
-        jenkinsCredentialsCli:
-            gitlab-iatanasov77:
-                type: 'UsernamePassword'
-                username: 'youruser'
-                password: 'yourpassword'
-            superhosting-vankosoft-ssh:
-                type: 'SSHUserPrivateKey'
-                plugin: 'ssh-credentials@1.18.1'
-                username: 'youruser'
-                passphrase: 'yourpassphrase'
-                privateKey: '-----BEGIN RSA PRIVATE KEY----- 
-MIIEpAIBAAKCAQEAuXPQR+kYowJ/pDvjlF7+HJ93eaIuQM/cQijmP8My3dGvEozh 
-.
-.
-.
-.
-yWWktYfevPu05rda1ThNHNKXjs6Kynl7tl3Sp0vuCF8CXAnyvleimCvip4P4uW28  
------END RSA PRIVATE KEY-----
-'
-    
+        jobs:
+            vankosoft-site:
+                type: 'Pipeline'
+                name: 'VankoSoft.Org'
+                createXml: '/usr/bin/php /vagrant/jenkins.d/createJobXml.php'
+                config:
+                    plugins:
+                        flowPlugin: 'workflow-job@2.40'
+                        definitionPlugin: 'workflow-cps@2.90'
+                    pipeline: '/projects/VankoSoft.Org/Jenkinsfile'
+
     gitlab:
         enabled: false
     maven:
