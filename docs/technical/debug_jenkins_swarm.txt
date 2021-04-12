@@ -1,0 +1,14 @@
+
+
+Debuging Master
+-----------------
+tail -f /var/log/jenkins/jenkins.log
+
+Debuging Slaves
+-----------------
+tail -f /projects_deploy/build/swarm-client
+
+Using Service on Slave Not
+----------------------------
+sudo service jenkins-swarm-client restart
+

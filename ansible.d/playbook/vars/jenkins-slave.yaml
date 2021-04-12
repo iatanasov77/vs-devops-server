@@ -8,7 +8,8 @@ sudo_users:
 jenkins_remote_username: admin
 jenkins_remote_password: admin
 
+jenkins_swarm_client_version: 3.25
 jenkins_swarm_labels: "{{ 'vs_my_projects php-host symfony-host' if inventory_hostname == 'myprojects.lh_local' or inventory_hostname == 'myprojects.lh_remote' else 'unknown_slave' }}"
 jenkins_swarm_executors: 2
 jenkins_url: http://{{ jenkins_master }}:8080
-jenkins_slave_home: "{{ '/projects_deploy/build' if inventory_hostname == 'myprojects.lh_local' or inventory_hostname == 'myprojects.lh_remote' else '/vagrant/jenkins.d/slaves/' }}"
+#jenkins_slave_home: "{{ '/projects_deploy/build' if inventory_hostname == 'myprojects.lh_local' or inventory_hostname == 'myprojects.lh_remote' else '/vagrant/jenkins.d/slaves/' }}"

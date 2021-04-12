@@ -17,6 +17,8 @@ node default
 	#include epel # Caannot redeclare error
 	include stdlib 
 	
+	$vaultPort = '8282'
+
 	class { '::vs_devops':
         defaultHost                 => "${hostname}",
         defaultDocumentRoot         => '/vagrant/gui/public',	# "${vsConfig['gui']['documentRoot']}",
@@ -27,7 +29,12 @@ node default
         gitUserName                 => $vsConfig['git']['userName'],
         gitUserEmail                => $vsConfig['git']['userEmail'],
         
-        /* LAMP SERVER */
+        vstools                     => $vsConfig['vstools'],
+        vaultPort                   => $vaultPort,
+        
+        #############################################################################
+        # LAMP SERVER
+        #############################################################################
         forcePhp7Repo              	=> $vsConfig['lamp']['forcePhp7Repo'],
     	mySqlProvider				=> $vsConfig['lamp']['mysql']['provider'],
         phpVersion                  => "${vsConfig['lamp']['phpVersion']}",
@@ -39,8 +46,6 @@ node default
         phpSettings                 => $vsConfig['lamp']['phpSettings'],
         
         phpMyAdmin					=> $vsConfig['lamp']['phpMyAdmin'],
-        
-        vstools                     => $vsConfig['vstools'],
     }
 	
 	# puppet module install saz-sudo --version 5.0.0
@@ -49,4 +54,37 @@ node default
 	    content			=> "vagrant ALL=(ALL) NOPASSWD: ALL",
 	    sudo_file_name	=> "vagrant",
 	}
+
+	####################################################################
+	# Setup Credentials
+	# ------------------
+    # https://learn.hashicorp.com/tutorials/vault/static-secrets
+    ####################################################################
+    $secrets    = parsejson( $facts['secrets'] )
+    
+    if $vsConfig['subsystems']['hashicorp']['vault'] {
+    	stage { 'vault-setup': }
+        Stage['main'] -> Stage['vault-setup']
+        class { '::vs_devops::subsystems::hashicorp::vaultSetup':
+            vaultSetup  => "/usr/bin/php /vagrant/vault.d/vault_setup.php -p${vaultPort} -d '${facts['secrets_file']}'",
+            stage       => 'vault-setup',
+        }
+    }
+
+    if ( $vsConfig['subsystems']['jenkins']['enabled'] ) {
+        stage { 'jenkins-credentials-cli': }
+        stage { 'jenkins-jobs-cli': }
+        Stage['main'] -> Stage['jenkins-plugins-cli'] -> Stage['jenkins-credentials-cli'] -> Stage['jenkins-jobs-cli']
+        
+        class { 'vs_devops::subsystems::jenkins::jenkinsCliCredentials':
+            credentials     => $secrets['jenkins'],
+            readPrivateKeys => '/usr/bin/php /vagrant/jenkins.d/replace_private_key.php',
+            stage           => 'jenkins-credentials-cli',
+        }
+        
+        class { 'vs_devops::subsystems::jenkins::jenkinsCliJobs':
+           jobs     => $vsConfig['subsystems']['jenkins']['jobs'],
+           stage    => 'jenkins-jobs-cli',
+        }
+    }
 }
