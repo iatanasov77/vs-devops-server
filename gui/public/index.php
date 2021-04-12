@@ -25,8 +25,8 @@
         <div style="clear: both;"></div>
         <div id="container">
         <?php if ( $configSubsystems['terraform']['enabled'] ) {?>
-        	<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
-        		<h3>Terraform</h3>
+        	<div style="border: 1px solid black; width: 98%; height: auto; margin: 20px; text-align: center;">
+        		<h3>Terraform Examples</h3>
         		<p>
             		<div>cd /vagrant/terraform.d</div>
 					<div>terraform init</div>
@@ -37,11 +37,17 @@
                 </p>
         	</div>
         <?php } ?>
+        <?php if ( $configSubsystems['ansible']['enabled'] ) {?>
+        	<div style="border: 1px solid black; width: 98%; height: auto; margin: 20px; text-align: center;">
+        		<h3>Ansible Examples</h3>
+        		<p>
+            		<div>ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-jenkins-slaves.yml</div>
+				</p>
+        	</div>
+        <?php } ?>
         </div>
         <div style="clear: both;"></div>
         
-
-
     	<div id="container">
     	<?php if ( $configSubsystems['jenkins']['enabled'] ) {?>
         	<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
@@ -53,6 +59,13 @@
                 </p>
         	</div>
         <?php } ?>
+        <?php if ( $configSubsystems['hashicorp']['enabled'] && isset( $configSubsystems['hashicorp']['vault'] ) ) {?>
+        	<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+        		<h3>Vault Server</h3>
+        		<a href="http://devops.lh:8282/ui" target="__blank">Open Vault UI</a>
+        	</div>
+        <?php } ?>
+        
         </div>
         <div style="clear: both;"></div>
     	<div id="container">
@@ -65,7 +78,7 @@
                 	<div>Pass: nagiosadmin</div>
                 </p>
         	</div>
-        <?php } ?>	
+        <?php } ?>
         <?php if ( $configSubsystems['icinga']['enabled'] ) {?>
     		<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
         		<h3>Icinga2 Monitoring Server</h3>
@@ -74,6 +87,12 @@
             		<div>User: icingaadmin</div>
                 	<div>Pass: icinga</div>
                 </p>
+        	</div>
+        <?php } ?>
+        <?php if ( $configSubsystems['elastic_stack']['enabled'] ) {?>
+    		<div style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+        		<h3>Elasticstack Server</h3>
+        		<a href="http://devops.lh:5601" target="__blank">Open Elasticstack</a>
         	</div>
         <?php } ?>
         </div>

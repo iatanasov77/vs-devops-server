@@ -21,6 +21,7 @@ packages:
   - nmap
   - iptraf
   - sshpass
+  - jq
 
 git:
    userName: 'Ivan I. Atanasov'
@@ -29,9 +30,12 @@ git:
 subsystems:
     ansible:
         enabled: true  # Problem installing on CentOs 8
-    terraform:
+    hashicorp:
         enabled: true
-        version: '0.12.28'
+        packer: '1.7.0'
+        terraform: '0.12.28'
+        vault: '1.5.5'
+
     docker:
         enabled: true
         docker_users: ['vagrant', 'root']
@@ -40,9 +44,21 @@ subsystems:
 
     jenkins:
         enabled: true
+        jenkinsAdmin: { email: 'admin@example.com', username: 'admin',  password: 'admin'}
         jenkinsPort: "8080"
-        jenkinsPluginsCli:  ['workflow-aggregator', 'workflow-scm-step']
-    
+        swarmVersion: '3.25'
+        jenkinsPluginsCli:  ['workflow-aggregator', 'workflow-scm-step', 'blueocean', 'ssh-agent', 'ws-ws-replacement']
+        jobs:
+            vankosoft-site:
+                type: 'Pipeline'
+                name: 'VankoSoft.Org'
+                createXml: '/usr/bin/php /vagrant/jenkins.d/createJobXml.php'
+                config:
+                    plugins:
+                        flowPlugin: 'workflow-job@2.40'
+                        definitionPlugin: 'workflow-cps@2.90'
+                    pipeline: '/projects/VankoSoft.Org/Jenkinsfile'
+
     gitlab:
         enabled: false
     maven:
@@ -53,6 +69,15 @@ subsystems:
         apache_httpd: false # If it's true conflict with vs_lamp::apache
     icinga:
         enabled: true
+        
+    elastic_stack:
+        enabled: true
+        version: '7.12.0'
+        host_name: 'devops.lh'
+        elasticsearch_port: 9200
+        kibana_host: '10.3.3.3'
+        kibana_port: '5601'
+        logstash_port: 5044
 
 jenkinsPlugins:
     # Swarm Plugin not needed. It's installed by jenkins::master puppet class
