@@ -1,3 +1,13 @@
+0.2.0	|	Release date: **12.04.2021**
+============================================
+* New Features:
+  - Create Vault Server.
+  - Add Vault Setup Tools and Data.
+* Bug-Fixes and Improvements:
+  - Many Jenkins Server Improvements.
+  - Fix Using Jenkins Slave Nodes.
+
+
 0.1.0	|	Release date: **27.03.2021**
 ============================================
 * New Features:
