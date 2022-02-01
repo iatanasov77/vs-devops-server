@@ -43,6 +43,10 @@
         		<p>
             		<div>ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-jenkins-slaves.yml</div>
 				</p>
+				<h3>Start/Restart Jenkins Swarm Client on Slave Host</h3>
+        		<p>
+            		<div>sudo service jenkins-swarm-client restart</div>
+				</p>
         	</div>
         <?php } ?>
         </div>
