@@ -1,0 +1,18 @@
+node ( label: 'php-host' ) {
+    def REMOTE_DIR  = '/opt/VankosoftProjects/JunonaSalary/staging'
+    def PHP_BIN     = '/usr/bin/php74'
+    
+    stage( 'After Deploy (Run migrations, etc.)' ) {
+        script {
+            sshagent(credentials : ['vps-mini-ssh-root']) {
+                sh """
+                    ssh -t -t -l root 164.138.221.242 -o StrictHostKeyChecking=no -p 1022  << EOF
+                      cd ${REMOTE_DIR}
+                      ${PHP_BIN} -d memory_limit=-1 bin/console cache:clear
+                      exit 0
+EOF
+                """
+            }
+        }
+    }
+}

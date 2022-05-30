@@ -1,0 +1,46 @@
+@Library( 'VankosoftGroovyLib' ) _
+
+node ( label: 'php-host' ) {
+    String[] environments = ["production", "staging"]
+    
+    def GIT_REPO_URL        = 'https://gitlab.com/iatanasov77/vankosoft.org.git'
+    def GIT_REPO_WITH_CRED  = 'https://iatanasov77:ivan778503@gitlab.com/iatanasov77/vankosoft.org.git'
+    
+    // PHP_BIN can to be just 'php' because it is defined in .bash_profile in the hosting server.
+    // Also It is defined with which php.ini file should use
+    def PHP_BIN             = '/opt/cpanel/ea-php74/root/usr/bin/php'
+    
+    def BUILD_ENVIRONMENT
+    def BRANCH_NAME
+    def REMOTE_DIR
+    def DO_BACKUP
+    def DATABASE            = 'vankosof_VankoSoft.Org'
+    
+    stage( 'Interactive_Input' ) {
+
+        BUILD_ENVIRONMENT   = input message: 'Select Environment', ok: 'Proceed!',
+                                parameters: [choice(name: 'Select Environment', choices: "${environments.join('\n')}", description: 'What environment to build?')]
+        
+        switch( BUILD_ENVIRONMENT ) {            
+            case 'production':
+                REMOTE_DIR  = '/home/vankosof/projects/VankoSoft.Org/production'
+                DO_BACKUP   = false
+                
+                def tags    = vankosoftJob.getGitTags( GIT_REPO_WITH_CRED )
+                
+                BRANCH_NAME   = input message: 'Select Tag', ok: 'Proceed!',
+                            parameters: [choice(name: 'Select a Tag', choices: "${tags.join('\n')}", description: 'What tag to deploy?')]
+                            
+                break;
+
+            default:
+                REMOTE_DIR  = '/home/vankosof/projects/VankoSoft.Org/staging'
+                DO_BACKUP   = false
+                
+                def branches    = vankosoftJob.getGitBranches( GIT_REPO_WITH_CRED )
+                
+                BRANCH_NAME = input message: 'Select Branch', ok: 'Proceed!',
+                                parameters: [choice(name: 'Select a Branch', choices: "${branches.join('\n')}", description: 'What branch to deploy?')]
+        }
+    }
+}
