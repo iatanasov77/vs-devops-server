@@ -1,11 +1,12 @@
-variable "v_mysql_image" {
-    description = "MySql Image"
-    default     = "shekeriev/dob-w3-mysql"
+# DB Vars
+variable "v_db_image" {
+    description = "Database Image"
+    default     = "shekeriev/bgapp-db"
 }
 
-variable "v_mysql_con_name" {
-    description = "MySql Container Name"
-    default     = "mysql"
+variable "v_db_con_name" {
+    description = "DB Container Name"
+    default     = "db"
 }
 
 variable "v_mysql_root_pass" {
@@ -13,9 +14,11 @@ variable "v_mysql_root_pass" {
     default     = "12345"
 }
 
+
+# Web Vars
 variable "v_web_image" {
     description = "Web Image"
-    default     = "shekeriev/dob-w3-php"
+    default     = "shekeriev/bgapp-web"
 }
 
 variable "v_web_con_name" {
@@ -35,7 +38,7 @@ variable "v_web_ext_port" {
 
 variable "v_site_src" {
     description = "Host Path to Site Files"
-    default     = "/vagrant/src/"
+    default     = "/vagrant/project/web/"
 }
 
 variable "v_site_dest" {

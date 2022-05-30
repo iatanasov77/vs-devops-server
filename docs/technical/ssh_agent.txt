@@ -1,0 +1,7 @@
+MANUAL: https://upcloud.com/community/tutorials/use-ssh-keys-authentication/
+==============================================================================
+
+ssh-keygen -t rsa
+ssh-copy-id -i -p1022 ~/.ssh/id_rsa.pub root@164.138.221.242
+#And Then Add Private Key In Jenkins Credentials
+
