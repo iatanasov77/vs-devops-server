@@ -1,3 +1,15 @@
+0.3.0	|	Release date: **30.05.2022**
+============================================
+* New Features:
+  - Add Contrib Scrips for Test Jenkins Piplines.
+  - Update git submodules.
+  - Gitignore
+  - Add Different Terraform Examples.
+  - Add Some Changed Configurations.
+  - Update Gui Page.
+  - TEMP dir with example config of Global Libraries.
+
+
 0.2.0	|	Release date: **12.04.2021**
 ============================================
 * New Features:
