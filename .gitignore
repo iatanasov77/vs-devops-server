@@ -43,3 +43,10 @@
 # | this will ignore the content but not the director itself.  |
 # +------------------------------------------------------------+
 !/**/.gitkeep
+
+
+##############################
+# Terraform meta data
+##############################
+.terraform/
+
