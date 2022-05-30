@@ -41,7 +41,7 @@
         	<div style="border: 1px solid black; width: 98%; height: auto; margin: 20px; text-align: center;">
         		<h3>Ansible Examples</h3>
         		<p>
-            		<div>ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-jenkins-slaves.yml</div>
+            		<div>sudo ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-jenkins-slaves.yml</div>
 				</p>
 				<h3>Start/Restart Jenkins Swarm Client on Slave Host</h3>
         		<p>
