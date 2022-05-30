@@ -47,6 +47,10 @@
         		<p>
             		<div>sudo service jenkins-swarm-client restart</div>
 				</p>
+				<h3>Start/Restart Jenkins Swarm Client on Slave Host</h3>
+        		<p>
+            		<div>sudo service jenkins-swarm-client restart</div>
+				</p>
         	</div>
         <?php } ?>
         </div>
