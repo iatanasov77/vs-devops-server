@@ -28,6 +28,7 @@ node default
         packages                    => $vsConfig['packages'],
         gitUserName                 => $vsConfig['git']['userName'],
         gitUserEmail                => $vsConfig['git']['userEmail'],
+        gitCredentials              => $facts['git_credentials'],
         
         vstools                     => $vsConfig['vstools'],
         vaultPort                   => $vaultPort,

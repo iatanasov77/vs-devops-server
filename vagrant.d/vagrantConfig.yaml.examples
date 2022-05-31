@@ -1,9 +1,4 @@
 hostAddress: '10.3.3.3'
-gui:
-    documentRoot: '/projects/VS_MyProjects_GuiSymfony/public'
-    database:
-        name: 'VsMyProjects'
-        dump: '/vagrant/doc/sql/VsMyProjects-20210222.sql'
 
 vstools:
     mkvhost: 'v0.3.0'
@@ -16,8 +11,6 @@ packages:
   - dos2unix
   - mc
   - vim
-  - git
-  - git-ftp
   - gitflow
   - nmap
   - iptraf
