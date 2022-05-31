@@ -1,3 +1,10 @@
+0.4.0	|	Release date: **31.05.2022**
+============================================
+* New Features:
+  - Move Installing of git to dependencies stage with installing of git prompt.
+  - Update bumversion in config.
+
+
 0.3.0	|	Release date: **30.05.2022**
 ============================================
 * New Features:
