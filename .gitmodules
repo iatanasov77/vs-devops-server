@@ -110,3 +110,21 @@
 [submodule "vagrant.d/puppet/modules/kibana"]
 	path = vagrant.d/puppet/modules/kibana
 	url = https://github.com/elastic/puppet-kibana.git
+[submodule "vagrant.d/puppet/modules/kmod"]
+	path = vagrant.d/puppet/modules/kmod
+	url = https://github.com/voxpupuli/puppet-kmod.git
+[submodule "vagrant.d/puppet/modules/augeasproviders_sysctl"]
+	path = vagrant.d/puppet/modules/augeasproviders_sysctl
+	url = https://github.com/voxpupuli/puppet-augeasproviders_sysctl.git
+[submodule "vagrant.d/puppet/modules/augeasproviders_core"]
+	path = vagrant.d/puppet/modules/augeasproviders_core
+	url = https://github.com/voxpupuli/puppet-augeasproviders_core.git
+[submodule "vagrant.d/puppet/modules/systemd"]
+	path = vagrant.d/puppet/modules/systemd
+	url = https://github.com/voxpupuli/puppet-systemd.git
+[submodule "vagrant.d/puppet/modules/hashi_stack"]
+	path = vagrant.d/puppet/modules/hashi_stack
+	url = https://github.com/voxpupuli/puppet-hashi_stack.git
+[submodule "vagrant.d/puppet/modules/vs_core"]
+	path = vagrant.d/puppet/modules/vs_core
+	url = https://github.com/iatanasov77/puppet-core.git

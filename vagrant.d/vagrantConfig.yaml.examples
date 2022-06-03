@@ -1,5 +1,10 @@
 hostAddress: '10.3.3.3'
 
+dependencies:
+    #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/remi-release-7.rpm'
+    #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/remi-release-8.rpm'
+    remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.5-3.el8.remi.noarch.rpm'
+    
 vstools:
     mkvhost: 'v0.3.0'
     mkphar: 'v0.2.0'
@@ -20,146 +25,7 @@ packages:
 git:
    userName: 'Ivan I. Atanasov'
    userEmail: 'email@example.com'
-     
-subsystems:
-    ansible:
-        enabled: true  # Problem installing on CentOs 8
-    hashicorp:
-        enabled: true
-        packer: '1.7.0'
-        terraform: '0.12.28'
-        vault: '1.5.5'
 
-    docker:
-        enabled: true
-        docker_users: ['vagrant', 'root']
-    kubernetes:
-        enabled: false
-
-    jenkins:
-        enabled: true
-        jenkinsAdmin: { email: 'admin@example.com', username: 'admin',  password: 'admin'}
-        jenkinsPort: "8080"
-        swarmVersion: '3.25'
-        jenkinsPluginsCli:  ['workflow-aggregator', 'workflow-scm-step', 'blueocean', 'ssh-agent', 'ws-ws-replacement']
-        jobs:
-            vankosoft-site:
-                type: 'Pipeline'
-                name: 'VankoSoft.Org'
-                createXml: '/usr/bin/php /vagrant/jenkins.d/createJobXml.php'
-                config:
-                    plugins:
-                        flowPlugin: 'workflow-job@2.40'
-                        definitionPlugin: 'workflow-cps@2.90'
-                    pipeline: '/projects/VankoSoft.Org/Jenkinsfile'
-
-    gitlab:
-        enabled: false
-    maven:
-        enabled: false
-    
-    nagios:
-        enabled: false
-        apache_httpd: false # If it's true conflict with vs_lamp::apache
-    icinga:
-        enabled: true
-        
-    elastic_stack:
-        enabled: true
-        version: '7.12.0'
-        host_name: 'devops.lh'
-        elasticsearch_port: 9200
-        kibana_host: '10.3.3.3'
-        kibana_port: '5601'
-        logstash_port: 5044
-
-jenkinsPlugins:
-    # Swarm Plugin not needed. It's installed by jenkins::master puppet class
-    #############################################################################
-    #swarm:
-    #    description: 'Swarm Plugin. Needed for Jenkins slaves.'
-    #    version: 'latest'
-
-    display-url-api:
-        description: 'Provides an extension point to define alternate URLs for use in notifications.'
-        version: '2.3.4'
-    
-    scm-api:
-        description: 'SCM API Plugin'
-        version: '2.6.4'
-    workflow-step-api:
-        description: 'Step API Plugin'
-        version: 'latest'
-    credentials-binding:
-        description: 'CredentialsBinding Plugin'
-        version: '1.15'
-    plain-credentials:
-        description: 'PlainCredentials Plugin'
-        version: 'latest'
-    ssh-credentials:
-        description: 'SSHCredentials Plugin'
-        version: '1.18.1'
-    
-    publish-over-dropbox:
-        description: 'PublishOverDropbox Plugin'
-        version: 'latest'
-    jobConfigHistory:
-        description:  'JobConfigHistory Plugin'
-        version: 'latest'
-    
-    apache-httpcomponents-client-4-api:
-        description: 'apache-httpcomponents-client-4-api Plugin'
-        version: 'latest'
-    git-client:
-        description: ' Git Client Plugin'
-        version: '3.5.1'
-    git:
-        description: 'Git Plugin'
-        version: '4.5.0'
-    
-    token-macro:
-        description: 'Token Macro Plugin'
-        version: 'latest'
-    snakeyaml-api:
-        description: 'snakeyaml-api Plugin'
-        version: 'latest'
-    jackson2-api:
-        description: 'jackson2-api Plugin'
-        version: 'latest'
-    okhttp-api:
-        description: 'okhttp-api Plugin'
-        version: 'latest'
-    github-api:
-        description: 'GitHub API Plugin'
-        version: 'latest'
-    github:
-        description: 'GitHub Plugin'
-        version: 'latest'
-     
-    publish-over:
-        description: 'PublishOver Plugin'
-        version: 'latest'
-    publish-over-ftp:
-        description: 'PublishOverFtp Plugin'
-        version: 'latest'
-    phing:
-        description: 'Phing Plugin'
-        version: 'latest'
-    trilead-api:
-        description: 'TrileadApi Plugin'
-        version: 'latest'
-    jsch:
-        description: 'JSCH Plugin'
-        version: 'latest'
-    ssh:
-        description: 'SSH Plugin'
-        version: 'latest'
-    database:
-        description: 'Database Plugin'
-        version: 'latest'
-    database-mysql:
-        description: 'DatabaseMySql Plugin'
-        version: 'latest'
 
 lamp:
     phpVersion: '7.4'
@@ -222,4 +88,138 @@ lamp:
     phpMyAdmin:
         source: 'https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.zip'
         targetDirName: 'phpMyAdmin-5.0.4-all-languages'
+
+
+
+subsystems:
+    ansible:
+        enabled: true  # Problem installing on CentOs 8
+        
+    cloud_platforms:
+        enabled: true
+        azure: true
+        aws: true
+
+    hashicorp:
+        enabled: true
+        packer: '1.7.0'
+        terraform: '0.12.28'
+        vault: '1.5.5'
+        vaultPort: '8200'
+
+    docker:
+        enabled: true
+        # Add Docker Users with Exec , becausue here make dependency cycle error
+        #docker_users: ['vagrant', 'root']
+    kubernetes:
+        enabled: true
+
+    jenkins:
+        enabled: true
+        version: 'latest'
+        securityModel: full_control # https://github.com/voxpupuli/puppet-jenkins#configuring-security
+        jenkinsAdmin: { email: 'admin@example.com', username: 'admin',  password: 'admin'}
+        jenkinsPort: "8080"
+        swarmVersion: '3.32'
+
+    gitlab:
+        enabled: false
+    maven:
+        enabled: false
+    
+    nagios:
+        enabled: false
+        apache_httpd: false # If it's true conflict with vs_lamp::apache
+    icinga:
+        enabled: true
+        
+    elastic_stack:
+        enabled: true
+        version: '7.12.0'
+        host_name: 'devops.lh'
+        elasticsearch_port: 9200
+        kibana_host: '10.3.3.3'
+        kibana_port: '5601'
+        logstash_port: 5044
+
+
+##################################################################
+# Jenkins Puppet Module Configuration
+##################################################################
+jenkinsPlugins: {}
+jenkinsJobs: {}
+jenkinsCredentials: {}
+
+
+##################################################################
+# Jenkins Cli Configuration
+##################################################################
+jenkinsPluginsCli:
+    display-url-api:
+        description: 'Provides an extension point to define alternate URLs for use in notifications.'
+        version: '2.3.4'
+    scm-api:
+        description: 'SCM API Plugin'
+        version: '2.6.4'
+    workflow-step-api:
+        description: 'Step API Plugin'
+        version: 'latest'
+    credentials-binding:
+        description: 'CredentialsBinding Plugin'
+        version: '1.15'
+    apache-httpcomponents-client-4-api:
+        description: 'apache-httpcomponents-client-4-api Plugin'
+        version: 'latest'
+    git-client:
+        description: ' Git Client Plugin'
+        version: '3.5.1'
+    git:
+        description: 'Git Plugin'
+        version: '4.5.0'
+    workflow-aggregator:
+        description: 'A suite of plugins that lets you orchestrate automation, simple or complex. See Pipeline as Code with Jenkins for more details.'
+        version: 'latest'
+    workflow-scm-step:
+        description: 'This plugin allows pipelines to use standard Jenkins SCM plugins to check out source code.'
+        version: 'latest'
+    blueocean:
+        description: 'Blue Ocean rethinks the Jenkins user experience. Designed from the ground up for Jenkins Pipeline and compatible with Freestyle jobs'
+        version: 'latest'
+    pipeline-stage-view:
+        description: 'When you have complex build Pipelines, it is useful to be able to see the progress of each stage.'
+        version: 'latest'
+    ssh-agent:
+        description: 'This plugin allows you to provide SSH credentials to builds via a ssh-agent in Jenkins.'
+        version: 'latest'
+    ws-ws-replacement:
+        description: 'Workspace Whitespace Replacement is a simple Jenkins plug-in that allows job to be created with spaces in their name, but when the job is carried out on a slave node, the path used will have all spaces replaced by an underscore.'
+        version: 'latest'
+
+jenkinsJobsCli:
+    vankosoft-site:
+        type: 'Pipeline'
+        name: 'VankoSoft.Org'
+        config:
+            plugins:
+                flowPlugin: 'workflow-job@2.40'
+                definitionPlugin: 'workflow-cps@2.90'
+            pipeline: '/projects/VankoSoft.Org/Jenkinsfile'
+
+jenkinsCredentialsCli:
+    gitlab-iatanasov77:
+        type: UsernamePassword
+        username: 'user'
+        password: 'pass'
+
+jenkinsLibraries:
+    libraryPlugin: 'pipeline-groovy-lib@591.v3a_7f422b_d058'
+    scmPlugin: 'git@4.11.3'
+    
+    libraries:
+        vankosoft-groovy-lib:
+            type: 'GlobalLibrary'
+            name: 'VankosoftGroovyLib'
+            remote: 'https://github.com/iatanasov77/vs-groovy-lib.git'
+
+
 
