@@ -1,3 +1,13 @@
+1.0.0	|	Release date: **03.06.2022**
+============================================
+* New Features:
+  - Update Vagrant Configuration.
+  - Add DevOps_Hosts Configurations.
+* Bug-Fixes:
+  - Fix Jenkins Installation and Configuration.
+  - Gitignore terraform state files.
+
+
 0.4.0	|	Release date: **31.05.2022**
 ============================================
 * New Features:
