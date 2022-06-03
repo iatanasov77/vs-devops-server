@@ -1,0 +1,80 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+def fail_with_message( msg )
+    fail Vagrant::Errors::VagrantError.new, msg
+end
+
+# Check for required vagrant plugins
+if ! Vagrant.has_plugin? 'vagrant-hostmanager'
+    fail_with_message "vagrant-hostmanager missing, please install the plugin with this command:
+        vagrant plugin install vagrant-hostmanager"
+end
+
+# RUN VAGRANT
+Vagrant.configure("2") do |config|
+    config.hostmanager.enabled              = true
+    config.hostmanager.manage_host          = true
+    config.hostmanager.manage_guest         = false
+    config.hostmanager.ignore_private_ip    = false
+    config.hostmanager.include_offline      = true
+    config.hostmanager.aliases              = []
+    
+    $finish = <<-SCRIPT
+echo "##########################################################################################################################################"
+echo "#"
+echo "# All finished successfull "
+echo "# ------------------------ "
+echo "#"
+echo "# Enter Terraform Host and Apply Terrsform Configuration: "
+echo "# -----------------------------------------------------------------------------"
+echo "# $ terraform init"
+echo "# $ terraform validate"
+echo "# $ terraform plan"
+echo "# $ terraform apply"
+echo "# -----------------------------------------------------------------------------"
+echo "#"
+echo "# Open Dockerized application in your host machine browser http://doh-docker.lh OR http://10.3.3.4"
+echo "#"
+echo "##########################################################################################################################################"
+SCRIPT
+    
+    ####################################################################
+    # /BEGIN Docker Host
+    config.vm.define "VS_DevOpsHosts_DockerHost" do |dh|
+        dh.vm.box              = "bento/centos-8"
+        dh.vm.hostname         = "doh-docker.lh"
+        dh.vm.box_check_update = true
+        
+        hostIp  = '10.3.3.4'
+        dh.vm.network :private_network, ip: "#{hostIp}"
+        #dh.vm.network :forwarded_port, guest: 80, host: 8080
+        
+        dh.vm.synced_folder ".", "/vagrant" #, owner: "root", group: "root"
+
+        dh.vm.provider :virtualbox do |vb, override|
+            vb.gui		= false
+            vb.name     = "doh-docker.lh"
+            vb.memory   = 512
+        end
+
+        dh.vm.provision "shell", path: "vagrant.d/provision/main.sh", env: {
+          "SWAP_SIZE"       => 1024,
+        }
+
+        dh.vm.provision :puppet do |puppet|
+            puppet.manifests_path = 'vagrant.d/puppet/manifests'
+            puppet.module_path    = 'vagrant.d/puppet/modules'
+            puppet.options        = ['--verbose', '--debug']
+    
+            puppet.manifest_file  = "nodeDocker.pp"
+            puppet.facter         = {
+                'hostip'    => hostIp,
+            }
+        end
+    
+        dh.vm.provision "shell", inline: $finish
+    end
+    # /END Docker Host
+    ###################################################################
+end
