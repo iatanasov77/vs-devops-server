@@ -1,3 +1,9 @@
+1.0.1	|	Release date: **03.06.2022**
+============================================
+* New Features:
+  - Remove Puppet Module 'hashicorp' .
+
+
 1.0.0	|	Release date: **03.06.2022**
 ============================================
 * New Features:
