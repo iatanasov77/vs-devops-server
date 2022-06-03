@@ -1,4 +1,9 @@
+#!/usr/bin/php
 <?php
+/**
+ * Used In Class 'vs_devops::subsystems::jenkins::jenkinsCliCredentials'
+ */
+
 /*
  * Init Options
  */

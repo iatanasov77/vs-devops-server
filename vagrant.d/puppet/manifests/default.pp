@@ -16,10 +16,10 @@ node default
 {
 	#include epel # Caannot redeclare error
 	include stdlib 
-	
-	$vaultPort = '8282'
 
 	class { '::vs_devops':
+        dependencies                => $vsConfig['dependencies'],
+        
         defaultHost                 => "${hostname}",
         defaultDocumentRoot         => '/vagrant/gui/public',	# "${vsConfig['gui']['documentRoot']}",
         
@@ -31,7 +31,6 @@ node default
         gitCredentials              => $facts['git_credentials'],
         
         vstools                     => $vsConfig['vstools'],
-        vaultPort                   => $vaultPort,
         
         #############################################################################
         # LAMP SERVER
@@ -67,25 +66,8 @@ node default
     	stage { 'vault-setup': }
         Stage['main'] -> Stage['vault-setup']
         class { '::vs_devops::subsystems::hashicorp::vaultSetup':
-            vaultSetup  => "/usr/bin/php /vagrant/vault.d/vault_setup.php -p${vaultPort} -d '${facts['secrets_file']}'",
+            vaultSetup  => "/usr/bin/php /vagrant/vault.d/vault_setup.php -p${vsConfig['subsystems']['hashicorp']['vaultPort']} -d '${facts['secrets_file']}'",
             stage       => 'vault-setup',
-        }
-    }
-
-    if ( $vsConfig['subsystems']['jenkins']['enabled'] ) {
-        stage { 'jenkins-credentials-cli': }
-        stage { 'jenkins-jobs-cli': }
-        Stage['main'] -> Stage['jenkins-plugins-cli'] -> Stage['jenkins-credentials-cli'] -> Stage['jenkins-jobs-cli']
-        
-        class { 'vs_devops::subsystems::jenkins::jenkinsCliCredentials':
-            credentials     => $secrets['jenkins'],
-            readPrivateKeys => '/usr/bin/php /vagrant/jenkins.d/replace_private_key.php',
-            stage           => 'jenkins-credentials-cli',
-        }
-        
-        class { 'vs_devops::subsystems::jenkins::jenkinsCliJobs':
-           jobs     => $vsConfig['subsystems']['jenkins']['jobs'],
-           stage    => 'jenkins-jobs-cli',
         }
     }
 }
