@@ -17,6 +17,7 @@ packages:
   - mc
   - vim
   - gitflow
+  - net-tools
   - nmap
   - iptraf
   - sshpass
