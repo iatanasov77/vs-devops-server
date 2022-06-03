@@ -83,9 +83,6 @@
 [submodule "vagrant.d/puppet/modules/nagios_core"]
 	path = vagrant.d/puppet/modules/nagios_core
 	url = https://github.com/puppetlabs/puppetlabs-nagios_core.git
-[submodule "vagrant.d/puppet/modules/hashicorp"]
-	path = vagrant.d/puppet/modules/hashicorp
-	url = https://github.com/inkblot/puppet-hashicorp.git
 [submodule "vagrant.d/puppet/modules/docker"]
 	path = vagrant.d/puppet/modules/docker
 	url = https://github.com/puppetlabs/puppetlabs-docker.git
