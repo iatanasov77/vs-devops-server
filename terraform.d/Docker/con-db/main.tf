@@ -7,7 +7,7 @@ terraform {
 }
 
 provider "docker" {
-    host = "tcp://192.168.111.101:2375/"
+    host = "tcp://10.3.3.4:2375/"
 }
 
 resource "docker_image" "img-db" {

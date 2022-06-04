@@ -103,10 +103,25 @@ subsystems:
 
     hashicorp:
         enabled: true
-        packer: '1.7.0'
-        terraform: '0.12.28'
-        vault: '1.5.5'
-        vaultPort: '8200'
+        packer:
+            version: '1.7.0'
+        terraform:
+            version: '0.12.28'
+            config:
+                aws:
+                    accessKey: 'NOT_DEFINED'
+                    secretKey: 'NOT_DEFINED'
+                    region: 'eu-central-1'
+                azure:
+                    clientId: 'NOT_DEFINED'
+                    clientSecret: 'NOT_DEFINED'
+                    subscriptionId: 'NOT_DEFINED'
+                    tenantId: 'NOT_DEFINED'
+                    
+        vault:
+            version: '1.5.5'
+            config:
+                port: '8200'
 
     docker:
         enabled: true

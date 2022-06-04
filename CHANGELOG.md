@@ -1,3 +1,12 @@
+1.1.0	|	Release date: **04.06.2022**
+============================================
+* New Features:
+  - Add AWS Example in Terraform Infrastructure Examples.
+* Bug-Fixes:
+  - Fix Docker Host IP in Terraforn Examples.
+  - Remove Terraform Provider Credentials and Use it From Environement Variables.
+
+
 1.0.1	|	Release date: **03.06.2022**
 ============================================
 * New Features:
