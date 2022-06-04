@@ -19,10 +19,10 @@ hosts:
             serviceNotifications: 1
             vars:
                 mysql_mode: 'uptime'
-                mysql_hostname: '10.3.3.3'
+                mysql_hostname: '127.0.0.1'
                 mysql_port: '3306'
-                mysql_username: 'nagios'
-                mysql_password: 'nagios'
+                mysql_username: 'root'
+                mysql_password: 'vagrant'
           
     # NODE 2 HOST
     ########################################
@@ -42,8 +42,8 @@ hosts:
                 mysql_mode: 'uptime'
                 mysql_hostname: '10.3.3.2'
                 mysql_port: '3306'
-                mysql_username: 'nagios'
-                mysql_password: 'nagios'
+                mysql_username: 'root'
+                mysql_password: 'vagrant'
 
 commands:
     check-mysql:
