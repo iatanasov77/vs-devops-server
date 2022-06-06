@@ -54,3 +54,10 @@ terraform.tfstate
 terraform.tfstate.backup
 .terraform.lock.hcl
 
+#######################################
+# Monitoring Hosts Configurations
+#######################################
+icingaConfig.yml
+nagiosConfig.yml
+
+

@@ -226,6 +226,12 @@ jenkinsCredentialsCli:
         type: UsernamePassword
         username: 'user'
         password: 'pass'
+    vps-mini-ssh-root:
+        type: SSHUserPrivateKey
+        plugin: 'ssh-credentials@277.v95c2fec1c047'
+        username: 'root'
+        privateKey: '/vagrant/jenkins.d/credentials/vps-mini-ssh-root.rsa'
+        passphrase: ''
 
 jenkinsLibraries:
     libraryPlugin: 'pipeline-groovy-lib@591.v3a_7f422b_d058'
