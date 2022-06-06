@@ -1,3 +1,11 @@
+1.2.0	|	Release date: **06.06.2022**
+============================================
+* New Features:
+  - Add Icinga Monitoring of Superhosting VPS.
+* Bug-Fixes:
+  - Fix Installing Jenkins Credentials with Private Keys.
+
+
 1.1.0	|	Release date: **04.06.2022**
 ============================================
 * New Features:
