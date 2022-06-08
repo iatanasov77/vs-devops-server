@@ -1,0 +1,11 @@
+Using Manuals:
+=================
+https://github.com/puppetlabs/puppetlabs-kubernetes/tree/main
+https://hub.docker.com/r/puppet/kubetool
+
+Using This Kube Tool From Docker, Create env File ( Example: /vagrant/kubernetes_config ) to Create Puppet Module Configuration.
+Docker Command From This Directory: $ docker run --rm -v $(pwd):/mnt --env-file env puppet/kubetool:latest
+
+Use /vagrant/DevOps_Hosts/KubernetesCluster Vagrant Configuration To Create The Cluster. NOTE: Add Required Puppet Modules.
+
+

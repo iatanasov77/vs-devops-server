@@ -1,0 +1,8 @@
+OS=centos
+VERSION=1.24.1
+CONTAINER_RUNTIME=cri_containerd
+CNI_PROVIDER=cilium
+ETCD_INITIAL_CLUSTER=kube-controller:10.0.254.2
+ETCD_IP="%{networking.ip}"
+KUBE_API_ADVERTISE_ADDRESS="%{networking.ip}"
+INSTALL_DASHBOARD=true
