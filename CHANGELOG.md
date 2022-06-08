@@ -1,3 +1,9 @@
+1.3.0	|	Release date: **08.06.2022**
+============================================
+* New Features:
+  - Add Kubernetes Cluster into the DevOps Hosts.
+
+
 1.2.0	|	Release date: **06.06.2022**
 ============================================
 * New Features:
