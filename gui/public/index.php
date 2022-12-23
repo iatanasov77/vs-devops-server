@@ -43,6 +43,10 @@
         		<p>
             		<div>sudo ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-jenkins-slaves.yml</div>
 				</p>
+				<h3>Setup Default JRE Version</h3>
+        		<p>
+            		<div>sudo alternatives --config java</div>
+				</p>
 				<h3>Start/Restart Jenkins Swarm Client on Slave Host</h3>
         		<p>
             		<div>sudo service jenkins-swarm-client restart</div>
