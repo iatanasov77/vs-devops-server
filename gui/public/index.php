@@ -47,12 +47,16 @@
         		<p>
             		<div>sudo service jenkins-swarm-client restart</div>
 				</p>
-				<h3>Start/Restart Jenkins Swarm Client on Slave Host</h3>
-        		<p>
-            		<div>sudo service jenkins-swarm-client restart</div>
-				</p>
         	</div>
         <?php } ?>
+        	<div style="border: 1px solid black; width: 98%; height: auto; margin: 20px; text-align: center;">
+        		<h3>How to Fix Guest Additions to Can Mount Shared Folders</h3>
+        		<p>
+            		<div>sudo yum install elfutils-libelf-devel</div>
+            		<div>cd /opt/VBoxGuestAdditions-*/init</div>
+            		<div>sudo ./vboxadd setup</div>
+				</p>
+        	</div>
         </div>
         <div style="clear: both;"></div>
         
