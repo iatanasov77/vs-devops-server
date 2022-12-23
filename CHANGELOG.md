@@ -1,3 +1,9 @@
+1.3.1	|	Release date: **23.12.2022**
+============================================
+* Bug-Fixes and Improvements:
+  - Many Improvements.
+
+
 1.3.0	|	Release date: **08.06.2022**
 ============================================
 * New Features:
