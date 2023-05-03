@@ -1,9 +1,0 @@
-rolesUpdate: true
-pathRoles: /vagrant/ansible.d/playbook/roles/
-galaxyRoles:
-    - geerlingguy.java
-    - geerlingguy.jenkins
-    - mattandes.jenkins_casc
-ansibleRoles:
-    'vankosoft.jenkins_slave': 'https://github.com/iatanasov77/ansible-role-jenkins-slave.git'
-

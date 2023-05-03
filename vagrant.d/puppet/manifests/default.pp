@@ -3,7 +3,6 @@
 #######################################################################################################################
 
 $vsConfig       = parseyaml( $facts['vs_config'] )
-$ansibleConfig  = parseyaml( $facts['ansible_config'] )
 $nagiosConfig   = parseyaml( $facts['nagios_config'] )
 $icingaConfig   = parseyaml( $facts['icinga_config'] )
 
