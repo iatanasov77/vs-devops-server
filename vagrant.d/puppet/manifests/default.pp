@@ -5,6 +5,7 @@
 $vsConfig       = parseyaml( $facts['vs_config'] )
 $nagiosConfig   = parseyaml( $facts['nagios_config'] )
 $icingaConfig   = parseyaml( $facts['icinga_config'] )
+$gitCredentials = parsejson( $facts['git_credentials'] )
 
 # Set default path for Exec calls
 Exec {
@@ -27,7 +28,7 @@ node default
         packages                    => $vsConfig['packages'],
         gitUserName                 => $vsConfig['git']['userName'],
         gitUserEmail                => $vsConfig['git']['userEmail'],
-        gitCredentials              => $facts['git_credentials'],
+        gitCredentials              => $gitCredentials,
         
         vstools                     => $vsConfig['vstools'],
         
