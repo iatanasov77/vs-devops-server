@@ -5,5 +5,5 @@ galaxyRoles:
     - geerlingguy.jenkins
     - mattandes.jenkins_casc
 ansibleRoles:
-    'vankosoft.jenkins_slave': 'https://github.com/iatanasov77/-ansible-role-jenkins-slave.git'
+    'vankosoft.jenkins_slave': 'https://github.com/iatanasov77/ansible-role-jenkins-slave.git'
 
