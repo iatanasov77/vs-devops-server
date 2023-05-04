@@ -12,6 +12,22 @@ vstools:
     #ftpdeploy: 'v3.0.1'
     ftpdeploy: 'download'
 
+frontendtools:
+    #nodejs: latest
+    nodejs: 18.16.0
+    tools:
+        yarn:
+            version: 'latest'
+        gulp:
+            version: 'latest'
+        angular-cli:
+            version: 'latest'
+        create-react-app:
+            version: 'latest'
+        # Using for upgrade package.json dependencie's versions
+        npm-upgrade:
+            version: 'latest'
+
 packages:
   - dos2unix
   - mc
@@ -48,7 +64,7 @@ lamp:
         
         # Nagios host dependencies
         - auth_basic
-        - authn_core
+        #- authn_core
         - authn_file
         - authz_user
         - mime

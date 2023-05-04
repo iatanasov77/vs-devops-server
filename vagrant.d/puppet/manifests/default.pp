@@ -31,6 +31,7 @@ node default
         gitCredentials              => $gitCredentials,
         
         vstools                     => $vsConfig['vstools'],
+        frontendtools               => $vsConfig['frontendtools'],
         
         #############################################################################
         # LAMP SERVER

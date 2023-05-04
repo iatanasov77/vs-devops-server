@@ -39,6 +39,10 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 
 	  	config.vm.box				= ENV['VAGRANT_BOX']
 		config.vm.box_check_update	= true
+		
+		if Vagrant.has_plugin?( "vagrant-vbguest" ) then
+            config.vbguest.auto_update = false
+        end
 
 		config.vm.hostname 			= ENV['HOST_NAME']
 		config.vm.network :private_network, ip: ENV['PRIVATE_IP']
@@ -52,6 +56,8 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 			vb.gui		= false
 			vb.name		= ENV['MASHINE_NAME']
 			vb.memory	= ENV['VBOX_MACHINE_MEMORY']
+			
+			vb.check_guest_additions = false
 		end
 		
 		# Default Shared Folder
