@@ -4,7 +4,11 @@ dependencies:
     #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/remi-release-7.rpm'
     #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/remi-release-8.rpm'
     remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.5-3.el8.remi.noarch.rpm'
-    
+
+gui:
+    guiRoot: '/vagrant/gui/vs-devops-dashboard'
+    documentRoot: '/vagrant/gui/vs-devops-dashboard/dist/vs-devops-dashboard'
+ 
 vstools:
     mkvhost: 'v0.3.0'
     mkphar: 'v0.2.0'

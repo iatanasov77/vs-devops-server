@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from "rxjs";
 import { ISubsystems } from "./subsystems.interface";
 
-const backendURL = 'http://devops.lh/angular-api.php';
+const backendURL = 'http://api.devops.lh/angular-api.php';
 
 @Injectable({
     providedIn: 'root'

@@ -21,7 +21,7 @@ node default
         dependencies                => $vsConfig['dependencies'],
         
         defaultHost                 => "${hostname}",
-        defaultDocumentRoot         => '/vagrant/gui/public',	# "${vsConfig['gui']['documentRoot']}",
+        defaultDocumentRoot         => "${vsConfig['gui']['documentRoot']}",
         
         subsystems                  => $vsConfig['subsystems'],
 
@@ -47,14 +47,6 @@ node default
         phpSettings                 => $vsConfig['lamp']['phpSettings'],
         
         phpMyAdmin					=> $vsConfig['lamp']['phpMyAdmin'],
-    }
-	
-	##################################################
-    # Create Vhost for GUI
-    ##################################################
-    -> vs_lamp::apache_vhost{ "angular.${defaultHost}":
-        hostName        => "angular.${defaultHost},
-        documentRoot    => '/vagrant/gui/vs-devops-dashboard/dist/vs-devops-dashboard',
     }
     
 	# puppet module install saz-sudo --version 5.0.0
