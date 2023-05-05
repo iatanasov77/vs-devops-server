@@ -1,0 +1,15 @@
+#background #page #header ul.navigation li {
+    width: 114px !important;
+}
+
+#background #page #body #section {
+    margin: 0 0 50px 0 !important;
+    padding: 0 !important;
+}
+
+#background #page #body #section .footer .body ul.article li.first {
+    float: none !important;
+    width: 98% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}

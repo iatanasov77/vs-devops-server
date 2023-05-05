@@ -1,0 +1,47 @@
+<div id="content">
+    <h2>Examples</h2>
+</div>
+<div id="section">
+    <div class="footer">
+	    <div class="body">
+	        <ul class="article">
+	            <li class="first">
+			        <div *ngIf="subsystems?.hashicorp.enabled" style="border: 1px solid black; height: auto; margin: 20px; text-align: center;">
+			            <h3>Terraform Examples</h3>
+			            <div>
+			                <div>cd /vagrant/terraform.d</div>
+			                <div>terraform init</div>
+			                <div>terraform apply</div>
+			            </div>
+			            <div>
+			                <div>And then open in your host browser http://docker.lh</div>
+			            </div>
+			        </div>
+			        <div *ngIf="subsystems?.ansible.enabled" style="border: 1px solid black; height: auto; margin: 20px; text-align: center;">
+			            <h3>Ansible Examples</h3>
+			            <div>
+			                <div>ansible-galaxy install --roles-path /vagrant/ansible.d/playbook/roles -r /vagrant/ansible.d/requirements.yml --force</div>
+			                <div>sudo ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-jenkins-slaves.yml</div>
+			            </div>
+			            <h3>Setup Default JRE Version</h3>
+			            <div>
+			                <div>sudo alternatives --config java</div>
+			            </div>
+			            <h3>Start/Restart Jenkins Swarm Client on Slave Host</h3>
+			            <div>
+			                <div>sudo service jenkins-swarm-client restart</div>
+			            </div>
+			        </div>
+			        <div style="border: 1px solid black; height: auto; margin: 20px; text-align: center;">
+			            <h3>How to Fix Guest Additions to Can Mount Shared Folders</h3>
+			            <div>
+			                <div>sudo yum install elfutils-libelf-devel</div>
+			                <div>cd /opt/VBoxGuestAdditions-*/init</div>
+			                <div>sudo ./vboxadd setup</div>
+			            </div>
+			        </div>
+			    </li>
+			</ul>
+		</div>
+	</div>
+</div>
