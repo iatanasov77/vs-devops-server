@@ -1,3 +1,17 @@
+1.4.0	|	Release date: **05.05.2023**
+============================================
+* New Features and Improvements:
+  - Ansible Roles Are Installed Only On CLI.
+  - Add Design For GUI.
+  - Litle Refactoring.
+  - Improve Puppet Provisioning.
+  - Improve and Update Puppet Modules.
+  - Create Angular Dashboard Application.
+  - Implement a Theme For Angular Dashboard.
+  - Make Using Angular GUI.
+  - Add Into Php Settings in Vagrant Config.
+
+
 1.3.1	|	Release date: **23.12.2022**
 ============================================
 * Bug-Fixes and Improvements:
