@@ -61,3 +61,8 @@ icingaConfig.yml
 nagiosConfig.yml
 
 
+##############################
+# Angular Dashboard App
+##############################
+/vagrant/gui/vs-devops-dashboard/node_modules/
+

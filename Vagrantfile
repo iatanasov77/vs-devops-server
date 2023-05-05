@@ -30,7 +30,7 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
     vagrant_config.hostmanager.include_offline   	= true
 	vagrant_config.hostmanager.aliases				= []
 	
-	vagrant_config.hostmanager.aliases.push( "#{ENV['HOST_NAME']} www.#{ENV['HOST_NAME']}" )
+	vagrant_config.hostmanager.aliases.push( "#{ENV['HOST_NAME']} www.#{ENV['HOST_NAME']} api.#{ENV['HOST_NAME']}" )
 	
 	##############################
 	# Config vagrant machine
@@ -39,6 +39,10 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 
 	  	config.vm.box				= ENV['VAGRANT_BOX']
 		config.vm.box_check_update	= true
+		
+		if Vagrant.has_plugin?( "vagrant-vbguest" ) then
+            config.vbguest.auto_update = false
+        end
 
 		config.vm.hostname 			= ENV['HOST_NAME']
 		config.vm.network :private_network, ip: ENV['PRIVATE_IP']
@@ -52,6 +56,8 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 			vb.gui		= false
 			vb.name		= ENV['MASHINE_NAME']
 			vb.memory	= ENV['VBOX_MACHINE_MEMORY']
+			
+			vb.check_guest_additions = false
 		end
 		
 		# Default Shared Folder
@@ -65,7 +71,6 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
     
         require 'yaml'
         provisionConfig     = YAML.load_file( 'vagrant.d/vagrantConfig.yaml' )
-        ansibleConfig       = YAML.load_file( 'ansible.d/ansibleConfig.yml' )
         nagiosConfig        = YAML.load_file( 'nagios.d/nagiosConfig.yml' )
         icingaConfig        = YAML.load_file( 'nagios.d/icingaConfig.yml' )
         
@@ -84,11 +89,10 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 			    'secrets'               => File.read( 'vault.d/secrets.json' ),
 			    'secrets_file'          => '/vagrant/vault.d/secrets.json',
 			    'vs_config'             => provisionConfig.to_yaml,
-			    'ansible_config'        => ansibleConfig.to_yaml,
 			    'nagios_config'         => nagiosConfig.to_yaml,
 			    'icinga_config'         => icingaConfig.to_yaml,
                 'hostname'              => ENV['HOST_NAME'],
-                'git_credentials'       => ENV['GIT_CREDENTIALS'],
+                'git_credentials'       => JSON.parse( ENV['GIT_CREDENTIALS'] ),
 			}
 	    end
 	    

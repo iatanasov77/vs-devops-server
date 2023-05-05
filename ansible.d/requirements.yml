@@ -1,0 +1,12 @@
+roles:
+    # Install Galaxy Roles
+    - name: geerlingguy.java
+    - name: geerlingguy.jenkins
+    - name: mattandes.jenkins_casc
+    
+    # Install Roles From GitHub
+    - name: vankosoft.jenkins_slave
+      src: https://github.com/iatanasov77/ansible-role-jenkins-slave
+      version: main
+
+

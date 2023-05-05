@@ -4,6 +4,7 @@
 [submodule "vagrant.d/puppet/modules/stdlib"]
 	path = vagrant.d/puppet/modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/sudo"]
 	path = vagrant.d/puppet/modules/sudo
 	url = https://github.com/saz/puppet-sudo.git
@@ -13,6 +14,7 @@
 [submodule "vagrant.d/puppet/modules/java"]
 	path = vagrant.d/puppet/modules/java
 	url = https://github.com/puppetlabs/puppetlabs-java.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/archive"]
 	path = vagrant.d/puppet/modules/archive
 	url = https://github.com/voxpupuli/puppet-archive
@@ -40,12 +42,15 @@
 [submodule "vagrant.d/puppet/modules/inifile"]
 	path = vagrant.d/puppet/modules/inifile
 	url = https://github.com/puppetlabs/puppetlabs-inifile
+    branch = main
 [submodule "vagrant.d/puppet/modules/apache"]
 	path = vagrant.d/puppet/modules/apache
 	url = https://github.com/puppetlabs/puppetlabs-apache.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/concat"]
 	path = vagrant.d/puppet/modules/concat
 	url = https://github.com/puppetlabs/puppetlabs-concat.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/trycatch"]
 	path = vagrant.d/puppet/modules/trycatch
 	url = https://github.com/dalen/puppet-trycatch.git
@@ -64,9 +69,11 @@
 [submodule "vagrant.d/puppet/modules/mysql"]
 	path = vagrant.d/puppet/modules/mysql
 	url = https://github.com/puppetlabs/puppetlabs-mysql.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/vcsrepo"]
 	path = vagrant.d/puppet/modules/vcsrepo
 	url = https://github.com/puppetlabs/puppetlabs-vcsrepo.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/phpmyadmin"]
 	path = vagrant.d/puppet/modules/phpmyadmin
 	url = https://github.com/justicel/puppet-phpmyadmin.git
@@ -86,12 +93,14 @@
 [submodule "vagrant.d/puppet/modules/docker"]
 	path = vagrant.d/puppet/modules/docker
 	url = https://github.com/puppetlabs/puppetlabs-docker.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/gnupg"]
 	path = vagrant.d/puppet/modules/gnupg
 	url = https://github.com/n1tr0g/golja-gnupg.git
 [submodule "vagrant.d/puppet/modules/kubernetes"]
 	path = vagrant.d/puppet/modules/kubernetes
 	url = https://github.com/puppetlabs/puppetlabs-kubernetes.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/datacat"]
 	path = vagrant.d/puppet/modules/datacat
 	url = https://github.com/richardc/puppet-datacat.git
@@ -125,3 +134,7 @@
 [submodule "vagrant.d/puppet/modules/vs_core"]
 	path = vagrant.d/puppet/modules/vs_core
 	url = https://github.com/iatanasov77/puppet-core.git
+    branch = main
+[submodule "vagrant.d/puppet/modules/icinga"]
+	path = vagrant.d/puppet/modules/icinga
+	url = https://github.com/Icinga/puppet-icinga.git

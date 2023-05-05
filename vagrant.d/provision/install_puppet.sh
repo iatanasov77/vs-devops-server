@@ -4,18 +4,24 @@ echo "installing Puppet"
 mkdir -p /etc/puppetlabs/facter/facts.d
 
 if [ $ID == "centos" ]; then
-	if [ $VERSION_ID == "8" ]; then
-		sudo rpm -ivh https://yum.puppet.com/puppet6-release-el-8.noarch.rpm
-		sudo dnf -y install puppet
-	elif [ $VERSION_ID == "7" ]; then
-		sudo rpm -ivh https://yum.puppet.com/puppet6-release-el-7.noarch.rpm
-	    #sudo rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
-	    #sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
-	    sudo yum -y install puppet	
-	else
-		echo "Not Supported"
-	fi
+	case $VERSION_ID in
+        7)
+            sudo rpm -ivh https://yum.puppet.com/puppet6-release-el-7.noarch.rpm
+            ;;
+        8)
+            #sudo rpm -ivh https://yum.puppet.com/puppet6-release-el-8.noarch.rpm
+            sudo rpm -ivh https://yum.puppet.com/puppet7-release-el-8.noarch.rpm
+            ;;
+        9)
+            #sudo rpm -ivh https://yum.puppetlabs.com/puppet6-release-el-9.noarch.rpm
+            sudo rpm -ivh https://yum.puppetlabs.com/puppet7-release-el-9.noarch.rpm
+            ;;
+        *)
+            echo "Not Supported"
+            ;;
+    esac
 
+    sudo yum -y install puppet
     sudo ln -s /opt/puppetlabs/bin/puppet /usr/local/bin/puppet
     
     echo "ensure puppet service is running"

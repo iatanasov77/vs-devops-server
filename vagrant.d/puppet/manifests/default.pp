@@ -3,9 +3,9 @@
 #######################################################################################################################
 
 $vsConfig       = parseyaml( $facts['vs_config'] )
-$ansibleConfig  = parseyaml( $facts['ansible_config'] )
 $nagiosConfig   = parseyaml( $facts['nagios_config'] )
 $icingaConfig   = parseyaml( $facts['icinga_config'] )
+$gitCredentials = parsejson( $facts['git_credentials'] )
 
 # Set default path for Exec calls
 Exec {
@@ -21,16 +21,17 @@ node default
         dependencies                => $vsConfig['dependencies'],
         
         defaultHost                 => "${hostname}",
-        defaultDocumentRoot         => '/vagrant/gui/public',	# "${vsConfig['gui']['documentRoot']}",
+        defaultDocumentRoot         => "${vsConfig['gui']['documentRoot']}",
         
         subsystems                  => $vsConfig['subsystems'],
 
         packages                    => $vsConfig['packages'],
         gitUserName                 => $vsConfig['git']['userName'],
         gitUserEmail                => $vsConfig['git']['userEmail'],
-        gitCredentials              => $facts['git_credentials'],
+        gitCredentials              => $gitCredentials,
         
         vstools                     => $vsConfig['vstools'],
+        frontendtools               => $vsConfig['frontendtools'],
         
         #############################################################################
         # LAMP SERVER
@@ -47,7 +48,7 @@ node default
         
         phpMyAdmin					=> $vsConfig['lamp']['phpMyAdmin'],
     }
-	
+    
 	# puppet module install saz-sudo --version 5.0.0
 	sudo::conf { "vagrant":
 	    ensure			=> "present",
