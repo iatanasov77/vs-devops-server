@@ -171,6 +171,9 @@ subsystems:
     icinga:
         enabled: true
         
+    ##################################################################################################### 
+    # Elasticsearch Compatibility Matrix: https://www.elastic.co/support/matrix#matrix_compatibility
+    #####################################################################################################
     elastic_stack:
         enabled: true
         version: '7.12.0'
