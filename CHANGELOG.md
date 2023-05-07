@@ -1,3 +1,9 @@
+1.4.1	|	Release date: **07.05.2023**
+============================================
+* New Features:
+  - Move Subsystems Setup Scripts into vs_devops module.
+
+
 1.4.0	|	Release date: **05.05.2023**
 ============================================
 * New Features and Improvements:
