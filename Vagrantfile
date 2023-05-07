@@ -86,8 +86,6 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 
 			puppet.manifest_file     = "default.pp"
 			puppet.facter            = {
-			    'secrets'               => File.read( 'vault.d/secrets.json' ),
-			    'secrets_file'          => '/vagrant/vault.d/secrets.json',
 			    'vs_config'             => provisionConfig.to_yaml,
 			    'nagios_config'         => nagiosConfig.to_yaml,
 			    'icinga_config'         => icingaConfig.to_yaml,
