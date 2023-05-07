@@ -143,6 +143,7 @@ subsystems:
             version: '1.5.5'
             config:
                 port: '8200'
+                secrets: '/vagrant/vault.d/secrets.json'
 
     docker:
         enabled: true
