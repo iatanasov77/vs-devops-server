@@ -11,6 +11,7 @@
 !/ansible.d/playbook/roles/index
 /ansible.d/log/
 /ansible.d/playbook.retry
+/ansible.d/inventory
 
 ##############################
 # Vagrant meta data
