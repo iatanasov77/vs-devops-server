@@ -1,3 +1,13 @@
+1.4.2	|	Release date: **08.05.2023**
+============================================
+* New Features and Improvements:
+  - Update Example Config.
+  - Update Git Submodules.
+  - Update Examples GUI Page.
+  - Create Ansible Playbook to Install Nagios NRPE.
+  - Improve Ansible Playbook for NRPE Clients.
+
+
 1.4.1	|	Release date: **07.05.2023**
 ============================================
 * New Features:
