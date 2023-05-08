@@ -6,6 +6,9 @@ myprojects.lh_remote ansible_host=192.168.0.250 ansible_connection=ssh ansible_u
 [devops_servers]
 devops.lh
 
+[production_servers]
+vankosoft.org_remote
+
 [jenkins_slaves]
 myprojects.lh_local
 myprojects.lh_remote

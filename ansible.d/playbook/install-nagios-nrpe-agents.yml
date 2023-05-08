@@ -1,4 +1,20 @@
 ---
+- hosts: production_servers
+  tasks:
+  
+  # Exec: iptables -I INPUT -p tcp --destination-port 5666 -j ACCEPT
+  - name: enable nrpe port
+    iptables:
+      chain: INPUT
+      protocol: tcp
+      destination_port: 5666
+      jump: ACCEPT
+    become: true
+      
+  - name: save iptables
+    shell: service iptables save
+    become: true
+    
 - hosts: nrpe-clients
   tasks:
   - name: install nrpe
