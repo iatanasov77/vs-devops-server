@@ -1,0 +1,62 @@
+---
+- hosts: production_servers
+  tasks:
+  
+  # Exec: iptables -I INPUT -p tcp --destination-port 5666 -j ACCEPT
+  - name: enable nrpe port
+    iptables:
+      chain: INPUT
+      protocol: tcp
+      destination_port: 5666
+      jump: ACCEPT
+    become: true
+      
+  - name: save iptables
+    shell: service iptables save
+    become: true
+    
+- hosts: nrpe-clients
+  tasks:
+  - name: install nrpe
+    yum:
+      name: nrpe
+      state: latest
+    become: true
+
+  - name: install nagios plugins
+    yum:
+      name: nagios-plugins-all
+      state: latest
+    become: true
+
+  - name: deploy nrpe.cfg
+    copy:
+      src: /vagrant/ansible.d/playbook/templates/nrpe.cfg
+      dest: /etc/nrpe.d/nrpe.cfg
+    register: deploy_nrpe
+    become: true
+
+  - name: start/restart and enable nrpe
+    systemd:
+      name: nrpe
+      state: restarted
+      enabled: yes
+    become: true
+    when: deploy_nrpe.changed
+
+- hosts: nrpe-clients-docker-hosts
+  tasks:
+  - name: deploy check_docker_container nrpe plugin
+    copy:
+      src: /vagrant/ansible.d/playbook/templates/check_docker_container.sh
+      dest: /usr/lib64/nagios/plugins/check_docker_container.sh
+      mode: '0777'
+    become: true
+    
+  - name: start/restart and enable nrpe
+    systemd:
+      name: nrpe
+      state: restarted
+      enabled: yes
+    become: true
+    

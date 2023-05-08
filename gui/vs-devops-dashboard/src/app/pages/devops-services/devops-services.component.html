@@ -4,7 +4,7 @@
 		<li class="first">
 		    <div *ngIf="subsystems?.jenkins.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
 		        <h3>Jenkins Master Automation Server</h3>
-		        <a href="http://devops.lh:8080" target="__blank">Open Jenkins</a>
+		        <a href="http://devops.lh:{{ subsystems?.jenkins.jenkinsPort }}" target="__blank">Open Jenkins</a>
 		        <div>
 		            <div>User: admin</div>
 		            <div>Pass: admin</div>
@@ -14,7 +14,7 @@
 		
 		    <div *ngIf="subsystems?.hashicorp.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
 		        <h3>Vault Server</h3>
-		        <a href="http://devops.lh:8282/ui" target="__blank">Open Vault UI</a>
+		        <a href="http://devops.lh:{{ subsystems?.hashicorp.vault.config.port }}/ui" target="__blank">Open Vault UI</a>
 		    </div>
 		</li>
 		<li class="last">
@@ -38,7 +38,7 @@
 		
 		    <div *ngIf="subsystems?.elastic_stack.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
 		        <h3>Elasticstack Server</h3>
-		        <a href="http://devops.lh:5601" target="__blank">Open Elasticstack</a>
+		        <a href="http://devops.lh:{{ subsystems?.elastic_stack.kibana_port }}" target="__blank">Open Elasticstack</a>
 		    </div>
 		</li>
 	</ul>

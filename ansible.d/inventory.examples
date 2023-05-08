@@ -1,0 +1,27 @@
+devops.lh ansible_host=127.0.0.1
+#myprojects.lh_local ansible_host=10.3.3.2 ansible_connection=ssh ansible_user=vagrant ansible_ssh_pass=vagrant
+myprojects.lh_local ansible_host=192.168.0.106 ansible_connection=ssh ansible_user=vagrant ansible_ssh_pass=vagrant
+myprojects.lh_remote ansible_host=192.168.0.250 ansible_connection=ssh ansible_user=vagrant ansible_ssh_pass=vagrant
+
+[devops_servers]
+devops.lh
+
+[production_servers]
+vankosoft.org_remote
+
+[jenkins_slaves]
+myprojects.lh_local
+myprojects.lh_remote
+
+[nrpe-clients]
+myprojects.lh_local
+
+[nrpe-clients-docker-hosts]
+myprojects.lh_local
+
+[servers:children]
+devops_servers
+jenkins_slaves
+nrpe-clients
+nrpe-clients-docker-hosts
+

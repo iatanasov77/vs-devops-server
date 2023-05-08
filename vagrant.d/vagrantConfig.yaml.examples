@@ -138,7 +138,10 @@ subsystems:
                     clientSecret: 'NOT_DEFINED'
                     subscriptionId: 'NOT_DEFINED'
                     tenantId: 'NOT_DEFINED'
-                    
+        
+        ##############################################################################################
+        # https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-ui
+        ##############################################################################################     
         vault:
             version: '1.5.5'
             config:
@@ -171,6 +174,9 @@ subsystems:
     icinga:
         enabled: true
         
+    ##################################################################################################### 
+    # Elasticsearch Compatibility Matrix: https://www.elastic.co/support/matrix#matrix_compatibility
+    #####################################################################################################
     elastic_stack:
         enabled: true
         version: '7.12.0'
