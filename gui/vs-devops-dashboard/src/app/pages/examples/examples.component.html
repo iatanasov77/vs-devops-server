@@ -23,6 +23,13 @@
 			                <div>ansible-galaxy install --roles-path /vagrant/ansible.d/playbook/roles -r /vagrant/ansible.d/requirements.yml --force</div>
 			                <div>sudo ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-jenkins-slaves.yml</div>
 			            </div>
+			            
+			            <h3>Install Nagios NRPE Agents with Ansible</h3>
+                        <div>
+                            <div>sudo ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-nagios-nrpe-agents.yml</div>
+                            <div>sudo /usr/lib64/nagios/plugins/check_nrpe -H 10.3.3.2</div>
+                        </div>
+			            
 			            <h3>Setup Default JRE Version</h3>
 			            <div>
 			                <div>sudo alternatives --config java</div>
