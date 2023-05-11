@@ -16,6 +16,13 @@
 			            <div>
 			                <div>And then open in your host browser http://docker.lh</div>
 			            </div>
+			            
+			            <h3>Vault UI</h3>
+                        <div>
+                            <div><strong>Start Server:</strong> sudo vault server -config=/etc/vault/config.hcl</div>
+                            <div><strong>Remove Seal Data If Needed:</strong> sudo rm -rf /var/lib/vault</div>
+                            <div><strong>Manual:</strong> https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-ui</div>
+                        </div>
 			        </div>
 			        <div *ngIf="subsystems?.ansible.enabled" style="border: 1px solid black; height: auto; margin: 20px; text-align: center;">
 			            <h3>Ansible Examples</h3>
