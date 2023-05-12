@@ -12,7 +12,7 @@ export class ApiService
 {
     constructor( private httpClient: HttpClient ) { }
     
-    loadDevOpsConfigJson(): Observable<IDevOpsConfig>
+    loadDevOpsConfigJson()
     {
         return this.httpClient.get<IDevOpsConfig>( backendURL );
     }

@@ -1,37 +1,59 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { ApiService } from "../../services/api.service";
+import { Component, OnInit } from '@angular/core';
+
+import { Store } from '@ngrx/store';
+import { Actions, ofType } from '@ngrx/effects';
+import { map, merge } from 'rxjs';
+import { loadDevOpsConfigJson, loadDevOpsConfigJsonFailure, loadDevOpsConfigJsonSuccess } from '../../+store/actions';
+import { loadDevOpsConfig } from '../../+store/selectors';
+
 import { IDevOpsConfig } from "../../services/devops-config.interface";
 
 @Component({
-  selector: 'app-page-examples',
-  templateUrl: './examples.component.html',
-  styleUrls: ['./examples.component.scss']
+    selector: 'app-page-examples',
+    templateUrl: './examples.component.html',
+    styleUrls: ['./examples.component.scss']
 })
-export class ExamplesComponent implements OnInit, OnDestroy
+export class ExamplesComponent implements OnInit
 {
+    devopsConfig$: any;
+    isFetchingDevopsConfig$: any;
+    
+    showSpinner = true;
     devopsConfig?: IDevOpsConfig;
     
-    subscription?: Subscription;
+    constructor( private store: Store, private actions$: Actions )
+    {
+        this.loadDevopsConfig();
+    }
     
-    constructor( private apiService: ApiService ) { }
-
     ngOnInit()
     {
-        let observable: Observable<IDevOpsConfig> = this.apiService.loadDevOpsConfigJson();
-        
-        this.subscription   = observable.subscribe( ( response: IDevOpsConfig ) => {
-            //console.log( response );
-            
-            this.devopsConfig = {
-                subsystems: response.subsystems,
-                vaultKeys: response.vaultKeys,
-            };
-        });
+        //console.log( this.devopsConfig$ );
     }
-  
-    ngOnDestroy()
+    
+    loadDevopsConfig()
     {
-        this.subscription?.unsubscribe();
+        this.devopsConfig$   = this.store.select( loadDevOpsConfig );
+        
+        this.isFetchingDevopsConfig$ = merge(
+            this.actions$.pipe(
+                ofType( loadDevOpsConfigJson ),
+                map( () => true )
+            ),
+            this.actions$.pipe(
+                ofType( loadDevOpsConfigJsonSuccess ),
+                map( () => false )
+            ),
+            this.actions$.pipe(
+                ofType( loadDevOpsConfigJsonFailure ),
+                map( () => false )
+            )
+        );
+        
+        this.store.dispatch( loadDevOpsConfigJson() );
+        this.store.subscribe( ( state: any ) => {
+            this.showSpinner    = state.main.devopsConfig == null;
+            this.devopsConfig   = state.main.devopsConfig;
+        });
     }
 }
