@@ -1,3 +1,10 @@
+1.4.4	|	Release date: **12.05.2023**
+============================================
+* New Features and Improvements:
+  - Update GUI Page Services.
+  - Update GitHub Readme File.
+
+
 1.4.3	|	Release date: **12.05.2023**
 ============================================
 * New Features and Improvements:
