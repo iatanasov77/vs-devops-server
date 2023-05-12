@@ -1,42 +1,59 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { ApiService } from "../../services/api.service";
-import { ISubsystems } from "../../services/subsystems.interface";
+import { Component, OnInit } from '@angular/core';
+
+import { Store } from '@ngrx/store';
+import { Actions, ofType } from '@ngrx/effects';
+import { map, merge } from 'rxjs';
+import { loadDevOpsConfigJson, loadDevOpsConfigJsonFailure, loadDevOpsConfigJsonSuccess } from '../../+store/actions';
+import { loadDevOpsConfig } from '../../+store/selectors';
+
+import { IDevOpsConfig } from "../../services/devops-config.interface";
 
 @Component({
-  selector: 'app-page-examples',
-  templateUrl: './examples.component.html',
-  styleUrls: ['./examples.component.scss']
+    selector: 'app-page-examples',
+    templateUrl: './examples.component.html',
+    styleUrls: ['./examples.component.scss']
 })
-export class ExamplesComponent implements OnInit, OnDestroy
+export class ExamplesComponent implements OnInit
 {
-    subsystems?: ISubsystems;
+    devopsConfig$: any;
+    isFetchingDevopsConfig$: any;
     
-    subscription?: Subscription;
+    showSpinner = true;
+    devopsConfig?: IDevOpsConfig;
     
-    constructor( private apiService: ApiService ) { }
-
+    constructor( private store: Store, private actions$: Actions )
+    {
+        this.loadDevopsConfig();
+    }
+    
     ngOnInit()
     {
-        let observable: Observable<ISubsystems> = this.apiService.loadSubsystemsJson();
-        
-        this.subscription   = observable.subscribe( ( response: ISubsystems ) => {
-            //console.log( response );
-            
-            this.subsystems = {
-                ansible: response.ansible,
-                jenkins: response.jenkins,
-                nagios: response.nagios,
-                icinga: response.icinga,
-                elastic_stack: response.elastic_stack,
-                hashicorp: response.hashicorp,
-                kubernetes: response.kubernetes,
-            };
-        });
+        //console.log( this.devopsConfig$ );
     }
-  
-    ngOnDestroy()
+    
+    loadDevopsConfig()
     {
-        this.subscription?.unsubscribe();
+        this.devopsConfig$   = this.store.select( loadDevOpsConfig );
+        
+        this.isFetchingDevopsConfig$ = merge(
+            this.actions$.pipe(
+                ofType( loadDevOpsConfigJson ),
+                map( () => true )
+            ),
+            this.actions$.pipe(
+                ofType( loadDevOpsConfigJsonSuccess ),
+                map( () => false )
+            ),
+            this.actions$.pipe(
+                ofType( loadDevOpsConfigJsonFailure ),
+                map( () => false )
+            )
+        );
+        
+        this.store.dispatch( loadDevOpsConfigJson() );
+        this.store.subscribe( ( state: any ) => {
+            this.showSpinner    = state.main.devopsConfig == null;
+            this.devopsConfig   = state.main.devopsConfig;
+        });
     }
 }

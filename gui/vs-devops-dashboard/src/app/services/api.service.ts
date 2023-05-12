@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from "rxjs";
-import { ISubsystems } from "./subsystems.interface";
+import { IDevOpsConfig } from "./devops-config.interface";
 
 const backendURL = 'http://api.devops.lh/angular-api.php';
 
@@ -12,8 +12,8 @@ export class ApiService
 {
     constructor( private httpClient: HttpClient ) { }
     
-    loadSubsystemsJson(): Observable<ISubsystems>
+    loadDevOpsConfigJson()
     {
-        return this.httpClient.get<ISubsystems>( backendURL );
+        return this.httpClient.get<IDevOpsConfig>( backendURL );
     }
 }

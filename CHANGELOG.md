@@ -1,3 +1,12 @@
+1.4.3	|	Release date: **12.05.2023**
+============================================
+* New Features and Improvements:
+  - Add VAULT Info in the GUI Examples Page.
+  - Update Git Submodules
+  - Improve GUI.
+  - Use ngrx store for GUI Api Requests.
+
+
 1.4.2	|	Release date: **08.05.2023**
 ============================================
 * New Features and Improvements:
