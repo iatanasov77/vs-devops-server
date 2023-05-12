@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ApiService } from "../../services/api.service";
-import { ISubsystems } from "../../services/subsystems.interface";
+import { IDevOpsConfig } from "../../services/devops-config.interface";
 
 @Component({
   selector: 'app-page-examples',
@@ -10,7 +10,7 @@ import { ISubsystems } from "../../services/subsystems.interface";
 })
 export class ExamplesComponent implements OnInit, OnDestroy
 {
-    subsystems?: ISubsystems;
+    devopsConfig?: IDevOpsConfig;
     
     subscription?: Subscription;
     
@@ -18,19 +18,14 @@ export class ExamplesComponent implements OnInit, OnDestroy
 
     ngOnInit()
     {
-        let observable: Observable<ISubsystems> = this.apiService.loadSubsystemsJson();
+        let observable: Observable<IDevOpsConfig> = this.apiService.loadDevOpsConfigJson();
         
-        this.subscription   = observable.subscribe( ( response: ISubsystems ) => {
+        this.subscription   = observable.subscribe( ( response: IDevOpsConfig ) => {
             //console.log( response );
             
-            this.subsystems = {
-                ansible: response.ansible,
-                jenkins: response.jenkins,
-                nagios: response.nagios,
-                icinga: response.icinga,
-                elastic_stack: response.elastic_stack,
-                hashicorp: response.hashicorp,
-                kubernetes: response.kubernetes,
+            this.devopsConfig = {
+                subsystems: response.subsystems,
+                vaultKeys: response.vaultKeys,
             };
         });
     }

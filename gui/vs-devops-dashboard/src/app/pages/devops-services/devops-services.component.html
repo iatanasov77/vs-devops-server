@@ -2,43 +2,51 @@
 	<h2>DevOps Services</h2>
 	<ul id="article">
 		<li class="first">
-		    <div *ngIf="subsystems?.jenkins.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+		    <div *ngIf="devopsConfig?.subsystems.jenkins.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
 		        <h3>Jenkins Master Automation Server</h3>
-		        <a href="http://devops.lh:{{ subsystems?.jenkins.jenkinsPort }}" target="__blank">Open Jenkins</a>
+		        <a href="http://devops.lh:{{ devopsConfig?.subsystems.jenkins.jenkinsPort }}" target="__blank">Open Jenkins</a>
 		        <div>
+                    <div>&nbsp;</div>
 		            <div>User: admin</div>
 		            <div>Pass: admin</div>
 		        </div>
 		    </div>
 		
 		
-		    <div *ngIf="subsystems?.hashicorp.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+		    <div *ngIf="devopsConfig?.subsystems.hashicorp.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
 		        <h3>Vault Server</h3>
-		        <a href="http://devops.lh:{{ subsystems?.hashicorp.vault.config.port }}/ui" target="__blank">Open Vault UI</a>
+		        <a href="http://devops.lh:{{ devopsConfig?.subsystems.hashicorp.vault.config.port }}/ui" target="__blank">Open Vault UI</a>
+                <div>
+                    <div>&nbsp;</div>
+                    <div style="text-decoration: underline;">Root Token</div>
+                    <div>{{ devopsConfig?.vaultKeys.root_token }}</div>
+                </div>
 		    </div>
 		</li>
 		<li class="last">
-		    <div *ngIf="subsystems?.nagios.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+		    <div *ngIf="devopsConfig?.subsystems.nagios.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
 		        <h3>Nagios Monitoring Server</h3>
 		        <a href="http://devops.lh/nagios/" target="__blank">Open Nagios</a>
 		        <div>
+                    <div>&nbsp;</div>
 		            <div>User: nagiosadmin</div>
 		            <div>Pass: nagiosadmin</div>
 		        </div>
 		    </div>
 		
-		    <div *ngIf="subsystems?.icinga.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+		    <div *ngIf="devopsConfig?.subsystems.icinga.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
 		        <h3>Icinga2 Monitoring Server</h3>
 		        <a href="http://devops.lh/icingaweb2/" target="__blank">Open Icinga2</a>
 		        <div>
+                    <div>&nbsp;</div>
 		            <div>User: icingaadmin</div>
 		            <div>Pass: icinga</div>
 		        </div>
 		    </div>
 		
-		    <div *ngIf="subsystems?.elastic_stack.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+		    <div *ngIf="devopsConfig?.subsystems.elastic_stack.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
 		        <h3>Elasticstack Server</h3>
-		        <a href="http://devops.lh:{{ subsystems?.elastic_stack.kibana_port }}" target="__blank">Open Elasticstack</a>
+		        <a href="http://devops.lh:{{ devopsConfig?.subsystems.elastic_stack.kibana_port }}" target="__blank">Open Elasticstack</a>
 		    </div>
 		</li>
 	</ul>
