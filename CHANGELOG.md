@@ -1,3 +1,11 @@
+1.4.5	|	Release date: **13.05.2023**
+============================================
+* New Features and Improvements:
+  - Update GUI Page Template.
+  - Add Packer Examples.
+  - Update Hashicorp Packer and Vault Examples.
+
+
 1.4.4	|	Release date: **12.05.2023**
 ============================================
 * New Features and Improvements:
