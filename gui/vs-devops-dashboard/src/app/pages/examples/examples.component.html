@@ -9,7 +9,26 @@
 	    <div class="body">
 	        <ul class="article">
 	            <li class="first">
-			        <div *ngIf="devopsConfig.subsystems.hashicorp.enabled" style="border: 1px solid black; height: auto; margin: 20px; text-align: center;">
+			        <div *ngIf="devopsConfig.subsystems.hashicorp.enabled" style="border: 1px solid black; height: auto; margin: 20px; padding: 0 0 20px 0; text-align: center;">
+			            
+			            <h3>Packer Examples</h3>
+			            <div>
+                            <div>
+                                <strong>Manual Vagrant Box Builders: </strong>
+                                <a target="_blank" href="https://developer.hashicorp.com/packer/plugins/builders/vagrant#example">
+	                                https://developer.hashicorp.com/packer/plugins/builders/vagrant#example
+	                            </a>
+                            </div>
+                        </div>
+                        <div style="border-top: 1px solid black; width: 400px; margin: 10px auto; padding-top: 10px;">
+                            <div>cd /vagrant/packer.d</div>
+                            <div>packer build centos-packer.json</div>
+                        </div>
+                        <div style="border-top: 1px solid black; width: 400px; margin: 10px auto; padding-top: 10px;">
+                            <div>cd /vagrant/packer.d</div>
+                            <div>packer build ubuntu-kde.json</div>
+                        </div>
+			            
 			            <h3>Terraform Examples</h3>
 			            <div>
 			                <div>cd /vagrant/terraform.d</div>
@@ -26,8 +45,12 @@
                             <div><strong>Remove Seal Data If Needed:</strong> sudo rm -rf /var/lib/vault</div>
                             <div><strong>Manual:</strong> https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-ui</div>
                         </div>
+                        <div style="border-top: 1px solid black; width: 400px; margin: 10px auto; padding-top: 10px;">
+                            <div>vault kv get secret/my_projects</div>
+                            <div>vault kv get -field=foo secret/my_projects</div>
+                        </div>
 			        </div>
-			        <div *ngIf="devopsConfig.subsystems.ansible.enabled" style="border: 1px solid black; height: auto; margin: 20px; text-align: center;">
+			        <div *ngIf="devopsConfig.subsystems.ansible.enabled" style="border: 1px solid black; height: auto; margin: 20px; padding: 0 0 20px 0; text-align: center;">
 			            <h3>Ansible Examples</h3>
 			            <div>
 			                <div>ansible-galaxy install --roles-path /vagrant/ansible.d/playbook/roles -r /vagrant/ansible.d/requirements.yml --force</div>
@@ -56,7 +79,7 @@
                         </div>
 			            
 			        </div>
-			        <div style="border: 1px solid black; height: auto; margin: 20px; text-align: center;">
+			        <div style="border: 1px solid black; height: auto; margin: 20px; padding: 0 0 20px 0; text-align: center;">
 			            <h3>How to Fix Guest Additions to Can Mount Shared Folders</h3>
 			            <div>
 			                <div>sudo yum install elfutils-libelf-devel</div>
