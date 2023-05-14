@@ -5,7 +5,7 @@
   },
   "builders": [
     {
-     "communicator": "ssh",
+      "communicator": "ssh",
       "source_path": "bento/ubuntu-23.04",
       "provider": "virtualbox",
       "add_force": true,
