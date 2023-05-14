@@ -6,7 +6,12 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
 
 // Application Pages
 import { HomeComponent } from './pages/home/home.component';
-import { ExamplesComponent } from './pages/examples/examples.component';
+
+import { ExamplesContainerComponent } from './pages/examples/container/examples-container.component';
+import { ExamplesAnsibleComponent } from './pages/examples/ansible/examples-ansible.component';
+import { ExamplesHashicorpComponent } from './pages/examples/hashicorp/examples-hashicorp.component';
+import { ExamplesOtherComponent } from './pages/examples/other/examples-other.component';
+
 import { ExternalToolsComponent } from './pages/external-tools/external-tools.component';
 import { DevopsServicesComponent } from './pages/devops-services/devops-services.component';
 
@@ -29,10 +34,38 @@ const routes: Routes = [
     },
     {
         path: 'examples',
-        component: ExamplesComponent,
+        component: ExamplesContainerComponent,
         data: {
             title: 'VS DevOps Examples',
-        }
+        },
+        children: [
+            {
+                path:'',
+                redirectTo: 'ansible',
+                pathMatch: 'full'
+            },
+            {
+                path: 'ansible',
+                component: ExamplesAnsibleComponent,
+                data: {
+                    title: 'VS DevOps Examples - Ansible',
+                },
+            },
+            {
+                path: 'hashicorp',
+                component: ExamplesHashicorpComponent,
+                data: {
+                    title: 'VS DevOps Examples - Hashicorp',
+                },
+            },
+            {
+                path: 'other',
+                component: ExamplesOtherComponent,
+                data: {
+                    title: 'VS DevOps Examples - Other',
+                },
+            },
+        ],
     },
     {
         path: 'external-tools',

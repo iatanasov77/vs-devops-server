@@ -13,3 +13,71 @@
     padding: 0 !important;
     margin: 0 !important;
 }
+
+
+#background #page #body.large-content {
+    width: 1200px;
+}
+
+#background #page #body #side-bar {
+    background:url("../images/separator-vertical.gif");
+    background-position: top;
+    background-repeat: repeat-x;
+    width: 200px;
+    padding: 40px 0 0 0;
+    margin-top: 10px;
+    position: relative;
+    left: -5px;
+    
+    float: left;
+}
+
+#background #page #body #side-bar ul {
+    list-style-type: none;
+}
+
+#background #page #body #side-bar ul li {
+    height: 30px;
+    width: 114px;
+    line-height: 30px;
+}
+
+#background #page #body.large-content #section {
+    left: 180px !important;
+    width: 730px !important;
+}
+
+#background #page #body.large-content #section .footer .body {
+	padding: 0 40px 10px 5px !important;
+}
+
+#background #page #body.large-content #section .footer .body ul.article {
+    overflow: inherit !important;
+    width: 735px !important;
+}
+
+#background #page #body #content h2 {
+	margin-bottom: 0.5rem !important;
+	text-align: left !important;
+}
+
+
+#background #page #body.large-content #side-bar ul li a {
+    text-decoration: none;
+    height: 30px;
+    display: block;
+    line-height: 30px;
+    text-align: center;
+    padding: 0 10px;
+    color: #797979;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: 'KreonBold';
+}   
+
+#background #page #body.large-content #side-bar ul li a.active {
+    background:url("../images/button.png");
+    background-repeat: no-repeat;
+    color: #ffffff;
+    font-family: 'KreonBold';
+}

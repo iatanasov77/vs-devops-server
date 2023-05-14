@@ -1,0 +1,26 @@
+<div id="content">
+    <app-loader *ngIf="showSpinner"></app-loader>
+    
+    <div id="large-content-container" *ngIf="devopsConfig">
+	    <div id="side-bar">
+	        <ul class="navigation-left">
+	            <li><a routerLink="ansible" routerLinkActive="active">Ansible</a></li>
+	            <li><a routerLink="hashicorp" routerLinkActive="active">Hashicorp</a></li>
+	            <li><a routerLink="other" routerLinkActive="active">Other</a></li>
+	        </ul>
+	    </div>
+	    <div>
+            <h2>Examples</h2>
+            
+            <div id="section">
+	            <div class="footer">
+	                <div class="body">
+	                    <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+
