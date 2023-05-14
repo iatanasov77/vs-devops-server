@@ -1,58 +1,27 @@
 {
   "variables": {
     "version": "3",
-    "ubuntu_version": "22.04"
+    "ubuntu_version": "23.04"
   },
   "builders": [
     {
-      "type": "virtualbox-iso",
-      "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
-      ],
-      "boot_wait": "10s",
-      "disk_size": 20480,
-      "guest_os_type": "RedHat_64",
-      "headless": true,
-      "http_directory": "http",
-      "iso_urls": [
-        "CentOS-7-x86_64-Minimal-2003.iso",
-        "http://centos.telecoms.bg/7.8.2003/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso"
-      ],
-      "iso_checksum": "sha256:659691c28a0e672558b003d223f83938f254b39875ee7559d1a4a14c79173193",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
-      "ssh_port": 22,
-      "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-      "virtualbox_version_file": ".vbox_version",
-      "vm_name": "packer-centos-7-x86_64",
-      "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "512"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "2"
-        ]
-      ]
+      "communicator": "ssh",
+      "source_path": "bento/ubuntu-23.04",
+      "provider": "virtualbox",
+      "add_force": true,
+      "type": "vagrant"
     }
   ],
   "provisioners": [
     {
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/provision.sh"
+      "script": "scripts/ubuntu-kde-provision.sh"
     },
     {
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/cleanup.sh"
+      "script": "scripts/ubuntu-kde-cleanup.sh"
     }
   ],
   "post-processors": [
@@ -60,11 +29,6 @@
       {
         "output": "builds/ubuntu-{{user `ubuntu_version`}}-kde-2023.02.06-{{user `version`}}.box",
         "type": "vagrant"
-      }, 
-      {
-        "type": "vagrant-cloud",
-        "box_tag": "shekeriev/centos7-epel",
-        "version": "{{user `version`}}"
       }
     ]
   ]

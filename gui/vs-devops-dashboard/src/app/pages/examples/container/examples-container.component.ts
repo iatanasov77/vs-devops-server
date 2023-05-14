@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Actions, ofType } from '@ngrx/effects';
 import { map, merge } from 'rxjs';
-import { loadDevOpsConfigJson, loadDevOpsConfigJsonFailure, loadDevOpsConfigJsonSuccess } from '../../+store/actions';
-import { loadDevOpsConfig } from '../../+store/selectors';
+import { loadDevOpsConfigJson, loadDevOpsConfigJsonFailure, loadDevOpsConfigJsonSuccess } from '../../../+store/actions';
+import { loadDevOpsConfig } from '../../../+store/selectors';
 
-import { IDevOpsConfig } from "../../services/devops-config.interface";
+import { IDevOpsConfig } from "../../../services/devops-config.interface";
+
+declare var $: any;
 
 @Component({
-    selector: 'app-page-examples',
-    templateUrl: './examples.component.html',
-    styleUrls: ['./examples.component.scss']
+    selector: 'app-page-examples-container',
+    templateUrl: './examples-container.component.html',
+    styleUrls: ['./examples-container.component.scss']
 })
-export class ExamplesComponent implements OnInit
+export class ExamplesContainerComponent implements OnInit, OnDestroy
 {
     devopsConfig$: any;
     isFetchingDevopsConfig$: any;
@@ -29,7 +31,21 @@ export class ExamplesComponent implements OnInit
     ngOnInit()
     {
         //console.log( this.devopsConfig$ );
+        $( '#body' ).addClass( 'large-content' );
     }
+    
+    ngOnDestroy()
+    {
+        $( '#body' ).removeClass( 'large-content' );
+    }
+    
+    /**
+     * https://stackoverflow.com/questions/41451375/passing-data-into-router-outlet-child-components
+     */
+    onOutletLoaded( component: any )
+    {
+        component.devopsConfig = this.devopsConfig;
+    } 
     
     loadDevopsConfig()
     {

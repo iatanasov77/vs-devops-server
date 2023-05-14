@@ -126,6 +126,9 @@ subsystems:
         enabled: true
         packer:
             version: '1.7.0'
+            vagrant:
+                virtualboxVersion: '7.0'
+                vagrantRpm: 'https://releases.hashicorp.com/vagrant/2.3.4/vagrant-2.3.4-1.x86_64.rpm'
         terraform:
             version: '0.12.28'
             config:

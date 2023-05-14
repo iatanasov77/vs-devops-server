@@ -5,14 +5,22 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { HomeComponent } from './home/home.component';
-import { ExamplesComponent } from './examples/examples.component';
+import { ExamplesContainerComponent } from './examples/container/examples-container.component';
+import { ExamplesAnsibleComponent } from './examples/ansible/examples-ansible.component';
+import { ExamplesHashicorpComponent } from './examples/hashicorp/examples-hashicorp.component';
+import { ExamplesOtherComponent } from './examples/other/examples-other.component';
+
 import { ExternalToolsComponent } from './external-tools/external-tools.component';
 import { DevopsServicesComponent } from './devops-services/devops-services.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
-        ExamplesComponent,
+        ExamplesContainerComponent,
+        ExamplesAnsibleComponent,
+        ExamplesHashicorpComponent,
+        ExamplesOtherComponent,
+        
         ExternalToolsComponent,
         DevopsServicesComponent
     ],
@@ -23,7 +31,7 @@ import { DevopsServicesComponent } from './devops-services/devops-services.compo
     ],
     exports: [
         HomeComponent,
-        ExamplesComponent,
+        ExamplesContainerComponent,
         ExternalToolsComponent,
         DevopsServicesComponent
     ]

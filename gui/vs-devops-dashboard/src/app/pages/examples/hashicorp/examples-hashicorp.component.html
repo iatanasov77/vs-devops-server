@@ -1,0 +1,57 @@
+<ul class="article">
+	<li class="first">
+	    <div *ngIf="devopsConfig?.subsystems.hashicorp.enabled" style="border: 1px solid black; height: auto; margin: 20px; padding: 0 0 20px 0; text-align: center;">
+	        <h3>Packer Examples</h3>
+	        <div>
+	            <div>
+	                <strong>Manual Vagrant Box Builders: </strong>
+	                <a target="_blank" href="https://developer.hashicorp.com/packer/plugins/builders/vagrant#example">
+	                    https://developer.hashicorp.com/packer/plugins/builders/vagrant#example
+	                </a>
+	            </div>
+	            <div>
+	                <strong>Manual Packer Init: </strong>
+	                <a target="_blank" href="https://developer.hashicorp.com/packer/docs/commands/init">
+	                    https://developer.hashicorp.com/packer/docs/commands/init
+	                </a>
+	            </div>
+	            <div>packer hcl2_upgrade ubuntu-kde.json</div>
+	        </div>
+	        <div style="border-top: 1px solid black; width: 400px; margin: 10px auto; padding-top: 10px;">
+	            <div>cd /vagrant/packer.d</div>
+	            <div>packer build centos-packer.json</div>
+	        </div>
+	        <div style="border-top: 1px solid black; width: 400px; margin: 10px auto; padding-top: 10px;">
+	            <div>cd /vagrant/packer.d</div>
+	            <div>packer build ubuntu-kde.json</div>
+	        </div>
+	    </div>
+	</li>
+	
+	<li class="first">
+        <div *ngIf="devopsConfig?.subsystems.hashicorp.enabled" style="border: 1px solid black; height: auto; margin: 20px; padding: 0 0 20px 0; text-align: center;">
+            <h3>Terraform Examples</h3>
+            <div>
+                <div>cd /vagrant/terraform.d</div>
+                <div>terraform init</div>
+                <div>terraform apply</div>
+            </div>
+            <div>
+                <div>And then open in your host browser http://docker.lh</div>
+            </div>
+        </div>
+    </li>
+    
+    <li class="first">
+        <div *ngIf="devopsConfig?.subsystems.hashicorp.enabled" style="border: 1px solid black; height: auto; margin: 20px; padding: 0 0 20px 0; text-align: center;">
+            <h3>Vault UI</h3>
+            <div>
+                <div><strong>Manual:</strong> https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-ui</div>
+            </div>
+            <div style="border-top: 1px solid black; width: 400px; margin: 10px auto; padding-top: 10px;">
+                <div>vault kv get secret/my_projects</div>
+                <div>vault kv get -field=foo secret/my_projects</div>
+            </div>
+        </div>
+    </li>
+</ul>
