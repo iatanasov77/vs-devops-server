@@ -1,3 +1,11 @@
+1.4.6	|	Release date: **14.05.2023**
+============================================
+* New Features and Improvements:
+  - Expiriments with Packer.
+  - Update Packer Provision Scripts.
+  - Extend and Improve GUI.
+
+
 1.4.5	|	Release date: **13.05.2023**
 ============================================
 * New Features and Improvements:
