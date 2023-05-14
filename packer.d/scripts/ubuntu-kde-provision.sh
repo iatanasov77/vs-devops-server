@@ -2,7 +2,8 @@
 
 # Install KDE Minimal
 ########################
-apt -y install sddm
-apt -y install kde-plasma-desktop
+sudo apt -y update
+sudo apt -y install sddm
+sudo apt -y install kde-plasma-desktop
 
-echo "[General]\nInputMethod=" >> /etc/sddm.conf
+sudo echo "[General]\nInputMethod=" >> /etc/sddm.conf
