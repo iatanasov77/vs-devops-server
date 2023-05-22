@@ -22,14 +22,7 @@ frontendtools:
     tools:
         yarn:
             version: 'latest'
-        gulp:
-            version: 'latest'
         angular-cli:
-            version: 'latest'
-        create-react-app:
-            version: 'latest'
-        # Using for upgrade package.json dependencie's versions
-        npm-upgrade:
             version: 'latest'
 
 packages:
