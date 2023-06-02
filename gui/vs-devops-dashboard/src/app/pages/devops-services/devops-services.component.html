@@ -4,9 +4,18 @@
     <app-loader *ngIf="showSpinner"></app-loader>
     
 	<ul id="article" *ngIf="devopsConfig">
-	
-	   <li class="first" *ngIf="devopsConfig.subsystems.hashicorp.enabled">
-            <div style="border: 1px solid black; width: 640px; height: 150px; margin: 20px; text-align: center; float: left;">
+	   <li class="first">
+            <div *ngIf="devopsConfig.subsystems.docker.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+                <h3>Docker Dashboard</h3>
+                <a href="https://myprojects.lh:9443/" target="__blank">Open Docker Dashboard</a>
+                <div>
+                    <div>&nbsp;</div>
+                    <div>Username: admin</div>
+                    <div>Password: Portainer@123</div>
+                </div>
+            </div>
+	        
+            <div *ngIf="devopsConfig.subsystems.hashicorp.enabled" style="border: 1px solid black; width: 640px; height: 150px; margin: 20px; text-align: center; float: left;">
                 <h3>Vault Server</h3>
                 <a href="http://devops.lh:{{ devopsConfig.subsystems.hashicorp.vault.config.port }}/ui" target="__blank">Open Vault UI</a>
                 <div>
