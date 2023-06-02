@@ -1,9 +1,8 @@
 hostAddress: '10.3.3.3'
 
 dependencies:
-    #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/remi-release-7.rpm'
-    #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/remi-release-8.rpm'
-    remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.5-3.el8.remi.noarch.rpm'
+    remiReleaseRpm: ''
+    #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.5-3.el8.remi.noarch.rpm'
 
 gui:
     guiRoot: '/vagrant/gui/vs-devops-dashboard'
@@ -104,7 +103,6 @@ lamp:
         targetDirName: 'phpMyAdmin-5.0.4-all-languages'
 
 
-
 subsystems:
     ansible:
         enabled: true  # Problem installing on CentOs 8
@@ -145,10 +143,10 @@ subsystems:
 
     docker:
         enabled: true
-        # Add Docker Users with Exec , becausue here make dependency cycle error
-        #docker_users: ['vagrant', 'root']
-    kubernetes:
-        enabled: true
+        docker_users: ['vagrant', 'root']
+        version: 'latest'
+        composer_version: '2.18.1'
+        portainer_password: 'Portainer@123'
 
     jenkins:
         enabled: true
@@ -160,12 +158,11 @@ subsystems:
 
     gitlab:
         enabled: false
-    maven:
-        enabled: false
     
     nagios:
         enabled: false
         apache_httpd: false # If it's true conflict with vs_lamp::apache
+        
     icinga:
         enabled: true
         
