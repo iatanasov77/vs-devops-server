@@ -1,3 +1,14 @@
+1.5.0	|	Release date: **02.06.2023**
+============================================
+* New Features and Improvements:
+  - Update Ansible Playbook.
+  - Remove Unneeded Frontend Tools From Config Example.
+  - Update Git Submodules and other Improvements.
+  - gitignore GUI Build Files but Preseve The Directory Because is For Apache Virtual Host.
+  - Add Link to the Docker Dashboard into GUI.
+  - Update Git Submodules.
+
+
 1.4.6	|	Release date: **14.05.2023**
 ============================================
 * New Features and Improvements:
