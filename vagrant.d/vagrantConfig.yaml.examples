@@ -1,9 +1,8 @@
 hostAddress: '10.3.3.3'
 
 dependencies:
-    #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/remi-release-7.rpm'
-    #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/remi-release-8.rpm'
-    remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.5-3.el8.remi.noarch.rpm'
+    remiReleaseRpm: ''
+    #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.5-3.el8.remi.noarch.rpm'
 
 gui:
     guiRoot: '/vagrant/gui/vs-devops-dashboard'
@@ -22,14 +21,7 @@ frontendtools:
     tools:
         yarn:
             version: 'latest'
-        gulp:
-            version: 'latest'
         angular-cli:
-            version: 'latest'
-        create-react-app:
-            version: 'latest'
-        # Using for upgrade package.json dependencie's versions
-        npm-upgrade:
             version: 'latest'
 
 packages:
@@ -83,7 +75,7 @@ lamp:
         'PHP/post_max_size': '64M'
         'PHP/upload_max_filesize': '64M'
         'Date/date.timezone': 'Europe/Sofia'
-        'PHAR/phar.readonly': 'Off'
+        'PHAR/phar.readonly': '0'
         'PHP/error_reporting': 'E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED'
 
     phpModules:
@@ -97,20 +89,18 @@ lamp:
         mongodb:
             ini_prefix: '20-'
             provider: 'pecl'
-        zip:
-            ini_prefix: '40-'
-        json:
-            ini_prefix: '20-'
         mysqlnd:
             ini_prefix: '20-'
             multifile_settings: true
             settings:
                 mysqlnd: {}
+        zip:
+            ini_prefix: '30-'
 
+    
     phpMyAdmin:
         source: 'https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.zip'
         targetDirName: 'phpMyAdmin-5.0.4-all-languages'
-
 
 
 subsystems:
@@ -153,10 +143,10 @@ subsystems:
 
     docker:
         enabled: true
-        # Add Docker Users with Exec , becausue here make dependency cycle error
-        #docker_users: ['vagrant', 'root']
-    kubernetes:
-        enabled: true
+        docker_users: ['vagrant', 'root']
+        version: 'latest'
+        composer_version: '2.18.1'
+        portainer_password: 'Portainer@123'
 
     jenkins:
         enabled: true
@@ -168,12 +158,11 @@ subsystems:
 
     gitlab:
         enabled: false
-    maven:
-        enabled: false
     
     nagios:
         enabled: false
         apache_httpd: false # If it's true conflict with vs_lamp::apache
+        
     icinga:
         enabled: true
         

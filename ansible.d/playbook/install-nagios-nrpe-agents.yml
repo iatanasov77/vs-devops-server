@@ -28,6 +28,22 @@
       name: nagios-plugins-all
       state: latest
     become: true
+    
+  # https://www.liquidweb.com/kb/how-to-install-and-configure-snmp-on-centos/
+  - name: install SNMP
+    yum:
+      name:
+        - net-snmp
+        - net-snmp-utils
+      state: present
+    become: true
+    
+  - name: deploy check_snmp_memory nrpe plugin
+    get_url:
+      dest: '/usr/lib64/nagios/plugins/check_snmp_memory.sh'
+      url: 'https://raw.githubusercontent.com/ynlamy/check_snmp_memory/master/check_snmp_memory'
+      mode: '0777'
+    become: true
 
   - name: deploy nrpe.cfg
     copy:
