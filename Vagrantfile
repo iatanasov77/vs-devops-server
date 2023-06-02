@@ -71,7 +71,22 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
     
         require 'yaml'
         provisionConfig     = YAML.load_file( 'vagrant.d/vagrantConfig.yaml' )
+        
+        ########################################################################
+        # Load Nagios Tasks Configurations
+        ########################################################################
+        if ! File.exists?( 'nagios.d/nagiosConfig.yml' )
+            File.open( 'nagios.d/nagiosConfig.yml', "w") do |f|
+                f.write( "{}" )
+            end
+        end
         nagiosConfig        = YAML.load_file( 'nagios.d/nagiosConfig.yml' )
+    
+        if ! File.exists?( 'nagios.d/icingaConfig.yml' )
+            File.open( 'nagios.d/icingaConfig.yml', "w") do |f|
+                f.write( "{}" )
+            end
+        end
         icingaConfig        = YAML.load_file( 'nagios.d/icingaConfig.yml' )
         
 		# Run provision bash scripts to setup puppet environement

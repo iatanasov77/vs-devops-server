@@ -76,7 +76,7 @@ lamp:
         'PHP/post_max_size': '64M'
         'PHP/upload_max_filesize': '64M'
         'Date/date.timezone': 'Europe/Sofia'
-        'PHAR/phar.readonly': 'Off'
+        'PHAR/phar.readonly': '0'
         'PHP/error_reporting': 'E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED'
 
     phpModules:
@@ -90,16 +90,15 @@ lamp:
         mongodb:
             ini_prefix: '20-'
             provider: 'pecl'
-        zip:
-            ini_prefix: '40-'
-        json:
-            ini_prefix: '20-'
         mysqlnd:
             ini_prefix: '20-'
             multifile_settings: true
             settings:
                 mysqlnd: {}
+        zip:
+            ini_prefix: '30-'
 
+    
     phpMyAdmin:
         source: 'https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.zip'
         targetDirName: 'phpMyAdmin-5.0.4-all-languages'
