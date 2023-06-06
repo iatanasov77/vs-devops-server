@@ -138,3 +138,9 @@
 [submodule "vagrant.d/puppet/modules/icinga"]
 	path = vagrant.d/puppet/modules/icinga
 	url = https://github.com/Icinga/puppet-icinga.git
+[submodule "vagrant.d/puppet/modules/prometheus"]
+	path = vagrant.d/puppet/modules/prometheus
+	url = https://github.com/voxpupuli/puppet-prometheus.git
+[submodule "vagrant.d/puppet/modules/grafana"]
+	path = vagrant.d/puppet/modules/grafana
+	url = https://github.com/voxpupuli/puppet-grafana.git

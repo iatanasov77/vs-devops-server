@@ -177,6 +177,12 @@ subsystems:
         kibana_host: '10.3.3.3'
         kibana_port: '5601'
         logstash_port: 5044
+        
+    prometheus:
+        enabled: true
+        
+    grafana:
+        enabled: true
 
 
 ##################################################################
