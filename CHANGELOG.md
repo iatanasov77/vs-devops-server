@@ -1,3 +1,9 @@
+1.5.2	|	Release date: **10.06.2023**
+============================================
+* New Features:
+  - Improve GUI Document Route.
+
+
 1.5.1	|	Release date: **10.06.2023**
 ============================================
 * New Features and Improvements:
