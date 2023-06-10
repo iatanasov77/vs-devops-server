@@ -47,7 +47,7 @@ lamp:
    
     mysql:
         # provider = false mean use default
-        provider: 'mysql' # Avaiable options: false, 'mysql', 'mariadb'
+        provider: 'mariadb' # Avaiable options: false, 'mysql', 'mariadb'
         databases: {}
     
     apacheModules:
@@ -177,6 +177,36 @@ subsystems:
         kibana_host: '10.3.3.3'
         kibana_port: '5601'
         logstash_port: 5044
+        
+    ##################################################################################################### 
+    # These Monitoring Tools Not Works YET. Links To Lessons:
+    # ========================================================
+    # Prometheus with Blackbox: https://softuni.bg/trainings/resources/video/84679/video-06-june-2023-martin-gradev-containers-and-cloud-may-2023/4117
+    #                           https://softuni.bg/trainings/resources/video/84840/video-09-june-2023-martin-gradev-containers-and-cloud-may-2023/4117
+    #
+    # Event Streaming with Apache Kafka: https://softuni.bg/trainings/resources/video/71728/video-13-may-2022-dimitar-zahariev-devops-infrastructure-configuration-management-april-2022/3668
+    # Message Brokering with RabbitMQ: https://softuni.bg/trainings/resources/video/71985/video-20-may-2022-dimitar-zahariev-devops-infrastructure-configuration-management-april-2022/3668
+    #
+    #####################################################################################################
+    prometheus:
+        enabled: false
+        version: '2.37.8'
+        alertmanager:
+            enabled: true
+            version: '0.25.0'
+        blackbox_exporter:
+            enabled: true
+            version: '0.24.0'
+        
+    grafana:
+        enabled: false
+        
+    apache_kafka:
+        enabled: false
+        
+    rabbit_mq:
+        enabled: false
+        port: '5672'
 
 
 ##################################################################
