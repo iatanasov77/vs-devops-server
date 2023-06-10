@@ -1,3 +1,12 @@
+1.5.1	|	Release date: **10.06.2023**
+============================================
+* New Features and Improvements:
+  - Update Git Modules and Fix Dashboard Links.
+  - Add More Monitoring Subsysstems.
+  - Refactoring Terraform Examples.
+  - Add Apache Kafka and RabbitMMQ Subsystems.
+
+
 1.5.0	|	Release date: **02.06.2023**
 ============================================
 * New Features and Improvements:
