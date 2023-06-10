@@ -144,3 +144,9 @@
 [submodule "vagrant.d/puppet/modules/grafana"]
 	path = vagrant.d/puppet/modules/grafana
 	url = https://github.com/voxpupuli/puppet-grafana.git
+[submodule "vagrant.d/puppet/modules/rabbitmq"]
+	path = vagrant.d/puppet/modules/rabbitmq
+	url = https://github.com/voxpupuli/puppet-rabbitmq.git
+[submodule "vagrant.d/puppet/modules/kafka"]
+	path = vagrant.d/puppet/modules/kafka
+	url = https://github.com/voxpupuli/puppet-kafka.git

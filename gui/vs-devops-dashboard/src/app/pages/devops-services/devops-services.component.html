@@ -61,6 +61,31 @@
 		        <h3>Elasticstack Server</h3>
 		        <a href="http://devops.lh:{{ devopsConfig.subsystems.elastic_stack.kibana_port }}" target="__blank">Open Elasticstack</a>
 		    </div>
+		    
+		    <div *ngIf="devopsConfig.subsystems.rabbit_mq.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+                <h3>RabbitMQ Server</h3>
+                <a href="http://devops.lh:{{ devopsConfig.subsystems.rabbit_mq.port }}" target="__blank">Open RabbitMQ</a>
+                <div>
+                    <div>&nbsp;</div>
+                    <div>User: guest</div>
+                    <div>Pass: guest</div>
+                </div>
+            </div>
+            
+            <div *ngIf="devopsConfig.subsystems.apache_kafka.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+                <h3>Apache Kafka Server</h3>
+                <a href="http://devops.lh:9092" target="__blank">Open Apache Kafka</a>
+            </div>
+            
+		    <div *ngIf="devopsConfig.subsystems.prometheus.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+                <h3>Prometheus Server</h3>
+                <a href="http://devops.lh:9090" target="__blank">Open Prometheus</a>
+            </div>
+            
+            <div *ngIf="devopsConfig.subsystems.grafana.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
+                <h3>Grafana Server</h3>
+                <a href="http://devops.lh:3000" target="__blank">Open Grafana</a>
+            </div>
 		</li>
 	</ul>
 
