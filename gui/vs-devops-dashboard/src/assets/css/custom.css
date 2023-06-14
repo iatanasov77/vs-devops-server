@@ -44,7 +44,7 @@
 
 #background #page #body.large-content #section {
     left: 180px !important;
-    width: 730px !important;
+    width: 1000px!important;
 }
 
 #background #page #body.large-content #section .footer .body {
@@ -53,7 +53,6 @@
 
 #background #page #body.large-content #section .footer .body ul.article {
     overflow: inherit !important;
-    width: 735px !important;
 }
 
 #background #page #body #content h2 {

@@ -1,14 +1,16 @@
+java_packages:
+  - java-17-openjdk
 jenkins_master: 10.3.3.3
 etc_hosts:
-    devops.lh: 192.168.0.251
-    myprojects.lh: 192.168.0.252
+    devops.lh: 192.168.0.105
+    myprojects.lh: 192.168.0.106
 sudo_users:
     - jenkins
     - docker
 jenkins_remote_username: admin
 jenkins_remote_password: admin
 
-jenkins_swarm_client_version: 3.25
+jenkins_swarm_client_version: '3.40'
 jenkins_swarm_labels: "{{ 'vs_my_projects php-host symfony-host' if inventory_hostname == 'myprojects.lh_local' or inventory_hostname == 'myprojects.lh_remote' else 'unknown_slave' }}"
 jenkins_swarm_executors: 2
 jenkins_url: http://{{ jenkins_master }}:8080

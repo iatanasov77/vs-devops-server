@@ -154,7 +154,7 @@ subsystems:
         securityModel: full_control # https://github.com/voxpupuli/puppet-jenkins#configuring-security
         jenkinsAdmin: { email: 'admin@example.com', username: 'admin',  password: 'admin'}
         jenkinsPort: "8080"
-        swarmVersion: '3.32'
+        swarmVersion: '3.40'
 
     gitlab:
         enabled: false
