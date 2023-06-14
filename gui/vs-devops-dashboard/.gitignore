@@ -3,6 +3,7 @@
 # Compiled output
 /dist/vs-devops-dashboard/*
 !/dist/vs-devops-dashboard/.keepthis
+/package-lock.json
 /tmp
 /out-tsc
 /bazel-out
