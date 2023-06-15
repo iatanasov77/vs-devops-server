@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { envVars } from '../../../environments/env_vars';
 import { Store } from '@ngrx/store';
 import { Actions, ofType } from '@ngrx/effects';
 import { map, merge } from 'rxjs';
@@ -15,6 +16,7 @@ import { IDevOpsConfig } from "../../services/devops-config.interface";
 })
 export class DevopsServicesComponent implements OnInit
 {
+    hostname: string;
     devopsConfig$: any;
     isFetchingDevopsConfig$: any;
     
@@ -23,6 +25,7 @@ export class DevopsServicesComponent implements OnInit
     
     constructor( private store: Store, private actions$: Actions )
     {
+        this.hostname   = envVars.hostname;
         this.loadDevopsConfig();
     }
     
