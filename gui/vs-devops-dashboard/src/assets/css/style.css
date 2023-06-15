@@ -33,12 +33,12 @@ body {
 	height:1000px;
 }	
 #background #page {
-	width:960px;
+	width: 1400px;
 	margin:0 auto;
 	padding:0;
 }	
 #background #page #header {
-	width:950px;
+	width:1400px;
 	padding:0 5px;
 	height:110px;
 	margin:0 auto;
@@ -188,9 +188,6 @@ body {
 }
 #background #page #body #section .footer .body ul.article {
 	list-style-type:none;
-	margin:0;
-	padding:0;
-	width:910px;
 	overflow:hidden;
 }
 #background #page #body #section .footer .body ul.article li a img {

@@ -60,12 +60,15 @@
 ## III. Setup the web interface
     
     ```
-        # cd /vagrant/gui/vs-devops-dashboard
-        # yarn install --no-bin-links
+        $ cd /vagrant/gui/vs-devops-dashboard
+        $ yarn install --no-bin-links
         
-        # yarn run build
+        ; Create ENV VARIABLES
+        $ cp src/environments/env_vars.ts.dist src/environments/env_vars.ts
+        
+        $ yarn run build
         ; OR
-        # yarn run dev
+        $ yarn run dev
     ```
     
     
