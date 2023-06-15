@@ -47,7 +47,7 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 		config.vm.hostname 			= ENV['HOST_NAME']
 		config.vm.network :private_network, ip: ENV['PRIVATE_IP']
 		
-	    if ENV['PUBLIC_IP']
+	    if ENV['PUBLIC_NETWORK'] == 'true' then
             config.vm.network :public_network, ip: ENV['PUBLIC_IP']
         end
 
