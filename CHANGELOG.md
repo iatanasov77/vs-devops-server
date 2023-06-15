@@ -1,3 +1,14 @@
+1.6.0	|	Release date: **15.06.2023**
+============================================
+* New Features and Improvements:
+  - Remove GUI package-lock.json
+  - Many Many Improvements.
+  - Update Git Submodules.
+  - Improve GUI.
+* Bug-Fixes:
+  - Fix Detect Public Network is Enabled.
+
+
 1.5.2	|	Release date: **10.06.2023**
 ============================================
 * New Features:
