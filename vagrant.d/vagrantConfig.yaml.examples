@@ -143,8 +143,13 @@ subsystems:
 
     docker:
         enabled: true
-        docker_users: ['vagrant', 'root']
+        docker_users: ['vagrant']
         version: 'latest'
+        ############################################################################################
+        # Uncomment 'tcp_bind' options if you want docker engine to be accessed from other hosts
+        ############################################################################################
+        #tcp_bind:
+        #    - 'tcp://0.0.0.0:2375'
         composer_version: '2.18.1'
         portainer_password: 'Portainer@123'
 
