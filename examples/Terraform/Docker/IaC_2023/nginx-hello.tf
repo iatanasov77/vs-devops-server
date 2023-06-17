@@ -8,13 +8,7 @@ terraform {
 }
 
 provider "docker" {
-  host = "unix:///var/run/docker.sock"
-
-  /*
-   * if Docker is on Another Machine Use TCP Url to Host
-   *------------------------------------------------------
-   * host = "tcp://10.3.3.2:2375/"
-   */
+  host = var.nginx_hello_docker_host
 }
 
 resource "docker_image" "nginx" {
@@ -29,6 +23,6 @@ resource "docker_container" "nginx" {
     internal = 80
 
     // Port 8080 is in Use by Jenkins, since i use differrent port from SoftUni Exersice
-    external = 8888
+    external = var.nginx_hello_external_port
   }
 }

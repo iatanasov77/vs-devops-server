@@ -1,3 +1,12 @@
+1.6.2	|	Release date: **17.06.2023**
+============================================
+* New Features:
+  - Update Git Submodules.
+  - Add Examples Section in README.
+  - Add Optional 'tcp_bind' option if you want docker engine to be accessed from other hosts.
+  - Add to Examples Terraform.
+
+
 1.6.1	|	Release date: **17.06.2023**
 ============================================
 * New Features:
