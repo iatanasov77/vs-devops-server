@@ -1,3 +1,9 @@
+1.6.1	|	Release date: **17.06.2023**
+============================================
+* New Features:
+  - Add More Terraform with Azure Examples.
+
+
 1.6.0	|	Release date: **15.06.2023**
 ============================================
 * New Features and Improvements:
