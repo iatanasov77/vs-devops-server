@@ -73,7 +73,7 @@
     
 ## IV. Working With Examples
 
-[^1]: Terraform Examples
+!. Terraform Examples
 
      [Try Terraform with Azure](examples/Terraform/Azure/README.md)
     
