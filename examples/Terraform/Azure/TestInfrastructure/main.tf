@@ -17,7 +17,10 @@ terraform {
 provider "azurerm" {
     features {}
 
+    ####################################################################################
     # You can Configure Provider Here But Now It's configured By Environement Variables
+    #-----------------------------------------------------------------------------------
+    # ARM_SUBSCRIPTION_ID , ARM_TENANT_ID , ARM_CLIENT_ID , ARM_CLIENT_SECRET 
     ####################################################################################
     #subscription_id = "< define here >"
     #tenant_id       = "< define here >"
