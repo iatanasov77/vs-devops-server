@@ -8,8 +8,15 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
 import { HomeComponent } from './pages/home/home.component';
 
 import { ExamplesContainerComponent } from './pages/examples/container/examples-container.component';
-import { ExamplesAnsibleComponent } from './pages/examples/ansible/examples-ansible.component';
-import { ExamplesHashicorpComponent } from './pages/examples/hashicorp/examples-hashicorp.component';
+
+import { ExamplesAnsibleGeneralComponent } from './pages/examples/ansible/general/examples-ansible-general.component';
+import { ExamplesAnsibleJenkinsComponent } from './pages/examples/ansible/jenkins/examples-ansible-jenkins.component';
+import { ExamplesAnsibleNagiosComponent } from './pages/examples/ansible/nagios/examples-ansible-nagios.component';
+
+import { ExamplesHashicorpPackerComponent } from './pages/examples/hashicorp/packer/examples-hashicorp-packer.component';
+import { ExamplesHashicorpTerraformComponent } from './pages/examples/hashicorp/terraform/examples-hashicorp-terraform.component';
+import { ExamplesHashicorpVaultComponent } from './pages/examples/hashicorp/vault/examples-hashicorp-vault.component';
+
 import { ExamplesOtherComponent } from './pages/examples/other/examples-other.component';
 
 import { ExternalToolsComponent } from './pages/external-tools/external-tools.component';
@@ -41,21 +48,49 @@ const routes: Routes = [
         children: [
             {
                 path:'',
-                redirectTo: 'ansible',
+                redirectTo: 'ansible/general',
                 pathMatch: 'full'
             },
             {
-                path: 'ansible',
-                component: ExamplesAnsibleComponent,
+                path: 'ansible/general',
+                component: ExamplesAnsibleGeneralComponent,
                 data: {
-                    title: 'VS DevOps Examples - Ansible',
+                    title: 'VS DevOps Examples - Ansible - General',
                 },
             },
             {
-                path: 'hashicorp',
-                component: ExamplesHashicorpComponent,
+                path: 'ansible/jenkins',
+                component: ExamplesAnsibleJenkinsComponent,
                 data: {
-                    title: 'VS DevOps Examples - Hashicorp',
+                    title: 'VS DevOps Examples - Ansible - Jenkins',
+                },
+            },
+            {
+                path: 'ansible/nagios',
+                component: ExamplesAnsibleNagiosComponent,
+                data: {
+                    title: 'VS DevOps Examples - Ansible - Nagios',
+                },
+            },
+            {
+                path: 'hashicorp/packer',
+                component: ExamplesHashicorpPackerComponent,
+                data: {
+                    title: 'VS DevOps Examples - Hashicorp - Packer',
+                },
+            },
+            {
+                path: 'hashicorp/terraform',
+                component: ExamplesHashicorpTerraformComponent,
+                data: {
+                    title: 'VS DevOps Examples - Hashicorp - Terraform',
+                },
+            },
+            {
+                path: 'hashicorp/vault',
+                component: ExamplesHashicorpVaultComponent,
+                data: {
+                    title: 'VS DevOps Examples - Hashicorp - Vault',
                 },
             },
             {

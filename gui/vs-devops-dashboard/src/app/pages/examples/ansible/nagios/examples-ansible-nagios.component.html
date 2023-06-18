@@ -1,0 +1,17 @@
+<ul class="article" *ngIf="devopsConfig?.subsystems.ansible.enabled">
+    <li class="first">
+        <div style="border: 1px solid black; height: auto; margin: 20px; padding: 0 0 20px 0; text-align: center;">
+            <h3>Install Nagios NRPE Agents with Ansible</h3>
+            <div>
+                <div>sudo ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-nagios-nrpe-agents.yml</div>
+                <div>sudo /usr/lib64/nagios/plugins/check_nrpe -H 10.3.3.2</div>
+            </div>
+            
+            <h3>Start/Restart Nagios Server (Check Configs Before)</h3>
+            <div>
+                <div>sudo nagios -v /etc/nagios/nagios.cfg</div>
+                <div>sudo service nagios restart</div>
+            </div>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,13 @@
+<ul class="article" *ngIf="devopsConfig?.subsystems.ansible.enabled">
+    <li class="first">
+        <div style="border: 1px solid black; height: auto; margin: 20px;">
+			<h3>Install Ansible Roles Requirements</h3>
+            <pre><code class="language-bash"
+                [highlight]="codePlaybookRoles"
+                [languages]="['bash']"
+                (highlighted)="onHighlight($event)"
+                [lineNumbers]="true"
+            ></code></pre>
+        </div>
+    </li>
+</ul>
