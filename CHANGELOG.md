@@ -1,3 +1,11 @@
+1.6.3	|	Release date: **18.06.2023**
+============================================
+* New Features and Improvements:
+  - Add One More Terraform Example.
+  - Improve GUI Example Pages.
+  - Add Highlight.Js into GUI.
+
+
 1.6.2	|	Release date: **17.06.2023**
 ============================================
 * New Features:
