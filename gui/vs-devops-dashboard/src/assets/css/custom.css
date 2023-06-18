@@ -17,13 +17,13 @@
 
 
 #background #page #body.large-content {
-    width: 1200px;
+    width: 1350px;
 }
 
 #background #page #body #side-bar {
     background-position: top;
     background-repeat: repeat-x;
-    width: 200px;
+    width: 300px;
     padding: 40px 0 0 0;
     margin-top: 10px;
     position: relative;
@@ -38,12 +38,12 @@
 
 #background #page #body #side-bar ul li {
     height: 30px;
-    width: 114px;
+    width: 130px;
     line-height: 30px;
 }
 
 #background #page #body.large-content #section {
-    left: 180px !important;
+    left: 250px !important;
     width: 1000px!important;
 }
 
@@ -53,6 +53,7 @@
 
 #background #page #body.large-content #section .footer .body ul.article {
     overflow: inherit !important;
+    padding-left: 2rem !important;
 }
 
 #background #page #body #content h2 {
@@ -87,4 +88,8 @@
 #background #page #body.large-content #side-bar h4 {
 	margin-left: 20px;
 	text-decoration: underline;
+}
+
+ol, ul {
+    padding-left: 1rem !important;
 }

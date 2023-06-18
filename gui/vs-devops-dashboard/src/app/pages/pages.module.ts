@@ -20,6 +20,12 @@ import { ExamplesOtherComponent } from './examples/other/examples-other.componen
 import { ExternalToolsComponent } from './external-tools/external-tools.component';
 import { DevopsServicesComponent } from './devops-services/devops-services.component';
 
+import {
+    HighlightModule,
+    HIGHLIGHT_OPTIONS,
+    HighlightOptions,
+} from 'ngx-highlightjs';
+
 @NgModule({
     declarations: [
         HomeComponent,
@@ -41,13 +47,34 @@ import { DevopsServicesComponent } from './devops-services/devops-services.compo
     imports: [
         CommonModule,
         AppRoutingModule,
-        SharedModule
+        SharedModule,
+        
+        HighlightModule,
     ],
     exports: [
         HomeComponent,
         ExamplesContainerComponent,
         ExternalToolsComponent,
         DevopsServicesComponent
-    ]
+    ],
+    
+    providers: [
+        {
+            provide: HIGHLIGHT_OPTIONS,
+              useValue: <HighlightOptions>{
+                lineNumbers: true,
+                coreLibraryLoader: () => import('highlight.js/lib/core'),
+                // lineNumbersLoader: () => import('highlightjs-line-numbers.js'),
+                // themePath: 'node_modules/highlight.js/styles/github.css',
+                themePath: 'node_modules/highlight.js/styles/github-dark.css',
+                languages: {
+                  typescript: () => import('highlight.js/lib/languages/typescript'),
+                  css: () => import('highlight.js/lib/languages/css'),
+                  xml: () => import('highlight.js/lib/languages/xml'),
+                  bash: () => import('highlight.js/lib/languages/bash'),
+                },
+              },
+        }
+    ],
 })
 export class PagesModule { }
