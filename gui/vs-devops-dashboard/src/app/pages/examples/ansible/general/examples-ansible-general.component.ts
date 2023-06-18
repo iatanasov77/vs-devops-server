@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { IDevOpsConfig } from "../../../services/devops-config.interface";
+import { IDevOpsConfig } from "../../../../services/devops-config.interface";
 
 @Component({
-    selector: 'app-page-examples-hashicorp',
-    templateUrl: './examples-hashicorp.component.html',
+    selector: 'app-page-examples-ansible-general',
+    templateUrl: './examples-ansible-general.component.html',
     styleUrls: []
 })
-export class ExamplesHashicorpComponent implements OnInit
+export class ExamplesAnsibleGeneralComponent implements OnInit
 {
     @Input() devopsConfig?: IDevOpsConfig;
     

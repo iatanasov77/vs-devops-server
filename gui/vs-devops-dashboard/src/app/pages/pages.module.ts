@@ -6,8 +6,15 @@ import { SharedModule } from '../shared/shared.module';
 
 import { HomeComponent } from './home/home.component';
 import { ExamplesContainerComponent } from './examples/container/examples-container.component';
-import { ExamplesAnsibleComponent } from './examples/ansible/examples-ansible.component';
-import { ExamplesHashicorpComponent } from './examples/hashicorp/examples-hashicorp.component';
+
+import { ExamplesAnsibleGeneralComponent } from './examples/ansible/general/examples-ansible-general.component';
+import { ExamplesAnsibleJenkinsComponent } from './examples/ansible/jenkins/examples-ansible-jenkins.component';
+import { ExamplesAnsibleNagiosComponent } from './examples/ansible/nagios/examples-ansible-nagios.component';
+
+import { ExamplesHashicorpPackerComponent } from './examples/hashicorp/packer/examples-hashicorp-packer.component';
+import { ExamplesHashicorpTerraformComponent } from './examples/hashicorp/terraform/examples-hashicorp-terraform.component';
+import { ExamplesHashicorpVaultComponent } from './examples/hashicorp/vault/examples-hashicorp-vault.component';
+
 import { ExamplesOtherComponent } from './examples/other/examples-other.component';
 
 import { ExternalToolsComponent } from './external-tools/external-tools.component';
@@ -17,8 +24,15 @@ import { DevopsServicesComponent } from './devops-services/devops-services.compo
     declarations: [
         HomeComponent,
         ExamplesContainerComponent,
-        ExamplesAnsibleComponent,
-        ExamplesHashicorpComponent,
+        
+        ExamplesAnsibleGeneralComponent,
+        ExamplesAnsibleJenkinsComponent,
+        ExamplesAnsibleNagiosComponent,
+        
+        ExamplesHashicorpPackerComponent,
+        ExamplesHashicorpTerraformComponent,
+        ExamplesHashicorpVaultComponent,
+        
         ExamplesOtherComponent,
         
         ExternalToolsComponent,

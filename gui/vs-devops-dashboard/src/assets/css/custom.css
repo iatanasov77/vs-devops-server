@@ -3,6 +3,7 @@
 }
 
 #background #page #body #section {
+    background: none !important;
     margin: 0 0 50px 0 !important;
     padding: 0 !important;
 }
@@ -20,7 +21,6 @@
 }
 
 #background #page #body #side-bar {
-    background:url("../images/separator-vertical.gif");
     background-position: top;
     background-repeat: repeat-x;
     width: 200px;
@@ -60,6 +60,9 @@
 	text-align: left !important;
 }
 
+#background #page #body #content h2.has-side-bar {
+	margin-left: 230px;
+}
 
 #background #page #body.large-content #side-bar ul li a {
     text-decoration: none;
@@ -79,4 +82,9 @@
     background-repeat: no-repeat;
     color: #ffffff;
     font-family: 'KreonBold';
+}
+
+#background #page #body.large-content #side-bar h4 {
+	margin-left: 20px;
+	text-decoration: underline;
 }
