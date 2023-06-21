@@ -61,19 +61,20 @@ import {
     providers: [
         {
             provide: HIGHLIGHT_OPTIONS,
-              useValue: <HighlightOptions>{
+            useValue: <HighlightOptions>{
                 lineNumbers: true,
-                coreLibraryLoader: () => import('highlight.js/lib/core'),
-                // lineNumbersLoader: () => import('highlightjs-line-numbers.js'),
-                // themePath: 'node_modules/highlight.js/styles/github.css',
-                themePath: 'node_modules/highlight.js/styles/github-dark.css',
+                coreLibraryLoader: () => import( 'highlight.js/lib/core' ),
+                
+                lineNumbersLoader: () => import( 'highlightjs-line-numbers.js' ),
+                
+                themePath: 'highlight.js/styles/github-dark.css',
                 languages: {
-                  typescript: () => import('highlight.js/lib/languages/typescript'),
-                  css: () => import('highlight.js/lib/languages/css'),
-                  xml: () => import('highlight.js/lib/languages/xml'),
-                  bash: () => import('highlight.js/lib/languages/bash'),
+                    typescript: ()  => import( 'highlight.js/lib/languages/typescript' ),
+                    css: ()         => import( 'highlight.js/lib/languages/css' ),
+                    xml: ()         => import( 'highlight.js/lib/languages/xml' ),
+                    bash: ()        => import( 'highlight.js/lib/languages/bash' ),
                 },
-              },
+            },
         }
     ],
 })

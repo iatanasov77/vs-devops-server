@@ -1,15 +1,23 @@
 <ul class="article">
 	<li class="first">
-        <div *ngIf="devopsConfig?.subsystems.hashicorp.enabled" style="border: 1px solid black; height: auto; margin: 20px; padding: 0 0 20px 0; text-align: center;">
+        <div *ngIf="devopsConfig?.subsystems.hashicorp.enabled" style="border: 1px solid black; height: auto; margin: 20px; padding: 0 0 20px 0;">
             <h3>Terraform Examples</h3>
-            <div>
-                <div>cd /vagrant/terraform.d</div>
-                <div>terraform init</div>
-                <div>terraform apply</div>
-            </div>
-            <div>
-                <div>And then open in your host browser http://docker.lh</div>
-            </div>
+            
+            <div>Copy Terraform Examples into Some Folder (For Example '/vagrant/tmp')</div>
+            <pre><code class="language-bash"
+                [highlight]="codeCopyExamples"
+                [languages]="['bash']"
+                (highlighted)="onHighlight($event)"
+                [lineNumbers]="true"
+            ></code></pre>
+            
+            <div>Build an Example (For Example an Asp.Net in Azure)</div>
+            <pre><code class="language-bash"
+                [highlight]="codeBuildAspNetExample"
+                [languages]="['bash']"
+                (highlighted)="onHighlight($event)"
+                [lineNumbers]="true"
+            ></code></pre>
         </div>
     </li>
 </ul>
