@@ -226,6 +226,9 @@ jenkinsCredentials: {}
 # Jenkins Cli Configuration
 ##################################################################
 jenkinsPluginsCli:
+    mailer:
+        description: 'Mailer Plugin Required by jenkins::user resource'
+        version: 'latest'
     display-url-api:
         description: 'Provides an extension point to define alternate URLs for use in notifications.'
         version: '2.3.4'

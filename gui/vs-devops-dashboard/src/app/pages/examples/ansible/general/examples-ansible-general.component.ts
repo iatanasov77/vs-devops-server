@@ -16,13 +16,23 @@ export class ExamplesAnsibleGeneralComponent implements OnInit
     
     response?: HighlightAutoResult;
 
-    codePlaybookRoles = `ansible-galaxy install --roles-path /vagrant/ansible.d/playbook/roles -r /vagrant/ansible.d/requirements.yml --force`;
+    codePlaybookRoles = `
+        ansible-galaxy install --roles-path /vagrant/ansible.d/playbook/roles -r /vagrant/ansible.d/requirements.yml --force
+    `;
     
     currentTheme: string = themeGithub;
   
     constructor( private hljsLoader: HighlightLoader )
     {
         this.hljsLoader.setTheme( this.currentTheme );
+        
+        // Fix Prety View Of Coce Variables
+        this.codePlaybookRoles  = this.codePlaybookRoles.replace(/^\s+/g, '');
+    }
+    
+    ngOnInit()
+    {
+        //console.log( this.devopsConfig$ );
     }
     
     onHighlight( e: HighlightAutoResult )
@@ -33,10 +43,5 @@ export class ExamplesAnsibleGeneralComponent implements OnInit
             secondBest: '{...}',
             value: '{...}',
         };
-    }
-  
-    ngOnInit()
-    {
-        //console.log( this.devopsConfig$ );
     }
 }

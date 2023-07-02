@@ -1,0 +1,9 @@
+node ( label: 'php-host' ) {
+    def SECRET
+    
+    stage( 'Read Vault Keys' ) {
+        SECRET = vault path: 'secret/coconut-api', key: 'coconut-api-key'
+        
+        echo "${SECRET}"
+    }
+}

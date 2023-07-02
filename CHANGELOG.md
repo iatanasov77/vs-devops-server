@@ -1,3 +1,12 @@
+1.7.0	|	Release date: **02.07.2023**
+============================================
+* New Features and Improvements:
+  - Improve GUI.
+  - Update Git Submodules.
+  - Some Improvements.
+  - Add Test Vault Pipelines.
+
+
 1.6.3	|	Release date: **18.06.2023**
 ============================================
 * New Features and Improvements:

@@ -1,0 +1,15 @@
+node ( label: 'php-host' ) {
+    // define the secrets and the env variables
+    // engine version can be defined on secret, job, folder or global.
+    // the default is engine version 2 unless otherwise specified globally.
+    def secrets = [
+        [path: 'secret/coconut-api', secretValues: [
+            [envVar: 'testing', vaultKey: 'coconut-api-key']
+        ]]
+    ]
+
+    // inside this block your credentials will be available as env variables
+    withVault([vaultSecrets: secrets]) {
+        sh 'echo $testing'
+    }
+}
