@@ -111,6 +111,7 @@ subsystems:
         enabled: true
         azure: true
         aws: true
+        digitalocean: true
 
     hashicorp:
         enabled: true
@@ -131,6 +132,8 @@ subsystems:
                     clientSecret: 'NOT_DEFINED'
                     subscriptionId: 'NOT_DEFINED'
                     tenantId: 'NOT_DEFINED'
+                digitalocean:
+                    token: 'NOT_SPECIFIED'
         
         ##############################################################################################
         # https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-ui
