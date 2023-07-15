@@ -12,6 +12,7 @@
 /ansible.d/log/
 /ansible.d/playbook.retry
 /ansible.d/inventory
+/ansible.d/playbook/vars/jenkins-slave.yaml
 
 ##############################
 # Vagrant meta data
