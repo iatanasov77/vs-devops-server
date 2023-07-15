@@ -1,0 +1,62 @@
+dependencies:
+    remiReleaseRpm: ''
+    
+vstools:
+    bumpversion: 'v1.2.0'
+
+frontendtools:
+    nodejs: 18.16.0
+    tools:
+        yarn:
+            version: 'latest'
+        angular-cli:
+            version: 'latest'
+
+packages:
+  - dos2unix
+  - mc
+  - vim
+  - gitflow
+
+git:
+   userName: 'Ivan I. Atanasov'
+   userEmail: 'i.atanasov77@gmail.com'
+
+subsystems:
+    docker:
+        enabled: true
+        docker_users: ['vagrant']
+        version: 'latest'
+        composer_version: '2.18.1'
+        portainer_password: 'Portainer@123'
+        tcp_bind: 'tcp://10.3.3.8:2375'
+        
+    cloud_platforms:
+        enabled: true
+        azure: true
+        aws: true
+        digitalocean: true
+        
+    hashicorp:
+        enabled: true
+        
+        packer:
+            version: '1.7.0'
+            vagrant:
+                virtualboxVersion: '7.0'
+                vagrantRpm: 'https://releases.hashicorp.com/vagrant/2.3.4/vagrant-2.3.4-1.x86_64.rpm'
+                
+        terraform:
+            version: '0.12.28'
+            config:
+                aws:
+                    accessKey: 'NOT_DEFINED'
+                    secretKey: 'NOT_DEFINED'
+                    region: 'eu-central-1'
+                azure:
+                    clientId: 'NOT_DEFINED'
+                    clientSecret: 'NOT_DEFINED'
+                    subscriptionId: 'NOT_DEFINED'
+                    tenantId: 'NOT_DEFINED'
+                digitalocean:
+                    token: 'NOT_SPECIFIED'
