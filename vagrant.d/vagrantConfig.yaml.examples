@@ -112,6 +112,7 @@ subsystems:
         azure: true
         aws: true
         digitalocean: true
+        s3tools: true
 
     hashicorp:
         enabled: true
