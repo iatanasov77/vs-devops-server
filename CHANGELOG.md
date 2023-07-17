@@ -1,3 +1,14 @@
+1.7.1	|	Release date: **17.07.2023**
+============================================
+* New Features and Improvements:
+  - Add Terraform Examples for DigitalOcean.
+  - ADD DigitalOcean Cloud Platform into CloudPlatforms Subsystem.
+  - Improve Ansible Vars For Install Jenkins Slaves Playbook.
+  - Add a Pure Docker Host Vabrant Machine in Example Folder.
+  - Update Git Submodules.
+  - Add Docker Config Example For New Improvements of Docker Class.
+
+
 1.7.0	|	Release date: **02.07.2023**
 ============================================
 * New Features and Improvements:
