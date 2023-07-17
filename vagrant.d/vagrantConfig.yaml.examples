@@ -153,7 +153,13 @@ subsystems:
         ############################################################################################
         #tcp_bind:
         #    - 'tcp://0.0.0.0:2375'
-        composer_version: '2.18.1'
+        dockerhubUser: 'username'
+        accessToken: 'dockerhub_access_token'
+        composer_version: '2.20.0'
+        ################################################################################################################
+        # Docker Cannot Create The Right Url For Docker Compose v2 and Need 'raw_url' ;) Until This Bug is Not Fixed
+        ################################################################################################################
+        #composer_raw_url: 'https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-linux-x86_64'
         portainer_password: 'Portainer@123'
 
     jenkins:
