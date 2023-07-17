@@ -97,7 +97,7 @@ echo "##########################################################################
 echo "# DONE!!!"
 echo "# -------"
 echo "#"
-echo "# Now you can open http://#{ENV['HOST_NAME']} in your browser"
+echo "# Now you can open https://#{ENV['HOST_NAME']}:9443 in your browser to display Docker Dashboard"
 echo "#"
 echo "# Support at: https://github.com/iatanasov77/vs-devops-server"
 echo "########################################################################################################################"
