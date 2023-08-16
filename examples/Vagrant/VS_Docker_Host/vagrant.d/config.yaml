@@ -27,15 +27,20 @@ subsystems:
         enabled: true
         docker_users: ['vagrant']
         version: 'latest'
-        composer_version: '2.18.1'
-        portainer_password: 'Portainer@123'
         tcp_bind: 'tcp://10.3.3.8:2375'
+        dockerhubUser: 'iatanasov77'
+        accessToken: 'dckr_pat_cFqgQhc6kVkvVGqcSjmXx4Tqzyc'
+        composer_version: '2.20.0'
+        #composer_raw_url: 'https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-linux-x86_64'
+        portainer_password: 'Portainer@123'
         
     cloud_platforms:
         enabled: true
         azure: true
         aws: true
-        digitalocean: true
+        digital_ocean: '1.94.0'
+        s3tools: true
+        k8s_station: '1.27.3'
         
     hashicorp:
         enabled: true

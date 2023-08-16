@@ -111,7 +111,9 @@ subsystems:
         enabled: true
         azure: true
         aws: true
-        digitalocean: true
+        digital_ocean: '1.94.0'
+        s3tools: true
+        k8s_station: '1.27.3'
 
     hashicorp:
         enabled: true

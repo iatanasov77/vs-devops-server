@@ -29,6 +29,7 @@
               "src/.keepthis",
               "src/.htaccess",
               "src/favicon.ico",
+              "src/favicon.png",
               "src/assets"
             ],
             "styles": [
