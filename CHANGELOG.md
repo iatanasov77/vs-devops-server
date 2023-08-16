@@ -1,3 +1,13 @@
+1.7.2	|	Release date: **16.08.2023**
+============================================
+* New Features and Improvements:
+  - Add 'srtools' into the class 'cloud_platforms' Subsystem.
+  - Add More and Improve 'cloud_platforms' Subsystem
+  - Update Examples.
+  - Update GUI FavIcon .
+  - Update Git Submodules.
+
+
 1.7.1	|	Release date: **17.07.2023**
 ============================================
 * New Features and Improvements:
