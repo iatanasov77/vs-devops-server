@@ -26,6 +26,7 @@ node default
 	class { '::vs_devops':
         dependencies                => $vsConfig['dependencies'],
         
+        hostAddress                 => $vsConfig['hostAddress'],
         defaultHost                 => "${hostname}",
         defaultDocumentRoot         => "${vsConfig['gui']['documentRoot']}",
         
