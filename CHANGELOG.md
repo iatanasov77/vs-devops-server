@@ -1,3 +1,10 @@
+1.8.0	|	Release date: **27.05.2024**
+============================================
+* New Features and Improvements:
+  - Update Puppet Modules.
+  - Improve GUI Examples Page.
+
+
 1.7.2	|	Release date: **16.08.2023**
 ============================================
 * New Features and Improvements:
