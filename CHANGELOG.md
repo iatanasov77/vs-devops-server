@@ -1,3 +1,10 @@
+1.8.1	|	Release date: **26.06.2024**
+============================================
+* New Features:
+  - Add To Provision Scripts a Script That Fix a Box if Needed.
+  - Update Git Submodules.
+
+
 1.8.0	|	Release date: **27.05.2024**
 ============================================
 * New Features and Improvements:
