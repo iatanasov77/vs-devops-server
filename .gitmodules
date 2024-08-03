@@ -54,9 +54,6 @@
 [submodule "vagrant.d/puppet/modules/trycatch"]
 	path = vagrant.d/puppet/modules/trycatch
 	url = https://github.com/dalen/puppet-trycatch.git
-[submodule "vagrant.d/puppet/modules/ansible"]
-	path = vagrant.d/puppet/modules/ansible
-	url = https://github.com/otherskins/puppet-ansible.git
 [submodule "vagrant.d/puppet/modules/nagios"]
 	path = vagrant.d/puppet/modules/nagios
 	url = https://github.com/thias/puppet-nagios
