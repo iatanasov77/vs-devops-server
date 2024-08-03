@@ -1,3 +1,11 @@
+1.8.2	|	Release date: **03.08.2024**
+============================================
+* Bug-Fixes and Improvements:
+  - Update Git Submodules.
+  - Update VS DevOps Puppet Module.
+  - Remove Puppet Module Ansible.
+
+
 1.8.1	|	Release date: **26.06.2024**
 ============================================
 * New Features:
