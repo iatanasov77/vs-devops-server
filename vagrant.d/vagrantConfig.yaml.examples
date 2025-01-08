@@ -296,6 +296,10 @@ jenkinsCredentialsCli:
         username: 'root'
         privateKey: '/vagrant/jenkins.d/credentials/vps-mini-ssh-root.rsa'
         passphrase: ''
+    readingroom-google-measurement-id:
+        type: SecretText
+        plugin: 'plain-credentials@183.va_de8f1dd5a_2b_'
+        secret: 'G-ABC123'
 
 jenkinsLibraries:
     libraryPlugin: 'pipeline-groovy-lib@591.v3a_7f422b_d058'
