@@ -3,7 +3,30 @@
 echo "installing Puppet"
 mkdir -p /etc/puppetlabs/facter/facts.d
 
-if [ $ID == "centos" ]; then
+if [ $ID == "almalinux" ]; then
+    case $PLATFORM_ID in
+        "platform:el8")
+            #sudo rpm -ivh https://yum.puppet.com/puppet6-release-el-8.noarch.rpm
+            sudo rpm -ivh https://yum.puppet.com/puppet7-release-el-8.noarch.rpm
+            ;;
+        "platform:el9")
+            #sudo rpm -ivh https://yum.puppetlabs.com/puppet6-release-el-9.noarch.rpm
+            sudo rpm -ivh https://yum.puppetlabs.com/puppet7-release-el-9.noarch.rpm
+            ;;
+        *)
+            echo "Not Supported"
+            ;;
+    esac
+
+    sudo dnf -y install puppet
+    sudo ln -s /opt/puppetlabs/bin/puppet /usr/local/bin/puppet
+    
+    echo "ensure puppet service is running"
+    sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=true
+    
+    echo "ensure puppet service is running for standalone install"
+    sudo /opt/puppetlabs/bin/puppet resource cron puppet-apply ensure=present user=root minute=30 command='/usr/bin/puppet apply $(puppet apply --configprint manifest)'
+elif [ $ID == "centos" ]; then
 	case $VERSION_ID in
         7)
             sudo rpm -ivh https://yum.puppet.com/puppet6-release-el-7.noarch.rpm

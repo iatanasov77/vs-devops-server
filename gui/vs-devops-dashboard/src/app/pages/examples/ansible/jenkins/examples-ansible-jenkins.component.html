@@ -3,7 +3,7 @@
         <div style="border: 1px solid black; height: auto; margin: 20px; padding: 0 0 20px 0; text-align: center;">
 	        <h3>Install Jenkins Slaves Agents with Ansible</h3>
             <div>
-                <div>sudo ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-jenkins-slaves.yml -e "jenkins_master='{{ devopsConfig?.hostAddress }}' jenkins_swarm_client_version='{{ devopsConfig?.subsystems.jenkins.swarmVersion }}'"</div>
+                <div>ansible-playbook -i /vagrant/ansible.d/inventory /vagrant/ansible.d/playbook/install-jenkins-slaves.yml -e "jenkins_master='{{ devopsConfig?.hostAddress }}' jenkins_swarm_client_version='{{ devopsConfig?.subsystems.jenkins.swarmVersion }}'"</div>
             </div>
             
             <h3>Setup Default JRE Version</h3>

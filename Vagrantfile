@@ -83,14 +83,14 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
         ########################################################################
         # Load Nagios Tasks Configurations
         ########################################################################
-        if ! File.exists?( 'nagios.d/nagiosConfig.yml' )
+        if ! File.exist?( 'nagios.d/nagiosConfig.yml' )
             File.open( 'nagios.d/nagiosConfig.yml', "w") do |f|
                 f.write( "{}" )
             end
         end
         nagiosConfig        = YAML.load_file( 'nagios.d/nagiosConfig.yml' )
     
-        if ! File.exists?( 'nagios.d/icingaConfig.yml' )
+        if ! File.exist?( 'nagios.d/icingaConfig.yml' )
             File.open( 'nagios.d/icingaConfig.yml', "w") do |f|
                 f.write( "{}" )
             end
