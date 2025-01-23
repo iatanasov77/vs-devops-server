@@ -1,3 +1,13 @@
+2.0.0	|	Release date: **23.01.2025**
+============================================
+* New Features and Improvements:
+  - Update GUI Application.
+  - Change Namspace of git_setup in vs_core Puppet Module.
+  - Add to Docs.
+  - Add a SecretText Type on Jenkins Credentials Install.
+  - Update Puppet Modules, Add Support for All RHEL Distributions in 'vs_devops' Module and Use AlmaLinux 8 for Base Box.
+
+
 1.8.2	|	Release date: **03.08.2024**
 ============================================
 * Bug-Fixes and Improvements:
