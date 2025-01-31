@@ -3,6 +3,7 @@
 source /vagrant/vagrant.d/provision/detect_linux.sh
 source /vagrant/vagrant.d/provision/make_swap.sh
 source /vagrant/vagrant.d/provision/fix_box.sh
+source /vagrant/vagrant.d/provision/selinux.sh
 
 #source /vagrant/vagrant.d/provision/install_php.sh
 source /vagrant/vagrant.d/provision/install_puppet.sh
