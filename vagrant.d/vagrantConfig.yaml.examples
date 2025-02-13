@@ -9,11 +9,10 @@ gui:
     documentRoot: '/vagrant/gui/vs-devops-dashboard/dist/vs-devops-dashboard'
  
 vstools:
-    mkvhost: 'v0.3.0'
-    mkphar: 'v0.2.0'
-    bumpversion: 'v1.2.0'
-    #ftpdeploy: 'v3.0.1'
-    ftpdeploy: 'download'
+    mkvhost: '0.3.0'
+    mkphar: '0.2.0'
+    bumpversion: '1.2.0'
+    ftpdeploy: '3.0.1'
 
 frontendtools:
     #nodejs: latest
@@ -105,8 +104,9 @@ lamp:
 
 subsystems:
     ansible:
-        enabled: true  # Problem installing on CentOs 8
-        
+        enabled: true
+        python: python39
+    
     cloud_platforms:
         enabled: true
         azure: true
