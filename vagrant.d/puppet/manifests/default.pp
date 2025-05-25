@@ -47,13 +47,12 @@ node default
     	mySqlProvider				=> $vsConfig['lamp']['mysql']['provider'],
         phpVersion                  => "${vsConfig['lamp']['phpVersion']}",
         apacheModules               => $vsConfig['lamp']['apacheModules'],
-        
         phpModules                  => $vsConfig['lamp']['phpModules'],
         phpunit                     => $vsConfig['lamp']['phpunit'],
-        
         phpSettings                 => $vsConfig['lamp']['phpSettings'],
-        
         phpMyAdmin					=> $vsConfig['lamp']['phpMyAdmin'],
+        
+        finalFixes                  => $vsConfig['finalFixes'],
     }
     
 	# puppet module install saz-sudo --version 5.0.0

@@ -1,3 +1,13 @@
+2.0.1	|	Release date: **25.05.2025**
+============================================
+* New Features:
+  - Add a Provision Bash Script to Disable SeLinux if Enabled.
+  - Update Puppet Modules and Improve Ansible Subsystem Installation.
+  - Add New ENV Variables.
+  - Setup to Install Configured Java Version in Dependencies.
+  - Update Puppet Modules.
+
+
 2.0.0	|	Release date: **23.01.2025**
 ============================================
 * New Features and Improvements:

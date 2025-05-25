@@ -3,17 +3,21 @@ hostAddress: '10.3.3.3'
 dependencies:
     remiReleaseRpm: ''
     #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.5-3.el8.remi.noarch.rpm'
+    jdkVersion: 21
+
+finalFixes:
+    enabled: true
+    defaultJava: 21
 
 gui:
     guiRoot: '/vagrant/gui/vs-devops-dashboard'
     documentRoot: '/vagrant/gui/vs-devops-dashboard/dist/vs-devops-dashboard'
  
 vstools:
-    mkvhost: 'v0.3.0'
-    mkphar: 'v0.2.0'
-    bumpversion: 'v1.2.0'
-    #ftpdeploy: 'v3.0.1'
-    ftpdeploy: 'download'
+    mkvhost: '0.3.0'
+    mkphar: '0.2.0'
+    bumpversion: '1.2.0'
+    ftpdeploy: '3.0.1'
 
 frontendtools:
     #nodejs: latest
@@ -105,8 +109,9 @@ lamp:
 
 subsystems:
     ansible:
-        enabled: true  # Problem installing on CentOs 8
-        
+        enabled: true
+        python: python39
+    
     cloud_platforms:
         enabled: true
         azure: true
