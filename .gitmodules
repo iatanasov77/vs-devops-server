@@ -36,9 +36,6 @@
 [submodule "vagrant.d/puppet/modules/yarn"]
 	path = vagrant.d/puppet/modules/yarn
 	url = https://github.com/artberri/puppet-yarn.git
-[submodule "vagrant.d/puppet/modules/nodejs"]
-	path = vagrant.d/puppet/modules/nodejs
-	url = https://github.com/willdurand/puppet-nodejs.git
 [submodule "vagrant.d/puppet/modules/inifile"]
 	path = vagrant.d/puppet/modules/inifile
 	url = https://github.com/puppetlabs/puppetlabs-inifile
@@ -147,3 +144,6 @@
 [submodule "vagrant.d/puppet/modules/kafka"]
 	path = vagrant.d/puppet/modules/kafka
 	url = https://github.com/voxpupuli/puppet-kafka.git
+[submodule "vagrant.d/puppet/modules/nodejs"]
+	path = vagrant.d/puppet/modules/nodejs
+	url = https://github.com/voxpupuli/puppet-nodejs.git
