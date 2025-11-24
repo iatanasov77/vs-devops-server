@@ -129,9 +129,6 @@
 	path = vagrant.d/puppet/modules/vs_core
 	url = https://github.com/iatanasov77/puppet-core.git
     branch = main
-[submodule "vagrant.d/puppet/modules/icinga"]
-	path = vagrant.d/puppet/modules/icinga
-	url = https://github.com/Icinga/puppet-icinga.git
 [submodule "vagrant.d/puppet/modules/prometheus"]
 	path = vagrant.d/puppet/modules/prometheus
 	url = https://github.com/voxpupuli/puppet-prometheus.git
