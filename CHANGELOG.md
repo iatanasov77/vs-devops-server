@@ -1,3 +1,12 @@
+2.1.0	|	Release date: **30.04.2026**
+============================================
+* New Features and Improvements:
+  - Update Puppet Modules.
+  - Update a GUI Page.
+  - Update Git Submodules and Switch to Puppet 8.
+  - Fix Installing New Version of Jenkins.
+
+
 2.0.1	|	Release date: **25.05.2025**
 ============================================
 * New Features:
