@@ -164,9 +164,14 @@ subsystems:
         composer_version: '2.20.0'
         portainer_password: 'Portainer@123'
 
+    ####################################################################
+    # HELP: https://stackoverflow.com/questions/17711115/jenkins-url-change
+    ####################################################################
     jenkins:
         enabled: true
         version: 'latest'
+        gpgKey: 'https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key'
+        repo: 'https://pkg.jenkins.io/rpm-stable/jenkins.repo'
         securityModel: full_control # https://github.com/voxpupuli/puppet-jenkins#configuring-security
         jenkinsAdmin: { email: 'admin@example.com', username: 'admin',  password: 'admin'}
         jenkinsPort: "8080"
