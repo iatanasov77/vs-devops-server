@@ -189,15 +189,26 @@ subsystems:
         
     ##################################################################################################### 
     # Elasticsearch Compatibility Matrix: https://www.elastic.co/support/matrix#matrix_compatibility
+    #
+    # In Elastic Search 8.x
+    # =======================
+    # Aborting auto configuration because the node keystore contains password settings already
     #####################################################################################################
     elastic_stack:
         enabled: true
         version: '7.12.0'
+        #version: '8.19.15'
+        #yumRepo: '8.x'
+        
+        scheme: 'http'
         host_name: 'devops.lh'
+        elasticsearch_host: 'localhost'
         elasticsearch_port: 9200
         kibana_host: '10.3.3.3'
         kibana_port: '5601'
         logstash_port: 5044
+        
+        elasticsearch_cluster: 'VsElkCluster'
         
     ##################################################################################################### 
     # These Monitoring Tools Not Works YET. Links To Lessons:
