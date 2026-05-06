@@ -1,3 +1,10 @@
+2.1.1	|	Release date: **06.05.2026**
+============================================
+* New Features:
+  - Update Puppet Modules.
+  - Update Exampe Config
+
+
 2.1.0	|	Release date: **30.04.2026**
 ============================================
 * New Features and Improvements:
