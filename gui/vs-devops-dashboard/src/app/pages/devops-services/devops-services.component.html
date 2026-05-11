@@ -59,7 +59,16 @@
 		
 		    <div *ngIf="devopsConfig.subsystems.elastic_stack.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">
 		        <h3>Elasticstack Server</h3>
-		        <a href="http://{{ hostname }}:{{ devopsConfig.subsystems.elastic_stack.kibana_port }}" target="__blank">Open Elasticstack</a>
+                <div>
+                    <a href="http://{{ hostname }}:5601" target="__blank">
+                        Open Kibana
+                    </a>
+                </div>
+                <div>
+                    <a href="http://{{ hostname }}:1358" target="__blank">
+                        Open Dejavu
+                    </a>
+                </div>
 		    </div>
 		    
 		    <div *ngIf="devopsConfig.subsystems.rabbit_mq.enabled" style="border: 1px solid black; width: 300px; height: 150px; margin: 20px; text-align: center; float: left;">

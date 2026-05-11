@@ -215,6 +215,12 @@ subsystems:
                 host: '10.3.3.3'
                 port: '5601'
         
+        beats:
+            heartbeat: {}
+            metricbeat: {}
+            journalbeat: {}
+            filebeat: {}
+        
     ##################################################################################################### 
     # These Monitoring Tools Not Works YET. Links To Lessons:
     # ========================================================
