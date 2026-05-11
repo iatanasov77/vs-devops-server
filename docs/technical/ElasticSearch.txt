@@ -6,6 +6,9 @@
 
     curl -X GET "localhost:9200/logstash-*/_search?pretty"
     
+    # Create Indexes
+    curl -X PUT "localhost:9200/video?pretty"
+    curl -X PUT "localhost:9200/actor?pretty"
     
 2. Logstash
     sudo /usr/share/logstash/bin/logstash-plugin list

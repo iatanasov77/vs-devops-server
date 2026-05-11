@@ -206,6 +206,7 @@ subsystems:
         elasticsearch_port: 9200
         logstash_port: 5044
         
+        indexes: ['video', 'actor']
         guis:
             dejavu:
                 image: 'appbaseio/dejavu'
