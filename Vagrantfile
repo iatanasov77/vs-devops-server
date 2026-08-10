@@ -113,6 +113,7 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 			    'nagios_config'         => nagiosConfig.to_yaml,
 			    'icinga_config'         => icingaConfig.to_yaml,
                 'hostname'              => ENV['HOST_NAME'],
+                'host_ip'               => ENV['PRIVATE_IP'],
                 'git_credentials'       => JSON.parse( ENV['GIT_CREDENTIALS'] ),
 			}
 	    end

@@ -1,0 +1,25 @@
+1. Elastic Search Index
+
+    curl http://localhost:9200/_cat/indices?v
+    
+    curl -X PUT "localhost:9200/custommer/_search?pretty"
+
+    curl -X GET "localhost:9200/logstash-*/_search?pretty"
+    
+    # Create Indexes
+    curl -X PUT "localhost:9200/video?pretty"
+    curl -X PUT "localhost:9200/actor?pretty"
+    
+    curl -X PUT "localhost:9200/actor/_doc/1?pretty" -H 'Content-Type: application/json' -d'
+    {
+        "name": "John Doe"
+    }'
+    
+    # Read Indexes
+    curl -X GET "localhost:9200/actor/_doc/6?pretty"
+    
+2. Logstash
+    sudo /usr/share/logstash/bin/logstash-plugin list
+    
+    sudo /usr/share/logstash/bin/logstash -e 'input{ stdin{ } } output { stdout { elasticsearch { hosts => ["localhost:9200"] } }  }'
+    
