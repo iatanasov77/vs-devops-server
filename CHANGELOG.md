@@ -1,3 +1,14 @@
+2.1.2	|	Release date: **10.08.2026**
+============================================
+* New Features:
+  - Add Ansible Environement Variables In DevOps Puppet Module.
+  - Add MOre ELK Beats.
+  - Some Change in Frotend App
+  - Create Indexes on Elastic Search.
+  - Add into Documentation.
+  - Update Puppet Modules.
+
+
 2.1.1	|	Release date: **06.05.2026**
 ============================================
 * New Features:
