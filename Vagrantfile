@@ -78,7 +78,7 @@ Vagrant.configure( VAGRANTFILE_API_VERSION ) do |vagrant_config|
 	    end
     
         require 'yaml'
-        provisionConfig     = YAML.load_file( 'vagrant.d/vagrantConfig.yaml' )
+        provisionConfig     = YAML.load_file( ENV['PROVISION_CONFIG'] )
         
         ########################################################################
         # Load Nagios Tasks Configurations

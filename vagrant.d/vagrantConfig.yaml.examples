@@ -176,6 +176,12 @@ subsystems:
         jenkinsAdmin: { email: 'admin@example.com', username: 'admin',  password: 'admin'}
         jenkinsPort: "8080"
         swarmVersion: '3.40'
+        
+        #installStage: 'jenkins-install'
+        installStage: 'main'
+        
+        #pluginsCliStage: 'main'
+        pluginsCliStage: 'jenkins-plugins-cli'
 
     gitlab:
         enabled: false
@@ -284,7 +290,7 @@ jenkinsPluginsCli:
         description: 'apache-httpcomponents-client-4-api Plugin'
         version: 'latest'
     git-client:
-        description: ' Git Client Plugin'
+        description: 'Git Client Plugin'
         version: '3.5.1'
     git:
         description: 'Git Plugin'
