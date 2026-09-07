@@ -21,7 +21,7 @@
 
     NOTE: To add a new git submodule run:
 ```
-    # git submodule add -f https://github.com/puppetlabs/puppetlabs-docker vagrant.d/puppet/modules/docker
+    # git submodule add -f -b main https://github.com/puppetlabs/puppetlabs-docker vagrant.d/puppet/modules/docker
 ```
     If you use the Puppet librarian for puppet modules add vagrant plugin for this. See: https://github.com/voxpupuli/vagrant-librarian-puppet
 ```

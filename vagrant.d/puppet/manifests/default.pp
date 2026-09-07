@@ -45,6 +45,7 @@ node default
         #############################################################################
         forcePhp7Repo              	=> $vsConfig['lamp']['forcePhp7Repo'],
     	mySqlProvider				=> $vsConfig['lamp']['mysql']['provider'],
+    	mysqlVersion                => "${vsConfig['lamp']['mysql']['version']}",
         phpVersion                  => "${vsConfig['lamp']['phpVersion']}",
         apacheModules               => $vsConfig['lamp']['apacheModules'],
         phpModules                  => $vsConfig['lamp']['phpModules'],

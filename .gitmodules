@@ -64,6 +64,10 @@
 	path = vagrant.d/puppet/modules/mysql
 	url = https://github.com/puppetlabs/puppetlabs-mysql.git
     branch = main
+[submodule "vagrant.d/puppet/modules/mariadb"]
+	path = vagrant.d/puppet/modules/mariadb
+	url = https://github.com/iatanasov77/puppet-mariadb.git
+	branch = support_puppet7
 [submodule "vagrant.d/puppet/modules/vcsrepo"]
 	path = vagrant.d/puppet/modules/vcsrepo
 	url = https://github.com/puppetlabs/puppetlabs-vcsrepo.git
